@@ -31,10 +31,11 @@ body {
    CONTAINER
 ========================= */
  
-.container {
-    width: 90%;
-    max-width: 1200px;
-    margin: 0 auto;
+.container{
+    width:100%;
+    max-width:1400px;
+    margin:0 auto;
+    padding:0 40px;
 }
  
 /* =========================
@@ -295,13 +296,158 @@ body {
 }
  
 /* =========================
+   GANHOS
+========================= */
+.hero-ganhos {
+    background: #1a1a1a;
+    min-height: calc(100vh - 90px);
+    display: flex;
+    align-items: center;
+    padding: 80px 0;
+}
+
+.hero-ganhos-content {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    align-items: center;
+    gap: 100px;
+}
+
+/* LADO ESQUERDO */
+
+.hero-left {
+    max-width: 700px;
+}
+
+.badge {
+    display: inline-block;
+    background: var(--cor-verde);
+    color: #000;
+    padding: 10px 20px;
+    border-radius: 50px;
+    font-size: 14px;
+    font-weight: 700;
+    margin-bottom: 30px;
+}
+
+.hero-left h1 {
+    font-size: 4.5rem;
+    line-height: 1.1;
+    font-weight: 700;
+    margin-bottom: 30px;
+}
+
+.hero-left p {
+    max-width: 550px;
+    color: var(--cor-texto-secundario);
+    font-size: 1.15rem;
+    line-height: 1.8;
+    margin-bottom: 40px;
+}
+
+.hero-left .btn-primary {
+    display: inline-block;
+    padding: 16px 35px;
+    border-radius: 10px;
+    font-size: 17px;
+    margin-bottom: 70px;
+}
+
+/* ESTATÍSTICAS */
+
+.stats {
+    display: flex;
+    gap: 60px;
+}
+
+.stats h3 {
+    font-size: 2.4rem;
+    margin-bottom: 5px;
+}
+
+.stats span {
+    color: var(--cor-texto-secundario);
+    font-size: 15px;
+}
+
+/* LADO DIREITO */
+
+.hero-right {
+    display: flex;
+    justify-content: center;
+}
+
+.phone-card {
+    width: 500px;
+    height: 620px;
+    padding: 45px;
+    border-radius: 22px;
+
+    background: linear-gradient(
+        180deg,
+        #238c46,
+        #121212 95%
+    );
+
+    box-shadow: 0 20px 50px rgba(0,0,0,.35);
+}
+
+.avatar {
+    width: 150px;
+    height: 150px;
+    background: #000;
+    border-radius: 50%;
+
+    margin: 0 auto 55px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.avatar i {
+    font-size: 72px;
+    color: var(--cor-verde);
+}
+
+.info-card {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+
+    background: #22c55e;
+    color: #000;
+
+    padding: 22px;
+    border-radius: 14px;
+
+    margin-bottom: 22px;
+
+    box-shadow: 0 8px 20px rgba(0,0,0,.25);
+}
+
+.info-card i {
+    font-size: 24px;
+}
+
+.info-card h4 {
+    font-size: 18px;
+    margin-bottom: 3px;
+}
+
+.info-card p {
+    color: #1b1b1b;
+    font-size: 14px;
+}
+
+/* =========================
    FOOTER
 ========================= */
 
 .footer{
     background:#000;
     color:#fff;
-    margin-top:80px;
 }
 
 .footer-content{
