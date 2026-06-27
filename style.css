@@ -572,17 +572,15 @@ body {
 
 }
 
+button .toggle-password{
+    width: 10px;
+}
 .left h1{
-
     margin-top:20px;
-
     color:#46e07f;
-
     font-size:58px;
     line-height:1.05;
-
     font-weight:800;
-
 }
 
 /* RIGHT */
@@ -626,19 +624,12 @@ button{
 
     width:120px;
     height:38px;
-
     margin:auto;
-
     border-radius:20px;
-
     border:2px solid #46e07f;
-
     background:transparent;
-
     color:#46e07f;
-
     cursor:pointer;
-
     transition:.3s;
 
 }
@@ -693,23 +684,18 @@ button:hover{
 
 }
 
-.toggle-password{
-
-    position:absolute;
-
-    right:10px;
-    top:50%;
-
-    transform:translateY(-50%);
-
-    background:none;
-
-    border:none;
-
-    color:#888;
-
-    cursor:pointer;
-
+.toggle-password {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 55px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: transparent;
+    border: none;
 }
 
 .error{
