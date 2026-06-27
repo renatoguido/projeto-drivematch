@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DriveMatch - Home</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+</head>
+
+<div class="overlay" id="modal">
+
+    <div class="modal">
+
+        <div class="check">
+
+            <i class="fa-solid fa-circle-check"></i>
+
+        </div>
+
+        <h2>Login realizado!</h2>
+
+        <p>
+
+            Bem-vindo ao DriveMatch.
+
+            <br>
+
+            Redirecionando...
+
+        </p>
+
+        <button id="fechar">
+
+            Continuar
+
+        </button>
+
+    </div>
+
+</div>
+
+<body>
+    <header class="header">
+        <div class="container">
+            <a href="index.html" class="logo">
+                <img src="img/logo-escrita.png" alt="Drive Match">
+            </a>
+
+            <nav class="navbar" aria-label="Menu principal">
+                <ul>
+                    <li><a href="index.html">Início</a></li>
+                    <li><a href="#ganhos">Ganhos</a></li>
+                    <li><a href="simulados.html">Simulados</a></li>
+                    <li><a href="como-funciona.html">Como Funciona</a></li>
+                    <li><a href="credencial-detran.html">Credencial DETRAN</a></li>
+                </ul>
+            </nav>
+
+            <div class="header-actions">
+                <a href="login.html" class="btn-login">Fazer Login</a>
+                <a href="#" class="btn-primary">Seja um Instrutor</a>
+            </div>
+        </div>
+    </header>
+
+    <main class="tela-login">
+
+        <section class="left">
+
+            <img class="hero-login" src="img/DriveMatch.png">
+
+
+
+        </section>
+
+        <section class=" right">
+
+            <h2>Entrar no DriveMatch</h2>
+
+            <form id="loginForm">
+
+                <div class="input-group">
+
+                    <input id="email" type="email" placeholder="Informar telefone ou e-mail" required>
+
+                    <i class="fa-solid fa-envelope"></i>
+
+                </div>
+
+                <small id="emailError" class="error-message">
+                    Informe um e-mail válido.
+                </small>
+
+                <div class="input-group">
+
+                    <input id="password" type="password" placeholder="Informe sua senha" required>
+
+                    <button type="button" id="togglePassword" class="toggle-password">
+
+                        <i class="fa-solid fa-eye"></i>
+
+                    </button>
+
+                </div>
+
+                <small id="passwordError" class="error-message">
+                    A senha deve possuir pelo menos 6 caracteres.
+                </small>
+
+                <button id="loginBtn" type="submit">
+
+                    Entrar
+
+                </button>
+
+            </form>
+
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+
+
+
+
+
+</body>
+
+</html>
