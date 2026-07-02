@@ -922,7 +922,7 @@ button {
 
     width: 120px;
     height: 38px;
-    margin: auto;
+    margin: 1px;
     border-radius: 20px;
     border: 2px solid #46e07f;
     background: transparent;
@@ -1149,6 +1149,734 @@ button:hover {
 }
 
 
+/*==========================
+Tela cadastro
+==========================*/
+
+
+/*=========================
+CONTAINER
+==========================*/
+ 
+.cadastro{
+ 
+    padding:60px 20px;
+ 
+}
+ 
+.container{
+ 
+    max-width:1100px;
+ 
+    margin:auto;
+ 
+}
+ 
+.titulo{
+ 
+    margin-bottom:35px;
+ 
+}
+ 
+.titulo h1{
+ 
+    font-size:38px;
+ 
+    margin-bottom:8px;
+ 
+    font-weight:700;
+ 
+}
+ 
+.titulo p{
+ 
+    color:#9aa5b1;
+ 
+    font-size:17px;
+ 
+}
+ 
+/*=========================
+CARDS
+==========================*/
+ 
+.card{
+ 
+    background:#161b22;
+ 
+    border:1px solid rgba(255,255,255,.05);
+ 
+    border-radius:18px;
+ 
+    padding:30px;
+ 
+    margin-bottom:25px;
+ 
+    transition:.35s;
+ 
+    box-shadow:0 12px 30px rgba(0,0,0,.20);
+ 
+}
+ 
+.card:hover{
+ 
+    transform:translateY(-4px);
+ 
+    border-color:#00d26a55;
+ 
+}
+ 
+.card h2{
+ 
+    display:flex;
+ 
+    align-items:center;
+ 
+    gap:12px;
+ 
+    margin-bottom:25px;
+ 
+    color:#fff;
+ 
+    font-size:24px;
+ 
+}
+ 
+.card h2 i{
+ 
+    color:#00d26a;
+ 
+}
+ 
+/*=========================
+GRID
+==========================*/
+ 
+.grid{
+ 
+    display:grid;
+ 
+    grid-template-columns:1fr 1fr;
+ 
+    gap:22px;
+ 
+}
+ 
+.grid3{
+ 
+    display:grid;
+ 
+    grid-template-columns:220px 1fr 1fr;
+ 
+    gap:22px;
+ 
+}
+ 
+/*=========================
+CAMPOS
+==========================*/
+ 
+.campo{
+ 
+    display:flex;
+ 
+    flex-direction:column;
+ 
+}
+ 
+.campo label{
+ 
+    margin-bottom:8px;
+ 
+    color:#cfd6de;
+ 
+    font-size:14px;
+ 
+    font-weight:600;
+ 
+}
+ 
+/*=========================
+INPUT
+==========================*/
+ 
+.input{
+ 
+    position:relative;
+
+}
+ 
+.input input{
+ 
+    width:100%;
+ 
+    height:52px;
+ 
+    padding-left:48px;
+ 
+    padding-right:45px;
+ 
+    border-radius:12px;
+ 
+    border:2px solid transparent;
+ 
+    background:#0f141a;
+ 
+    color:#fff;
+ 
+    font-size:15px;
+ 
+    transition:.30s;
+ 
+}
+
+.input button{
+    width: 50px;
+    height: 38px;
+    margin: auto;
+}
+ 
+.input input::placeholder{
+ 
+    color:#7d8790;
+ 
+}
+ 
+.input input:focus{
+ 
+    outline:none;
+ 
+    border-color:#00d26a;
+ 
+    box-shadow:0 0 0 4px rgba(0,210,106,.12);
+ 
+}
+ 
+.input i:first-child{
+ 
+    position:absolute;
+ 
+    left:16px;
+ 
+    top:50%;
+ 
+    transform:translateY(-50%);
+ 
+    color:#7f8c97;
+ 
+}
+ 
+.ok{
+ 
+    position:absolute;
+ 
+    right:16px;
+ 
+    top:50%;
+ 
+    transform:translateY(-50%);
+ 
+    opacity:0;
+ 
+    transition:.3s;
+ 
+}
+ 
+.ok i{
+ 
+    color:#00d26a;
+ 
+}
+ 
+/* mostra check quando válido */
+ 
+.input input:valid + .ok{
+ 
+    opacity:1;
+ 
+}
+ 
+/*=========================
+MOSTRAR SENHA
+==========================*/
+ 
+#mostrarSenha{
+ 
+    position:absolute;
+ 
+    right:12px;
+ 
+    top:50%;
+ 
+    transform:translateY(-50%);
+ 
+    border:none;
+ 
+    background:none;
+ 
+    color:#8b97a3;
+ 
+    cursor:pointer;
+ 
+    font-size:16px;
+ 
+}
+ 
+#mostrarSenha:hover{
+ 
+    color:#00d26a;
+ 
+}
+ 
+/*=========================
+FORÇA DA SENHA
+==========================*/
+ 
+.forca{
+ 
+    display:flex;
+ 
+    gap:6px;
+ 
+    margin-top:12px;
+ 
+}
+ 
+.forca span{
+ 
+    flex:1;
+ 
+    height:6px;
+ 
+    background:#2b3138;
+ 
+    border-radius:30px;
+ 
+    transition:.3s;
+ 
+}
+ 
+.forca span.active{
+ 
+    background:#00d26a;
+ 
+}
+ 
+#nivelSenha{
+ 
+    display:block;
+ 
+    margin-top:8px;
+ 
+    color:#9aa5b1;
+ 
+    font-size:13px;
+ 
+}
+ 
+/*=========================
+CATEGORIAS
+==========================*/
+ 
+.titulo-opcao{
+ 
+    display:block;
+ 
+    margin-top:28px;
+ 
+    margin-bottom:12px;
+ 
+    color:#cfd6de;
+ 
+    font-weight:600;
+ 
+}
+ 
+.categorias{
+ 
+    display:flex;
+ 
+    gap:15px;
+ 
+    flex-wrap:wrap;
+ 
+}
+ 
+.categorias button{
+ 
+    display:flex;
+ 
+    align-items:center;
+ 
+    gap:10px;
+ 
+    padding:14px 24px;
+ 
+    border-radius:12px;
+ 
+    border:2px solid #2b3138;
+ 
+    background:#0f141a;
+ 
+    color:#fff;
+ 
+    cursor:pointer;
+ 
+    transition:.3s;
+ 
+    font-size:15px;
+ 
+}
+ 
+.categorias button:hover{
+ 
+    border-color:#00d26a;
+ 
+}
+ 
+.categorias button.ativo{
+ 
+    background:#00d26a;
+ 
+    color:#111;
+ 
+    border-color:#00d26a;
+ 
+    font-weight:600;
+ 
+}
+ 
+/*=========================
+DIAS
+==========================*/
+ 
+.dias{
+ 
+    display:flex;
+ 
+    flex-wrap:wrap;
+ 
+    gap:12px;
+ 
+    margin-top:10px;
+ 
+}
+ 
+.dias button{
+ 
+    width:70px;
+ 
+    height:45px;
+ 
+    border-radius:12px;
+ 
+    border:2px solid #2b3138;
+ 
+    background:#0f141a;
+ 
+    color:#fff;
+ 
+    cursor:pointer;
+ 
+    transition:.3s;
+ 
+    font-weight:600;
+ 
+}
+ 
+.dias button:hover{
+ 
+    border-color:#00d26a;
+ 
+}
+ 
+.dias button.active{
+ 
+    background:#00d26a;
+ 
+    color:#111;
+ 
+    border-color:#00d26a;
+ 
+}
+ 
+/*=========================
+BOTÃO
+==========================*/
+ 
+.btn-criar{
+ 
+    width:100%;
+ 
+    height:60px;
+ 
+    margin-top:15px;
+ 
+    border:none;
+ 
+    border-radius:14px;
+ 
+    background:#00d26a;
+ 
+    color:#fff;
+ 
+    font-size:18px;
+ 
+    font-weight:700;
+ 
+    cursor:pointer;
+ 
+    transition:.35s;
+ 
+    display:flex;
+ 
+    justify-content:center;
+ 
+    align-items:center;
+ 
+    gap:12px;
+ 
+}
+ 
+.btn-criar:hover{
+ 
+    transform:translateY(-3px);
+ 
+    box-shadow:0 15px 35px rgba(0,210,106,.28);
+ 
+}
+ 
+.btn-criar i{
+ 
+    transition:.3s;
+ 
+}
+ 
+.btn-criar:hover i{
+ 
+    transform:translateX(6px);
+ 
+}
+ 
+/*=========================
+RODAPÉ DO FORM
+==========================*/
+ 
+.seguro{
+ 
+    margin-top:18px;
+ 
+    text-align:center;
+ 
+    color:#96a1ac;
+ 
+    font-size:14px;
+ 
+}
+ 
+.seguro i{
+ 
+    color:#00d26a;
+ 
+    margin-right:8px;
+ 
+}
+ 
+/*=========================
+MODAL
+==========================*/
+ 
+.overlay{
+ 
+    position:fixed;
+ 
+    inset:0;
+ 
+    background:rgba(0,0,0,.75);
+ 
+    display:flex;
+ 
+    justify-content:center;
+ 
+    align-items:center;
+ 
+    backdrop-filter:blur(6px);
+ 
+    opacity:0;
+ 
+    visibility:hidden;
+ 
+    transition:.35s;
+ 
+    z-index:9999;
+ 
+}
+ 
+.overlay.active{
+ 
+    opacity:1;
+ 
+    visibility:visible;
+ 
+}
+ 
+.modal{
+ 
+    width:430px;
+ 
+    background:#161b22;
+ 
+    border-radius:20px;
+ 
+    padding:45px;
+ 
+    text-align:center;
+ 
+    border:1px solid rgba(0,210,106,.25);
+ 
+    transform:scale(.85);
+ 
+    transition:.35s;
+ 
+    box-shadow:0 20px 60px rgba(0,0,0,.45);
+ 
+}
+ 
+.overlay.active .modal{
+ 
+    transform:scale(1);
+ 
+}
+ 
+.check{
+ 
+    width:90px;
+ 
+    height:90px;
+ 
+    margin:auto;
+ 
+    border-radius:50%;
+ 
+    display:flex;
+ 
+    justify-content:center;
+ 
+    align-items:center;
+ 
+    background:rgba(0,210,106,.12);
+ 
+    margin-bottom:25px;
+ 
+}
+ 
+.check i{
+ 
+    color:#00d26a;
+ 
+    font-size:44px;
+ 
+}
+ 
+.modal h2{
+ 
+    margin-bottom:15px;
+ 
+    font-size:30px;
+ 
+}
+ 
+.modal p{
+ 
+    color:#a7b2bc;
+ 
+    line-height:28px;
+ 
+    margin-bottom:30px;
+ 
+}
+ 
+#fecharModal{
+ 
+    width:180px;
+ 
+    height:50px;
+ 
+    border:none;
+ 
+    border-radius:30px;
+ 
+    background:#00d26a;
+ 
+    color:#fff;
+ 
+    font-size:16px;
+ 
+    cursor:pointer;
+ 
+    transition:.3s;
+ 
+}
+ 
+#fecharModal:hover{
+ 
+    transform:scale(1.04);
+ 
+}
+ 
+/*=========================
+RESPONSIVO
+==========================*/
+ 
+@media(max-width:900px){
+ 
+.grid{
+ 
+    grid-template-columns:1fr;
+ 
+}
+ 
+.grid3{
+ 
+    grid-template-columns:1fr;
+ 
+}
+ 
+.titulo h1{
+ 
+    font-size:30px;
+ 
+}
+ 
+.modal{
+ 
+    width:92%;
+ 
+    padding:35px;
+ 
+}
+ 
+.categorias{
+ 
+    flex-direction:column;
+ 
+}
+ 
+.categorias button{
+ 
+    width:100%;
+ 
+}
+ 
+.dias{
+ 
+    justify-content:center;
+ 
+}
+ 
+}
+
+
 
 /* =========================
    RESPONSIVO
@@ -1202,3 +1930,7 @@ button:hover {
         text-align: center;
     }
 }
+
+
+
+
