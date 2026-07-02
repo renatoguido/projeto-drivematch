@@ -1390,10 +1390,8 @@ INPUT
  
 /* mostra check quando válido */
  
-.input input:valid + .ok{
- 
-    opacity:1;
- 
+.ok.show {
+    opacity: 1;
 }
  
 /*=========================

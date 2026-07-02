@@ -1,7 +1,28 @@
+function validarCampo(input, valido) {
+
+    const check = input.parentElement.querySelector(".ok");
+
+    if (!check) return;
+
+    if (valido) {
+        check.classList.add("show");
+    } else {
+        check.classList.remove("show");
+    }
+
+}
+/*NOME*/
+const nome = document.getElementById("nome");
+
+nome.addEventListener("input", () => {
+
+    validarCampo(nome, nome.value.trim().length >= 5);
+
+});
+
 // ======================================
 // MOSTRAR / OCULTAR SENHA
 // ======================================
-
 const senha = document.getElementById("senha");
 const mostrarSenha = document.getElementById("mostrarSenha");
 
@@ -69,6 +90,42 @@ senha.addEventListener("input", () => {
             break;
 
     }
+    validarCampo(senha, pontos >= 3);
+
+});
+
+// ======================================
+// DATA DE NASCIMENTO
+// ======================================
+
+const data = document.getElementById("dataNascimento");
+
+data.addEventListener("change", () => {
+
+    if (!data.value) {
+        validarCampo(data, false);
+        data.setCustomValidity("Informe sua data de nascimento.");
+        return;
+    }
+
+    const nascimento = new Date(data.value);
+    const hoje = new Date();
+
+    let idade = hoje.getFullYear() - nascimento.getFullYear();
+
+    const mes = hoje.getMonth() - nascimento.getMonth();
+
+    if (mes < 0 || (mes === 0 && hoje.getDate() < nascimento.getDate())) {
+        idade--;
+    }
+
+    if (idade >= 18) {
+        validarCampo(data, true);
+        data.setCustomValidity("");
+    } else {
+        validarCampo(data, false);
+        data.setCustomValidity("É necessário ter pelo menos 18 anos.");
+    }
 
 });
 
@@ -119,6 +176,7 @@ document.getElementById("cpf").addEventListener("input", e => {
     v = v.replace(/(\d{3})(\d{1,2})$/, "$1-$2");
 
     e.target.value = v;
+    validarCampo(e.target, v.length === 14);
 
 });
 
@@ -135,9 +193,20 @@ document.getElementById("telefone").addEventListener("input", e => {
     v = v.replace(/(\d)(\d{4})$/, "$1-$2");
 
     e.target.value = v;
+    validarCampo(e.target, v.replace(/\D/g, "").length === 11);
 
 });
+// ======================================
+// EMAIL
+// ======================================
 
+const email = document.getElementById("email");
+
+email.addEventListener("input", () => {
+
+    validarCampo(email, email.checkValidity());
+
+});
 // ======================================
 // CEP
 // ======================================
