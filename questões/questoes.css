@@ -1,0 +1,388 @@
+/* ==========================================
+   RESET
+========================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --bg: #121212;
+    --surface: #1f1f1f;
+    --card: #262626;
+    --green: #19d35a;
+    --green-hover: #14b74d;
+    --white: #ffffff;
+    --gray: #bdbdbd;
+    --border: #333333;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: var(--bg);
+    color: var(--white);
+    min-height: 100vh;
+}
+
+img {
+    max-width: 100%;
+    display: block;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+ul {
+    list-style: none;
+}
+
+button {
+    border: none;
+    cursor: pointer;
+    font-family: inherit;
+}
+
+/* ==========================================
+   CONTAINER
+========================================== */
+
+.container {
+    width: 90%;
+    max-width: 1300px;
+    margin: auto;
+}
+
+.simulado .container {
+    max-width: 900px;
+}
+
+/* ========================================
+   HEADER
+======================================== */
+
+.header {
+    background: #0c0c0c;
+    border-bottom: 1px solid #242424;
+}
+
+.header .container {
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo img {
+    width: 170px;
+}
+
+.navbar ul {
+    display: flex;
+    gap: 35px;
+}
+
+.navbar a {
+    color: #fff;
+    font-size: 15px;
+    transition: .3s;
+}
+
+.navbar a:hover {
+    color: var(--green);
+}
+
+.header-actions {
+    display: flex;
+    gap: 18px;
+    align-items: center;
+}
+
+.btn-login {
+    color: #fff;
+}
+
+.btn-primary {
+    background: var(--green);
+    color: #000;
+    padding: 12px 22px;
+    border-radius: 8px;
+    font-weight: bold;
+}
+
+/* ==========================================
+   MAIN
+========================================== */
+
+.simulado {
+    padding: 50px 0;
+}
+
+/* ==========================================
+   TOPO
+========================================== */
+
+.simulado-topo {
+    margin-bottom: 30px;
+}
+
+.simulado-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.questao-atual {
+    font-size: 14px;
+    color: var(--gray);
+}
+
+.cronometro {
+    color: var(--green);
+    font-weight: bold;
+}
+
+.barra {
+    width: 100%;
+    height: 10px;
+    background: #2f2f2f;
+    border-radius: 50px;
+    overflow: hidden;
+}
+
+.barra-progresso {
+    height: 100%;
+    background: var(--green);
+}
+
+/* ==========================================
+   CARD
+========================================== */
+
+.card-questao {
+    background: var(--card);
+    border-radius: 16px;
+    padding: 35px;
+}
+
+.card-questao h1 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.card-questao p {
+    color: var(--gray);
+    margin-bottom: 30px;
+}
+
+/* ==========================================
+   ALTERNATIVAS
+========================================== */
+
+.alternativas {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.alternativa {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+
+    background: #2f2f2f;
+    border: 2px solid transparent;
+    border-radius: 12px;
+    padding: 18px;
+    transition: .3s;
+}
+
+.alternativa:hover {
+    border-color: var(--green);
+}
+
+.alternativa input {
+    accent-color: var(--green);
+}
+
+.alternativa label {
+    cursor: pointer;
+    width: 100%;
+}
+
+/* ==========================================
+   NAVEGAÇÃO
+========================================== */
+
+.navegacao {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 30px;
+}
+
+.btn {
+    padding: 14px 24px;
+    border-radius: 8px;
+    font-weight: bold;
+}
+
+.btn-secundario {
+    background: #383838;
+    color: #fff;
+}
+
+.btn-primario {
+    background: var(--green);
+    color: #000;
+}
+
+.btn-primario:hover {
+    background: var(--green-hover);
+}
+
+
+/* =========================
+   FOOTER
+========================= */
+
+.footer {
+    background: #000;
+    color: #fff;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 60px 0;
+    gap: 100px;
+}
+
+.footer-brand {
+    width: 320px;
+}
+
+.footer-brand img {
+    width: 120px;
+    margin-bottom: 25px;
+}
+
+.footer-brand p {
+    color: #d7d7d7;
+    font-size: 15px;
+    line-height: 24px;
+    margin-bottom: 35px;
+}
+
+.download {
+    display: block;
+    color: #bdbdbd;
+    font-size: 12px;
+    margin-bottom: 15px;
+    letter-spacing: 1px;
+}
+
+.stores {
+    display: flex;
+    gap: 15px;
+}
+
+.stores img {
+    width: 42px;
+    transition: .3s;
+}
+
+.stores img:hover {
+    transform: scale(1.1);
+}
+
+.footer-links {
+    display: flex;
+    flex-direction: column;
+}
+
+.footer-links h3 {
+    color: var(--cor-verde);
+    margin-bottom: 25px;
+    font-size: 18px;
+}
+
+.footer-links ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-links li {
+    margin-bottom: 18px;
+}
+
+.footer-links a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: 600;
+    transition: .3s;
+}
+
+.footer-links a:hover {
+    color: var(--cor-verde);
+}
+
+.footer-info {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    padding-top: 25px;
+    border-top: 1px solid rgba(255, 255, 255, .15);
+}
+
+.info-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    color: #d8d8d8;
+    font-size: 15px;
+}
+
+.info-item i {
+    color: var(--cor-verde);
+    font-size: 18px;
+}
+
+.footer-bottom {
+    border-top: 1px solid rgba(255, 255, 255, .15);
+    text-align: center;
+    padding: 25px 0;
+    color: #d7d7d7;
+}
+
+
+/* ==========================================
+   RESPONSIVO
+========================================== */
+
+@media(max-width:768px) {
+
+    .card-questao {
+        padding: 25px;
+    }
+
+    .card-questao h1 {
+        font-size: 20px;
+    }
+
+    .navegacao {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .btn {
+        width: 100%;
+        text-align: center;
+    }
+
+}
