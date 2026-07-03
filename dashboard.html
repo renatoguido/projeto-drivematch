@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DriveMach · Dashboard</title>
+    <link rel="stylesheet" href="css/dashboard.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+</head>
+<body>
+    <div class="site-wrapper">
+        <!-- TOP BAR -->
+        <header class="top-bar">
+            <div class="top-bar-content">
+                <div class="logo-area">
+                    <i class="fas fa-car-side"></i>
+                    <span>DRIVEMACH</span>
+                  
+                </div>
+                <div class="top-bar-right">
+                    <span class="user-greeting">Olá, Marcos Silva</span>
+                    <span class="user-role-badge">Instrutor</span>
+                    <button class="btn-logout" onclick="showToast('👋 Até logo!')"><i class="fas fa-sign-out-alt"></i> Sair</button>
+                </div>
+            </div>
+        </header>
+
+        <!-- MENU PRINCIPAL -->
+        <nav class="main-nav">
+            <div class="nav-content">
+                <ul class="nav-menu">
+                    <li class="active"><a href="dashboard.html"><i class="fas fa-th-large"></i> Dashboard</a></li>
+                    <li><a href="agenda.html"><i class="fas fa-calendar-alt"></i> Agenda</a></li>
+                    <li><a href="financeiro.html"><i class="fas fa-coins"></i> Financeiro</a></li>
+                    <li><a href="alunos.html"><i class="fas fa-users"></i> Alunos</a></li>
+                    <li><a href="relatorios.html"><i class="fas fa-chart-bar"></i> Relatórios</a></li>
+                    <li><a href="#"><i class="fas fa-envelope"></i> Mensagens</a></li>
+                    <li><a href="configuracoes.html"><i class="fas fa-cog"></i> Configurações</a></li>
+                </ul>
+                <div class="nav-support">
+                    <button class="btn-support-top" onclick="openSupport()">
+                        <i class="fas fa-life-ring"></i> Suporte
+                    </button>
+                </div>
+            </div>
+        </nav>
+
+        <!-- CONTEÚDO PRINCIPAL -->
+        <main class="main-content-full">
+            <div class="content-wrapper">
+                <!-- HEADER DO CONTEÚDO -->
+                <div class="content-header">
+                    <div>
+                        <h1>Dashboard</h1>
+                        <p class="content-subtitle">Bem-vindo(a) de volta, Marcos! Veja o resumo das suas atividades.</p>
+                    </div>
+                    <div class="header-actions-full">
+                        <span class="notification-bell"><i class="far fa-bell"></i></span>
+                        <span class="date-display" id="currentDate"></span>
+                    </div>
+                </div>
+
+                <!-- KPI CARDS -->
+                <section class="kpi-grid-full">
+                    <div class="kpi-card-full">
+                        <div class="kpi-icon-full"><i class="fas fa-calendar-check"></i></div>
+                        <div class="kpi-content-full">
+                            <span class="kpi-label-full">Aulas hoje</span>
+                            <span class="kpi-value-full">5</span>
+                            <span class="kpi-sub-full">2 futuras</span>
+                        </div>
+                    </div>
+                    <div class="kpi-card-full">
+                        <div class="kpi-icon-full"><i class="fas fa-user-graduate"></i></div>
+                        <div class="kpi-content-full">
+                            <span class="kpi-label-full">Alunos ativos</span>
+                            <span class="kpi-value-full">28</span>
+                            <span class="kpi-sub-full">+3 este mês</span>
+                        </div>
+                    </div>
+                    <div class="kpi-card-full">
+                        <div class="kpi-icon-full"><i class="fas fa-money-bill-wave"></i></div>
+                        <div class="kpi-content-full">
+                            <span class="kpi-label-full">Ganho do mês</span>
+                            <span class="kpi-value-full">R$ 4.680,00</span>
+                            <span class="kpi-sub-full positive">+12% vs mês anterior</span>
+                        </div>
+                    </div>
+                    <div class="kpi-card-full">
+                        <div class="kpi-icon-full"><i class="fas fa-star"></i></div>
+                        <div class="kpi-content-full">
+                            <span class="kpi-label-full">Avaliação média</span>
+                            <span class="kpi-value-full">4,9</span>
+                            <span class="kpi-sub-full">Excelente</span>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- GRID DE CONTEÚDO -->
+                <div class="content-grid-full">
+                    <!-- Próximas aulas -->
+                    <section class="card-full">
+                        <div class="card-header-full">
+                            <h2><i class="fas fa-clock"></i> Próximas aulas</h2>
+                            <a href="agenda.html" class="link-ver-all">Ver todas <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                        <ul class="class-list-full">
+                            <li><span class="time-full">08:00</span> <span class="student-full">Juliana Oliveira</span> <span class="category-full">Categoria B - Aula prática</span> <a href="#" class="link-ver">Ver</a></li>
+                            <li><span class="time-full">10:00</span> <span class="student-full">Lucas Andrade</span> <span class="category-full">Categoria B - Aula prática</span> <a href="#" class="link-ver">Ver</a></li>
+                            <li><span class="time-full">13:30</span> <span class="student-full">Beatriz Lima</span> <span class="category-full">Categoria A - Aula prática</span> <a href="#" class="link-ver">Ver</a></li>
+                            <li><span class="time-full">15:30</span> <span class="student-full">Carlos Henrique</span> <span class="category-full">Categoria B - Aula prática</span> <a href="#" class="link-ver">Ver</a></li>
+                            <li><span class="time-full">17:00</span> <span class="student-full">Tatiane Mendes</span> <span class="category-full">Categoria B - Aula prática</span> <a href="#" class="link-ver">Ver</a></li>
+                        </ul>
+                    </section>
+
+                    <!-- Resumo financeiro -->
+                    <section class="card-full">
+                        <div class="card-header-full">
+                            <h2><i class="fas fa-chart-pie"></i> Resumo financeiro (mês)</h2>
+                        </div>
+                        <div class="finance-block-full">
+                            <div class="finance-item-full">
+                                <span class="finance-label-full">Ganho do mês</span>
+                                <span class="finance-value-full">R$ 4.680,00</span>
+                                <span class="finance-badge-full positive">+12%</span>
+                            </div>
+                            <div class="finance-item-full">
+                                <span class="finance-label-full">Recebimentos</span>
+                                <span class="finance-value-full">R$ 4.200,00</span>
+                            </div>
+                            <div class="finance-item-full">
+                                <span class="finance-label-full">Pendentes</span>
+                                <span class="finance-value-full">R$ 480,00</span>
+                            </div>
+                            <a href="financeiro.html" class="btn-finance-full">Ver financeiro <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </section>
+
+                    <!-- Avaliações -->
+                    <section class="card-full">
+                        <div class="card-header-full">
+                            <h2><i class="fas fa-star"></i> Avaliações</h2>
+                        </div>
+                        <ul class="review-list-full">
+                            <li><span class="review-student-full">Juliana Oliveira</span> <span class="review-date-full">10/06/2024</span> <span class="review-score-full">5,0</span></li>
+                            <li><span class="review-student-full">Lucas Andrade</span> <span class="review-date-full">08/06/2024</span> <span class="review-score-full">4,8</span></li>
+                            <li><span class="review-student-full">Beatriz Lima</span> <span class="review-date-full">08/06/2024</span> <span class="review-score-full">5,0</span></li>
+                        </ul>
+                        <div class="review-avg-full">
+                            <span class="avg-label-full">Medida geral</span>
+                            <span class="avg-score-full">4,9</span>
+                            <span class="avg-badge-full">Excelente</span>
+                        </div>
+                    </section>
+                </div>
+            </div>
+        </main>
+
+        <!-- RODAPÉ -->
+        <footer class="site-footer">
+            <div class="footer-content">
+                <p>© 2026 DriveMach. Todos os direitos reservados.</p>
+                <div class="footer-links-full">
+                    <a href="#">Política de Privacidade</a>
+                    <a href="#">Termos de Uso</a>
+                    <a href="#">Suporte</a>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <script src="js/dashboard.js"></script>
+</body>
+</html>

@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>DriveMach · Configurações</title>
+    <link rel="stylesheet" href="css/dashboard.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+</head>
+<body>
+    <div class="site-wrapper">
+        <!-- TOP BAR -->
+        <header class="top-bar">
+            <div class="top-bar-content">
+                <div class="logo-area">
+                    <i class="fas fa-car-side"></i>
+                    <span>DRIVEMACH</span>
+                </div>
+                <div class="top-bar-right">
+                    <span class="user-greeting">Olá, Marcos Silva</span>
+                    <span class="user-role-badge">Instrutor</span>
+                    <button class="btn-logout"><i class="fas fa-sign-out-alt"></i> Sair</button>
+                </div>
+            </div>
+        </header>
+
+        <!-- MENU PRINCIPAL -->
+        <nav class="main-nav">
+            <div class="nav-content">
+                <ul class="nav-menu">
+                    <li><a href="dashboard.html"><i class="fas fa-th-large"></i> Dashboard</a></li>
+                    <li><a href="agenda.html"><i class="fas fa-calendar-alt"></i> Agenda</a></li>
+                    <li><a href="financeiro.html"><i class="fas fa-coins"></i> Financeiro</a></li>
+                    <li><a href="alunos.html"><i class="fas fa-users"></i> Alunos</a></li>
+                    <li><a href="relatorios.html"><i class="fas fa-chart-bar"></i> Relatórios</a></li>
+                    <li><a href="#"><i class="fas fa-envelope"></i> Mensagens</a></li>
+                    <li class="active"><a href="configuracoes.html"><i class="fas fa-cog"></i> Configurações</a></li>
+                </ul>
+                <div class="nav-support">
+                    <button class="btn-support-top" onclick="openSupport()">
+                        <i class="fas fa-life-ring"></i> Suporte
+                    </button>
+                </div>
+            </div>
+        </nav>
+
+        <!-- CONTEÚDO -->
+        <main class="main-content-full">
+            <div class="content-wrapper">
+                <div class="content-header">
+                    <div>
+                        <h1>Configurações</h1>
+                        <p class="content-subtitle">Gerencie suas informações pessoais e preferências.</p>
+                    </div>
+                    <div class="header-actions-full">
+                        <span class="notification-bell"><i class="far fa-bell"></i></span>
+                        <span class="date-display" id="currentDate"></span>
+                    </div>
+                </div>
+
+                <div class="settings-grid-full">
+                    <section class="card-full settings-card-full">
+                        <div class="card-header-full">
+                            <h2><i class="fas fa-user-edit"></i> Configurações pessoais</h2>
+                        </div>
+                        <div class="settings-card-body-full">
+                            <div class="settings-field-full">
+                                <label>Nome completo:</label>
+                                <span class="field-value-full" id="displayName">Marcos Silva</span>
+                            </div>
+                            <div class="settings-field-full">
+                                <label>E-mail:</label>
+                                <span class="field-value-full" id="displayEmail">marcos@drivemarch.com</span>
+                            </div>
+                            <div class="settings-field-full">
+                                <label>Telefone:</label>
+                                <span class="field-value-full" id="displayPhone">(11) 99999-9999</span>
+                            </div>
+                            <div class="settings-field-full">
+                                <label>CPF:</label>
+                                <span class="field-value-full" id="displayCpf">123.456.789-01</span>
+                            </div>
+                            <button class="btn-settings-full primary" onclick="showToast('✏️ Abrindo edição de informações...')">
+                                <i class="fas fa-pen"></i> Editar informações
+                            </button>
+                        </div>
+                    </section>
+
+                    <section class="card-full settings-card-full">
+                        <div class="card-header-full">
+                            <h2><i class="fas fa-camera"></i> Foto do perfil</h2>
+                        </div>
+                        <div class="settings-card-body-full photo-section-full">
+                            <div class="photo-preview-full">
+                                <i class="fas fa-user-circle"></i>
+                            </div>
+                            <button class="btn-settings-full secondary" onclick="showToast('📸 Alterar foto de perfil')">
+                                <i class="fas fa-upload"></i> Alterar foto
+                            </button>
+                        </div>
+                    </section>
+
+                    <section class="card-full settings-card-full">
+                        <div class="card-header-full">
+                            <h2><i class="fas fa-lock"></i> Alterar senha</h2>
+                            <span class="settings-subtitle-full">Mantenha sua conta segura</span>
+                        </div>
+                        <div class="settings-card-body-full">
+                            <button class="btn-settings-full primary" onclick="showToast('🔑 Abrindo alteração de senha...')">
+                                <i class="fas fa-key"></i> Alterar senha
+                            </button>
+                        </div>
+                    </section>
+
+                    <section class="card-full settings-card-full danger-zone-full">
+                        <div class="card-header-full">
+                            <h2><i class="fas fa-exclamation-triangle" style="color:#ef4444;"></i> Excluir conta</h2>
+                            <span class="settings-subtitle-full danger">Essa ação não pode ser desfeita.</span>
+                        </div>
+                        <div class="settings-card-body-full">
+                            <p class="danger-text-full">
+                                Ao excluir sua conta, todos os seus dados serão permanentemente removidos.
+                            </p>
+                            <button class="btn-settings-full danger" onclick="if(confirm('Tem certeza que deseja excluir sua conta?')) showToast('🗑️ Conta excluída com sucesso!')">
+                                <i class="fas fa-trash-alt"></i> Excluir conta
+                            </button>
+                        </div>
+                    </section>
+                </div>
+            </div>
+        </main>
+
+        <footer class="site-footer">
+            <div class="footer-content">
+                <p>© 2026 DriveMach. Todos os direitos reservados.</p>
+                <div class="footer-links-full">
+                    <a href="#">Política de Privacidade</a>
+                    <a href="#">Termos de Uso</a>
+                    <a href="#">Suporte</a>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <script src="js/dashboard.js"></script>
+</body>
+</html>
