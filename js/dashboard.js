@@ -445,6 +445,3 @@ function showToast(message) {
 window.showToast = showToast;
 window.openSupport = openSupport;
 window.updateCurrentDate = updateCurrentDate;
-
-
-
