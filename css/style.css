@@ -9,7 +9,7 @@
 }
 
 :root {
-    --cor-fundo: #0e1117;
+    --cor-fundo: #1a1a1a;
     --cor-secundaria: #383c42;
     --cor-card: #000000;
     --cor-verde: #00d26a;
@@ -588,7 +588,7 @@ COMO FUNCIONA - INSTRUTOR
 
 .instrutor-steps {
     padding: 100px 0;
-    background: #171717;
+    background: var(--cor-fundo);
     text-align: center;
 }
 
