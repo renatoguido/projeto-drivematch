@@ -52,9 +52,10 @@ button {
 ======================================== */
 
 .container {
-    width: 90%;
-    max-width: 1300px;
-    margin: auto;
+    width: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 40px;
 }
 
 /* ========================================
@@ -62,52 +63,76 @@ button {
 ======================================== */
 
 .header {
-    background: #0c0c0c;
-    border-bottom: 1px solid #242424;
+    border-bottom: 2px solid #00d26a;
+    background-color: #000;
+    position: sticky;
+    top: 0;
+    z-index: 999;
 }
 
 .header .container {
-    height: 80px;
     display: flex;
-    align-items: center;
     justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem 0;
 }
 
 .logo img {
-    width: 170px;
+    width: 200px;
 }
 
 .navbar ul {
     display: flex;
-    gap: 35px;
+    gap: 2rem;
+    list-style: none;
 }
 
 .navbar a {
-    color: #fff;
-    font-size: 15px;
+    color: white;
+    text-decoration: none;
+    font-size: .9rem;
     transition: .3s;
 }
 
 .navbar a:hover {
-    color: var(--green);
+    color: #00d26a;
 }
 
 .header-actions {
     display: flex;
-    gap: 18px;
-    align-items: center;
+    gap: 1rem;
 }
 
+/* =========================
+   BOTÕES
+========================= */
+
+.btn-primary,
 .btn-login {
-    color: #fff;
+    text-decoration: none;
+    padding: .8rem 1.4rem;
+    border-radius: 8px;
+    transition: .3s;
+    font-weight: bold;
 }
 
 .btn-primary {
-    background: var(--green);
-    color: #000;
-    padding: 12px 22px;
-    border-radius: 8px;
-    font-weight: bold;
+    background: #00d26a;
+    color: black;
+}
+
+.btn-primary:hover {
+    background: #00ff80;
+}
+
+.btn-login {
+    border: 1px solid #00d26a;
+    color: #00d26a;
+}
+
+.btn-login:hover {
+    background: #00d26a;
+    color: black;
 }
 
 /* ========================================
