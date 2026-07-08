@@ -1,3 +1,294 @@
+/* Adicione ao final do arquivo style.css */
+
+/* ============================================
+   ESTILOS INTERATIVOS - DASHBOARD
+   ============================================ */
+
+/* KPI Trends */
+.kpi-trend {
+    font-size: 11px;
+    font-weight: 600;
+    padding: 2px 10px;
+    border-radius: 20px;
+    margin-left: auto;
+}
+
+.kpi-trend.positive {
+    background: rgba(34, 197, 94, 0.15);
+    color: #22C55E;
+}
+
+.kpi-trend.negative {
+    background: rgba(239, 68, 68, 0.15);
+    color: #ef4444;
+}
+
+.kpi-card-full {
+    cursor: pointer;
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+.kpi-card-full:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 30px rgba(34, 197, 94, 0.15);
+}
+
+.kpi-card-full:active {
+    transform: scale(0.98);
+}
+
+/* Card Actions */
+.card-actions {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.btn-filter {
+    padding: 4px 14px;
+    border-radius: 20px;
+    border: 1px solid #1f1f1f;
+    background: transparent;
+    color: #BDBDBD;
+    font-size: 12px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.btn-filter:hover {
+    border-color: #22C55E;
+    color: #22C55E;
+}
+
+.btn-filter.active {
+    background: #22C55E;
+    color: #000000;
+    border-color: #22C55E;
+}
+
+/* Status Badges */
+.status-badge-small {
+    font-size: 11px;
+    font-weight: 600;
+    padding: 2px 12px;
+    border-radius: 20px;
+}
+
+.status-badge-small.confirmed {
+    background: rgba(34, 197, 94, 0.15);
+    color: #22C55E;
+}
+
+.status-badge-small.pending {
+    background: rgba(245, 158, 11, 0.15);
+    color: #F59E0B;
+}
+
+.status-badge-small.cancelled {
+    background: rgba(239, 68, 68, 0.15);
+    color: #ef4444;
+}
+
+/* Filter Select */
+.filter-select {
+    padding: 4px 14px;
+    border-radius: 20px;
+    border: 1px solid #1f1f1f;
+    background: #0a0a0a;
+    color: #BDBDBD;
+    font-size: 12px;
+    font-weight: 500;
+    cursor: pointer;
+    outline: none;
+    transition: 0.2s;
+}
+
+.filter-select:focus {
+    border-color: #22C55E;
+}
+
+/* Stars Display */
+.stars-display {
+    color: #F59E0B;
+    font-size: 14px;
+    letter-spacing: 2px;
+    margin-left: auto;
+}
+
+.review-list-full li {
+    cursor: pointer;
+    transition: 0.2s;
+    padding: 8px 12px;
+    border-radius: 8px;
+}
+
+.review-list-full li:hover {
+    background: #1a1a1a;
+}
+
+/* Finance Item Total */
+.finance-item-full.total {
+    border-top: 2px solid #22C55E;
+    padding-top: 12px;
+    margin-top: 4px;
+}
+
+/* Chart Controls */
+.chart-controls {
+    display: flex;
+    gap: 6px;
+}
+
+.btn-chart {
+    padding: 4px 14px;
+    border-radius: 20px;
+    border: 1px solid #1f1f1f;
+    background: transparent;
+    color: #BDBDBD;
+    font-size: 12px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.btn-chart:hover {
+    border-color: #22C55E;
+    color: #22C55E;
+}
+
+.btn-chart.active {
+    background: #22C55E;
+    color: #000000;
+    border-color: #22C55E;
+}
+
+/* Notification Badge */
+.notification-bell {
+    position: relative;
+    cursor: pointer;
+}
+
+.notification-badge {
+    position: absolute;
+    top: -8px;
+    right: -8px;
+    background: #ef4444;
+    color: #ffffff;
+    font-size: 10px;
+    font-weight: 700;
+    padding: 2px 6px;
+    border-radius: 50%;
+    min-width: 18px;
+    text-align: center;
+}
+
+.notification-badge.hidden {
+    display: none;
+}
+
+/* Refresh Button */
+.btn-refresh-top {
+    background: transparent;
+    border: 1px solid #333333;
+    color: #BDBDBD;
+    padding: 6px 12px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 8px;
+}
+
+.btn-refresh-top:hover {
+    background: #1a1a1a;
+    border-color: #22C55E;
+    color: #22C55E;
+}
+
+.btn-refresh-top.spinning i {
+    animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+/* Time Display */
+.time-display {
+    font-size: 14px;
+    color: #BDBDBD;
+    background: #111111;
+    padding: 6px 16px;
+    border-radius: 20px;
+    border: 1px solid #1f1f1f;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .card-actions {
+        flex-wrap: wrap;
+        gap: 4px;
+    }
+    
+    .btn-filter {
+        font-size: 11px;
+        padding: 3px 10px;
+    }
+    
+    .chart-controls {
+        flex-wrap: wrap;
+    }
+    
+    .btn-chart {
+        font-size: 11px;
+        padding: 3px 10px;
+    }
+    
+    .stars-display {
+        font-size: 12px;
+    }
+    
+    .time-display {
+        display: none;
+    }
+}
+
+@media (max-width: 480px) {
+    .kpi-trend {
+        display: none;
+    }
+    
+    .card-actions {
+        flex-direction: column;
+        align-items: flex-start;
+        width: 100%;
+    }
+    
+    .btn-filter {
+        width: 100%;
+        text-align: center;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
 /* ============================================
    DRIVEMARCH - ESTILO COMPLETO
    Fundo preto - Layout governamental
@@ -14,6 +305,7 @@
 html, body {
     height: 100%;
     background: #000000;
+    color: #ffffff;
 }
 
 .site-wrapper {
@@ -95,26 +387,6 @@ html, body {
     border: 1px solid #1f1f1f;
 }
 
-.btn-logout {
-    background: transparent;
-    border: 1px solid #333333;
-    color: #BDBDBD;
-    padding: 6px 16px;
-    border-radius: 20px;
-    cursor: pointer;
-    font-size: 13px;
-    transition: 0.2s;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-}
-
-.btn-logout:hover {
-    background: #1a1a1a;
-    border-color: #22C55E;
-    color: #ffffff;
-}
-
 /* ============================================
    MENU PRINCIPAL
    ============================================ */
@@ -174,6 +446,7 @@ html, body {
 .nav-support {
     display: flex;
     align-items: center;
+    gap: 8px;
 }
 
 .btn-support-top {
@@ -194,6 +467,35 @@ html, body {
 .btn-support-top:hover {
     background: #22C55E;
     color: #000000;
+}
+
+.btn-refresh-top {
+    background: transparent;
+    border: 1px solid #333333;
+    color: #BDBDBD;
+    padding: 6px 12px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn-refresh-top:hover {
+    background: #1a1a1a;
+    border-color: #22C55E;
+    color: #22C55E;
+}
+
+.btn-refresh-top.spinning i {
+    animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
 }
 
 /* ============================================
@@ -239,12 +541,14 @@ html, body {
     display: flex;
     align-items: center;
     gap: 16px;
+    flex-wrap: wrap;
 }
 
 .notification-bell {
+    position: relative;
+    cursor: pointer;
     font-size: 20px;
     color: #BDBDBD;
-    cursor: pointer;
     transition: 0.2s;
 }
 
@@ -252,7 +556,34 @@ html, body {
     color: #22C55E;
 }
 
+.notification-badge {
+    position: absolute;
+    top: -8px;
+    right: -8px;
+    background: #ef4444;
+    color: #ffffff;
+    font-size: 10px;
+    font-weight: 700;
+    padding: 2px 6px;
+    border-radius: 50%;
+    min-width: 18px;
+    text-align: center;
+}
+
+.notification-badge.hidden {
+    display: none;
+}
+
 .date-display {
+    font-size: 14px;
+    color: #BDBDBD;
+    background: #111111;
+    padding: 6px 16px;
+    border-radius: 20px;
+    border: 1px solid #1f1f1f;
+}
+
+.time-display {
     font-size: 14px;
     color: #BDBDBD;
     background: #111111;
@@ -279,13 +610,19 @@ html, body {
     align-items: center;
     gap: 16px;
     border: 1px solid #1f1f1f;
-    transition: 0.2s;
+    transition: 0.3s;
     cursor: pointer;
+    position: relative;
 }
 
 .kpi-card-full:hover {
     border-color: #22C55E;
-    box-shadow: 0 4px 16px rgba(34, 197, 94, 0.1);
+    transform: translateY(-4px);
+    box-shadow: 0 8px 30px rgba(34, 197, 94, 0.15);
+}
+
+.kpi-card-full:active {
+    transform: scale(0.98);
 }
 
 .kpi-icon-full {
@@ -304,6 +641,7 @@ html, body {
 .kpi-content-full {
     display: flex;
     flex-direction: column;
+    flex: 1;
 }
 
 .kpi-label-full {
@@ -329,6 +667,24 @@ html, body {
     font-weight: 600;
 }
 
+.kpi-trend {
+    font-size: 11px;
+    font-weight: 600;
+    padding: 2px 10px;
+    border-radius: 20px;
+    margin-left: auto;
+}
+
+.kpi-trend.positive {
+    background: rgba(34, 197, 94, 0.15);
+    color: #22C55E;
+}
+
+.kpi-trend.negative {
+    background: rgba(239, 68, 68, 0.15);
+    color: #ef4444;
+}
+
 /* ============================================
    CARDS GENÉRICOS
    ============================================ */
@@ -337,6 +693,11 @@ html, body {
     border-radius: 16px;
     padding: 24px;
     border: 1px solid #1f1f1f;
+    transition: 0.3s;
+}
+
+.card-full:hover {
+    border-color: #2a2a2a;
 }
 
 .card-header-full {
@@ -440,6 +801,56 @@ html, body {
 }
 
 /* ============================================
+   CARD ACTIONS
+   ============================================ */
+.card-actions {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.btn-filter {
+    padding: 4px 14px;
+    border-radius: 20px;
+    border: 1px solid #1f1f1f;
+    background: transparent;
+    color: #BDBDBD;
+    font-size: 12px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.btn-filter:hover {
+    border-color: #22C55E;
+    color: #22C55E;
+}
+
+.btn-filter.active {
+    background: #22C55E;
+    color: #000000;
+    border-color: #22C55E;
+}
+
+.filter-select {
+    padding: 4px 14px;
+    border-radius: 20px;
+    border: 1px solid #1f1f1f;
+    background: #0a0a0a;
+    color: #BDBDBD;
+    font-size: 12px;
+    font-weight: 500;
+    cursor: pointer;
+    outline: none;
+    transition: 0.2s;
+}
+
+.filter-select:focus {
+    border-color: #22C55E;
+}
+
+/* ============================================
    CONTENT GRID - DASHBOARD
    ============================================ */
 .content-grid-full {
@@ -463,10 +874,24 @@ html, body {
     align-items: baseline;
     padding: 8px 0;
     border-bottom: 1px dashed #1a1a1a;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.finance-item-full:hover {
+    background: rgba(255, 255, 255, 0.02);
+    padding-left: 8px;
+    border-radius: 8px;
 }
 
 .finance-item-full:last-of-type {
     border-bottom: none;
+}
+
+.finance-item-full.total {
+    border-top: 2px solid #22C55E;
+    padding-top: 12px;
+    margin-top: 4px;
 }
 
 .finance-label-full {
@@ -484,15 +909,18 @@ html, body {
 .finance-badge-full {
     font-size: 12px;
     font-weight: 600;
-    color: #22C55E;
-    background: rgba(34, 197, 94, 0.12);
     padding: 2px 12px;
     border-radius: 20px;
 }
 
 .finance-badge-full.positive {
-    background: rgba(34, 197, 94, 0.12);
+    background: rgba(34, 197, 94, 0.15);
     color: #22C55E;
+}
+
+.finance-badge-full.negative {
+    background: rgba(239, 68, 68, 0.15);
+    color: #ef4444;
 }
 
 .btn-finance-full {
@@ -530,9 +958,16 @@ html, body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 8px 0;
+    padding: 8px 12px;
     border-bottom: 1px solid #1a1a1a;
     font-size: 14px;
+    cursor: pointer;
+    transition: 0.2s;
+    border-radius: 8px;
+}
+
+.review-list-full li:hover {
+    background: #1a1a1a;
 }
 
 .review-list-full li:last-child {
@@ -557,6 +992,13 @@ html, body {
     border-radius: 20px;
 }
 
+.stars-display {
+    color: #F59E0B;
+    font-size: 14px;
+    letter-spacing: 2px;
+    margin-left: auto;
+}
+
 .review-avg-full {
     display: flex;
     align-items: center;
@@ -566,6 +1008,12 @@ html, body {
     padding: 12px 18px;
     border-radius: 30px;
     margin-top: 12px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.review-avg-full:hover {
+    background: rgba(34, 197, 94, 0.12);
 }
 
 .avg-label-full {
@@ -586,6 +1034,48 @@ html, body {
     border-radius: 30px;
     font-weight: 700;
     font-size: 13px;
+}
+
+.avg-detail {
+    color: #777777;
+    font-size: 12px;
+    margin-left: auto;
+}
+
+/* ============================================
+   CHART CONTROLS
+   ============================================ */
+.chart-controls {
+    display: flex;
+    gap: 6px;
+}
+
+.btn-chart {
+    padding: 4px 14px;
+    border-radius: 20px;
+    border: 1px solid #1f1f1f;
+    background: transparent;
+    color: #BDBDBD;
+    font-size: 12px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.btn-chart:hover {
+    border-color: #22C55E;
+    color: #22C55E;
+}
+
+.btn-chart.active {
+    background: #22C55E;
+    color: #000000;
+    border-color: #22C55E;
+}
+
+.chart-container-full {
+    height: 220px;
+    position: relative;
 }
 
 /* ============================================
@@ -711,8 +1201,33 @@ html, body {
 }
 
 .class-status-full.confirmed {
-    background: rgba(34, 197, 94, 0.12);
+    background: rgba(34, 197, 94, 0.15);
     color: #22C55E;
+}
+
+/* ============================================
+   STATUS BADGE
+   ============================================ */
+.status-badge-small {
+    font-size: 11px;
+    font-weight: 600;
+    padding: 2px 12px;
+    border-radius: 20px;
+}
+
+.status-badge-small.confirmed {
+    background: rgba(34, 197, 94, 0.15);
+    color: #22C55E;
+}
+
+.status-badge-small.pending {
+    background: rgba(245, 158, 11, 0.15);
+    color: #F59E0B;
+}
+
+.status-badge-small.cancelled {
+    background: rgba(239, 68, 68, 0.15);
+    color: #ef4444;
 }
 
 .support-message-full {
@@ -752,13 +1267,14 @@ html, body {
     align-items: center;
     gap: 16px;
     border: 1px solid #1f1f1f;
-    transition: 0.2s;
+    transition: 0.3s;
     cursor: pointer;
 }
 
 .finance-kpi-card-full:hover {
     border-color: #22C55E;
     box-shadow: 0 4px 16px rgba(34, 197, 94, 0.1);
+    transform: translateY(-2px);
 }
 
 .finance-kpi-icon-full {
@@ -824,11 +1340,6 @@ html, body {
     gap: 24px;
 }
 
-.chart-container-full {
-    height: 220px;
-    position: relative;
-}
-
 .chart-labels-full {
     display: flex;
     justify-content: space-between;
@@ -838,6 +1349,9 @@ html, body {
     font-weight: 500;
 }
 
+/* ============================================
+   TRANSACTIONS
+   ============================================ */
 .transaction-list-full {
     list-style: none;
     display: flex;
@@ -1033,6 +1547,7 @@ html, body {
 .student-card-full:hover {
     border-color: #22C55E;
     box-shadow: 0 4px 16px rgba(34, 197, 94, 0.08);
+    transform: translateY(-2px);
 }
 
 .student-card-header-full {
@@ -1279,6 +1794,11 @@ html, body {
     border-radius: 16px;
     border: 1px solid #1f1f1f;
     overflow: hidden;
+    transition: 0.3s;
+}
+
+.settings-card-full:hover {
+    border-color: #2a2a2a;
 }
 
 .settings-card-body-full {
@@ -1319,6 +1839,38 @@ html, body {
     color: #ef4444;
 }
 
+.photo-section-full {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+    padding: 16px 0;
+}
+
+.photo-preview-full {
+    font-size: 100px;
+    color: #777777;
+    line-height: 1;
+}
+
+.danger-text-full {
+    color: #BDBDBD;
+    font-size: 14px;
+    line-height: 1.6;
+    margin-bottom: 16px;
+    padding: 12px 16px;
+    background: rgba(239, 68, 68, 0.05);
+    border-radius: 12px;
+    border-left: 4px solid #ef4444;
+}
+
+.danger-zone-full {
+    border-color: #ef4444 !important;
+}
+
+/* ============================================
+   BOTÕES DE CONFIGURAÇÃO
+   ============================================ */
 .btn-settings-full {
     padding: 10px 24px;
     border: none;
@@ -1359,35 +1911,6 @@ html, body {
 
 .btn-settings-full.danger:hover {
     background: rgba(239, 68, 68, 0.2);
-}
-
-.photo-section-full {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 16px;
-    padding: 16px 0;
-}
-
-.photo-preview-full {
-    font-size: 100px;
-    color: #777777;
-    line-height: 1;
-}
-
-.danger-text-full {
-    color: #BDBDBD;
-    font-size: 14px;
-    line-height: 1.6;
-    margin-bottom: 16px;
-    padding: 12px 16px;
-    background: rgba(239, 68, 68, 0.05);
-    border-radius: 12px;
-    border-left: 4px solid #ef4444;
-}
-
-.danger-zone-full {
-    border-color: #ef4444 !important;
 }
 
 /* ============================================
@@ -1432,6 +1955,82 @@ html, body {
 }
 
 /* ============================================
+   MODAL
+   ============================================ */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    animation: fadeIn 0.3s;
+}
+
+.modal-content {
+    background: #111111;
+    margin: 5% auto;
+    max-width: 500px;
+    width: 90%;
+    border-radius: 24px;
+    border: 1px solid #1f1f1f;
+    animation: slideDown 0.3s;
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 24px;
+    border-bottom: 1px solid #1f1f1f;
+}
+
+.modal-header h2 {
+    font-size: 20px;
+    font-weight: 700;
+    color: #ffffff;
+}
+
+.modal-close {
+    font-size: 28px;
+    color: #BDBDBD;
+    cursor: pointer;
+    transition: 0.2s;
+    line-height: 1;
+}
+
+.modal-close:hover {
+    color: #ffffff;
+}
+
+.modal-body {
+    padding: 24px;
+    color: #BDBDBD;
+}
+
+.modal-body .detail-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 0;
+    border-bottom: 1px solid #1a1a1a;
+}
+
+.modal-body .detail-row:last-child {
+    border-bottom: none;
+}
+
+.modal-body .detail-label {
+    color: #BDBDBD;
+}
+
+.modal-body .detail-value {
+    color: #ffffff;
+    font-weight: 500;
+}
+
+/* ============================================
    TOAST NOTIFICATION
    ============================================ */
 .toast-notification {
@@ -1451,11 +2050,29 @@ html, body {
     max-width: 400px;
 }
 
-/* ===== ANIMAÇÕES ===== */
+/* ============================================
+   ANIMAÇÕES
+   ============================================ */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
 @keyframes fadeInUp {
     from {
         opacity: 0;
         transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-30px);
     }
     to {
         opacity: 1;
@@ -1554,7 +2171,8 @@ html, body {
         flex-wrap: wrap;
     }
     .nav-support {
-        display: none;
+        display: flex;
+        gap: 4px;
     }
     .students-grid-full {
         grid-template-columns: 1fr;
@@ -1590,6 +2208,31 @@ html, body {
         width: 100%;
         justify-content: center;
     }
+    .time-display {
+        display: none;
+    }
+    .card-actions {
+        flex-wrap: wrap;
+        gap: 4px;
+    }
+    .btn-filter {
+        font-size: 11px;
+        padding: 3px 10px;
+    }
+    .chart-controls {
+        flex-wrap: wrap;
+    }
+    .btn-chart {
+        font-size: 11px;
+        padding: 3px 10px;
+    }
+    .stars-display {
+        font-size: 12px;
+    }
+    .modal-content {
+        margin: 10% auto;
+        width: 95%;
+    }
 }
 
 @media (max-width: 480px) {
@@ -1599,6 +2242,12 @@ html, body {
     .reports-cards-grid-full {
         grid-template-columns: 1fr;
     }
+    .finance-kpi-grid-full {
+        grid-template-columns: 1fr;
+    }
+    .finance-two-col-full {
+        grid-template-columns: 1fr;
+    }
     .logo-area span {
         font-size: 16px;
     }
@@ -1606,13 +2255,8 @@ html, body {
         font-size: 8px;
         padding: 1px 8px;
     }
-    .btn-logout {
-        font-size: 11px;
-        padding: 4px 12px;
-    }
-    .user-role-badge {
-        font-size: 10px;
-        padding: 2px 10px;
+    .kpi-trend {
+        display: none;
     }
     .class-list-full li {
         font-size: 12px;
@@ -1639,7 +2283,262 @@ html, body {
     .btn-student-action-full {
         min-width: 100%;
     }
+    .card-actions {
+        flex-direction: column;
+        align-items: flex-start;
+        width: 100%;
+    }
+    .btn-filter {
+        width: 100%;
+        text-align: center;
+    }
+    .date-display {
+        font-size: 12px;
+        padding: 4px 12px;
+    }
+    .modal-content {
+        margin: 5% auto;
+        width: 98%;
+    }
+    .settings-card-body-full {
+        padding: 16px 18px 20px;
+    }
+    .photo-preview-full {
+        font-size: 80px;
+    }
 }
 
 
 
+
+
+
+/* Adicione ao final do arquivo style.css */
+
+/* ============================================
+   TABELA DE ALUNOS
+   ============================================ */
+.table-wrapper {
+    overflow-x: auto;
+    margin-top: 8px;
+}
+
+.ranking-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14px;
+}
+
+.ranking-table th {
+    text-align: left;
+    padding: 10px 12px;
+    color: #BDBDBD;
+    font-weight: 600;
+    border-bottom: 2px solid #1f1f1f;
+}
+
+.ranking-table td {
+    padding: 10px 12px;
+    border-bottom: 1px solid #1a1a1a;
+    color: #ffffff;
+}
+
+.ranking-table tr:hover {
+    background: #1a1a1a;
+}
+
+.ranking-table .student-name {
+    font-weight: 600;
+    color: #ffffff;
+}
+
+.ranking-table .student-category {
+    color: #BDBDBD;
+    font-size: 13px;
+}
+
+.ranking-table .rating {
+    color: #F59E0B;
+}
+
+.btn-view {
+    padding: 4px 14px;
+    border-radius: 30px;
+    border: 1px solid #22C55E;
+    background: transparent;
+    color: #22C55E;
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.btn-view:hover {
+    background: #22C55E;
+    color: #000000;
+}
+
+/* ============================================
+   PAGINAÇÃO
+   ============================================ */
+.pagination {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 16px;
+}
+
+.pagination button {
+    padding: 6px 14px;
+    border-radius: 30px;
+    border: 1px solid #1f1f1f;
+    background: transparent;
+    color: #BDBDBD;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.pagination button:hover {
+    border-color: #22C55E;
+    color: #22C55E;
+}
+
+.pagination button.active {
+    background: #22C55E;
+    color: #000000;
+    border-color: #22C55E;
+}
+
+/* ============================================
+   BOTÃO NOVO ALUNO
+   ============================================ */
+.btn-new-student-full {
+    background: #0a0a0a;
+    color: #ffffff;
+    border: 1px solid #1f1f1f;
+    padding: 6px 16px;
+    border-radius: 30px;
+    font-weight: 600;
+    font-size: 12px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.btn-new-student-full i {
+    font-size: 14px;
+    color: #22C55E;
+}
+
+.btn-new-student-full:hover {
+    background: #1a1a1a;
+    border-color: #22C55E;
+}
+
+/* ============================================
+   RESPONSIVIDADE - TABELA
+   ============================================ */
+@media (max-width: 768px) {
+    .ranking-table th,
+    .ranking-table td {
+        padding: 8px 10px;
+        font-size: 12px;
+    }
+    
+    .ranking-table .student-name {
+        font-size: 13px;
+    }
+}
+
+@media (max-width: 480px) {
+    .ranking-table th:nth-child(3),
+    .ranking-table td:nth-child(3),
+    .ranking-table th:nth-child(5),
+    .ranking-table td:nth-child(5) {
+        display: none;
+    }
+    
+    .ranking-table {
+        font-size: 11px;
+    }
+    
+    .btn-view {
+        padding: 3px 10px;
+        font-size: 10px;
+    }
+}
+
+
+
+
+
+
+/* Adicione ao final do arquivo style.css */
+
+/* ============================================
+   CONTACT ITEMS
+   ============================================ */
+.student-contact-full {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    margin-bottom: 12px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid #1a1a1a;
+}
+
+.contact-item-full {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 13px;
+    color: #BDBDBD;
+}
+
+.contact-item-full i {
+    color: #22C55E;
+    width: 18px;
+}
+
+/* ============================================
+   STUDENT INFO GRID
+   ============================================ */
+.student-info-grid-full {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px 16px;
+    margin-bottom: 12px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid #1a1a1a;
+}
+
+.info-item-full {
+    display: flex;
+    flex-direction: column;
+}
+
+.info-label-full {
+    font-size: 11px;
+    color: #777777;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.info-value-full {
+    font-size: 14px;
+    font-weight: 500;
+    color: #ffffff;
+    margin-top: 2px;
+}
+
+/* ============================================
+   RESPONSIVIDADE - ALUNOS
+   ============================================ */
+@media (max-width: 480px) {
+    .student-info-grid-full {
+        grid-template-columns: 1fr;
+    }
+}

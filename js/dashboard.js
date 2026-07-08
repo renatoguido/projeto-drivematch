@@ -1,18 +1,25 @@
+// ============================================
+// DRIVEMARCH - SCRIPT COMPLETO (SEM LOGIN)
+// ============================================
+
+// ===== VARIÁVEIS GLOBAIS =====
+let performanceChart = null;
+let currentChartType = 'faturamento';
+
+// ============================================
+// 1. INICIALIZAÇÃO
+// ============================================
 document.addEventListener('DOMContentLoaded', function() {
     console.log('🚗 DriveMarch · Sistema carregado');
     
-    // Atualizar data atual
-    updateCurrentDate();
+    // Atualizar data e hora
+    updateDateTime();
+    setInterval(updateDateTime, 1000);
     
-    // Inicializar gráficos se estiver na página de relatórios
-    if (document.getElementById('evolutionChart')) {
-        initReportCharts();
-    }
-    
-    // Inicializar gráficos se estiver na página de financeiro
-    if (document.getElementById('earningsChart')) {
-        initFinanceChart();
-    }
+    // Inicializar gráficos
+    initPerformanceChart();
+    initReportCharts();
+    initFinanceChart();
     
     // Inicializar eventos
     initEvents();
@@ -20,41 +27,55 @@ document.addEventListener('DOMContentLoaded', function() {
     // Inicializar busca de alunos
     initStudentSearch();
     
-    // Inicializar filtros de alunos
-    initStudentFilters();
+    // Animar elementos
+    animateElements();
+    
+    // Atualizar notificações
+    updateNotifications();
     
     console.log('✅ Sistema pronto!');
 });
 
 // ============================================
-// 2. ATUALIZAR DATA
+// 2. ATUALIZAR DATA E HORA
 // ============================================
-function updateCurrentDate() {
+function updateDateTime() {
     const dateElements = document.querySelectorAll('.date-display, #currentDate');
-    if (dateElements.length === 0) return;
+    const timeElements = document.querySelectorAll('.time-display, #currentTime');
     
-    const hoje = new Date();
+    const agora = new Date();
     const dias = ['Domingo', 'Segunda-feira', 'Terça-feira', 'Quarta-feira', 'Quinta-feira', 'Sexta-feira', 'Sábado'];
     const meses = ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro'];
     
-    const diaSemana = dias[hoje.getDay()];
-    const dia = hoje.getDate();
-    const mes = meses[hoje.getMonth()];
-    const ano = hoje.getFullYear();
-    const dataFormatada = `${diaSemana}, ${dia} de ${mes} de ${ano}`;
+    if (dateElements.length > 0) {
+        const diaSemana = dias[agora.getDay()];
+        const dia = agora.getDate();
+        const mes = meses[agora.getMonth()];
+        const ano = agora.getFullYear();
+        const dataFormatada = `${diaSemana}, ${dia} de ${mes} de ${ano}`;
+        dateElements.forEach(el => {
+            el.textContent = dataFormatada;
+        });
+    }
     
-    dateElements.forEach(el => {
-        el.textContent = dataFormatada;
-    });
+    if (timeElements.length > 0) {
+        const horas = String(agora.getHours()).padStart(2, '0');
+        const minutos = String(agora.getMinutes()).padStart(2, '0');
+        const segundos = String(agora.getSeconds()).padStart(2, '0');
+        const horaFormatada = `${horas}:${minutos}:${segundos}`;
+        timeElements.forEach(el => {
+            el.textContent = horaFormatada;
+        });
+    }
     
     // Atualizar data na agenda
     const todayDateElements = document.querySelectorAll('.today-date-full, #todayDate');
     if (todayDateElements.length > 0) {
-        const diaStr = String(dia).padStart(2, '0');
-        const mesStr = String(hoje.getMonth() + 1).padStart(2, '0');
-        const dataAgenda = `${diaStr} de ${mes} de ${ano}`;
+        const dia = String(agora.getDate()).padStart(2, '0');
+        const mes = meses[agora.getMonth()];
+        const ano = agora.getFullYear();
         todayDateElements.forEach(el => {
-            el.textContent = dataAgenda;
+            el.textContent = `${dia} de ${mes} de ${ano}`;
         });
     }
 }
@@ -68,19 +89,6 @@ function initEvents() {
         btn.addEventListener('click', function(e) {
             e.preventDefault();
             openSupport();
-        });
-    });
-    
-    // Botão Sair
-    document.querySelectorAll('.btn-logout').forEach(btn => {
-        btn.addEventListener('click', function(e) {
-            e.preventDefault();
-            if (confirm('Tem certeza que deseja sair?')) {
-                showToast('👋 Até logo!');
-                setTimeout(() => {
-                    window.location.href = 'login.html';
-                }, 1500);
-            }
         });
     });
     
@@ -104,14 +112,6 @@ function initEvents() {
     document.querySelectorAll('.btn-new-student-full, .btn-new-student').forEach(btn => {
         btn.addEventListener('click', function() {
             showToast('➕ Abrir formulário para cadastrar novo aluno');
-        });
-    });
-    
-    // Botão "Ver todas" - movimentações
-    document.querySelectorAll('.link-ver-all').forEach(link => {
-        link.addEventListener('click', function(e) {
-            e.preventDefault();
-            showToast('📋 Mostrando todos os registros');
         });
     });
     
@@ -140,30 +140,6 @@ function initEvents() {
             showToast(`💰 ${label}: ${value}`);
         });
     });
-    
-    // Clique no botão "Ver financeiro"
-    document.querySelectorAll('.btn-finance-full, .btn-finance').forEach(btn => {
-        btn.addEventListener('click', function(e) {
-            e.preventDefault();
-            window.location.href = 'financeiro.html';
-        });
-    });
-    
-    // Filtro de período nos relatórios
-    document.querySelectorAll('.period-btn').forEach(btn => {
-        btn.addEventListener('click', function() {
-            document.querySelectorAll('.period-btn').forEach(b => b.classList.remove('active'));
-            this.classList.add('active');
-            const period = this.dataset.period;
-            const periodNames = {
-                'today': 'Hoje',
-                '7': '7 dias',
-                '30': '30 dias',
-                'custom': 'Personalizado'
-            };
-            showToast(`📊 Filtrando por: ${periodNames[period] || period}`);
-        });
-    });
 }
 
 // ============================================
@@ -187,48 +163,168 @@ function initStudentSearch() {
 }
 
 // ============================================
-// 5. FILTROS DE ALUNOS
+// 5. FILTRAR ALUNOS
 // ============================================
-function initStudentFilters() {
-    const filterBtns = document.querySelectorAll('.filter-btn-full, .filter-btn');
-    if (filterBtns.length === 0) return;
+function filterStudents(filter) {
+    const buttons = document.querySelectorAll('.filter-btn-full, .filter-btn');
+    buttons.forEach(btn => btn.classList.remove('active'));
+    document.querySelector(`.filter-btn-full[data-filter="${filter}"]`)?.classList.add('active');
     
-    filterBtns.forEach(btn => {
-        btn.addEventListener('click', function() {
-            filterBtns.forEach(b => b.classList.remove('active'));
-            this.classList.add('active');
-            
-            const filter = this.dataset.filter;
-            const studentCards = document.querySelectorAll('.student-card-full, .student-card');
-            const searchInput = document.getElementById('searchInput');
-            const searchTerm = searchInput?.value?.toLowerCase().trim() || '';
-            
-            studentCards.forEach(card => {
-                const status = card.dataset.status;
-                let show = true;
-                
-                if (filter === 'active' && status !== 'active') show = false;
-                if (filter === 'inactive' && status !== 'inactive') show = false;
-                
-                if (show && searchTerm) {
-                    const name = card.querySelector('.student-name-full, .student-name')?.textContent?.toLowerCase() || '';
-                    const category = card.querySelector('.student-category-full, .student-category')?.textContent?.toLowerCase() || '';
-                    if (!name.includes(searchTerm) && !category.includes(searchTerm)) {
-                        show = false;
-                    }
-                }
-                
-                card.style.display = show ? '' : 'none';
-            });
-        });
+    const studentCards = document.querySelectorAll('.student-card-full, .student-card');
+    const searchInput = document.getElementById('searchInput');
+    const searchTerm = searchInput?.value?.toLowerCase().trim() || '';
+    
+    studentCards.forEach(card => {
+        const status = card.dataset.status;
+        let show = true;
+        
+        if (filter === 'active' && status !== 'active') show = false;
+        if (filter === 'inactive' && status !== 'inactive') show = false;
+        
+        if (show && searchTerm) {
+            const name = card.querySelector('.student-name-full, .student-name')?.textContent?.toLowerCase() || '';
+            const category = card.querySelector('.student-category-full, .student-category')?.textContent?.toLowerCase() || '';
+            if (!name.includes(searchTerm) && !category.includes(searchTerm)) {
+                show = false;
+            }
+        }
+        
+        card.style.display = show ? '' : 'none';
     });
 }
 
 // ============================================
-// 6. GRÁFICOS DOS RELATÓRIOS
+// 6. INICIAR GRÁFICO DE DESEMPENHO
+// ============================================
+function initPerformanceChart() {
+    const ctx = document.getElementById('performanceChart');
+    if (!ctx) return;
+    
+    performanceChart = new Chart(ctx, {
+        type: 'line',
+        data: {
+            labels: ['Seg', 'Ter', 'Qua', 'Qui', 'Sex', 'Sáb', 'Dom'],
+            datasets: [{
+                label: 'Faturamento (R$)',
+                data: [320, 450, 280, 520, 380, 680, 420],
+                borderColor: '#22C55E',
+                backgroundColor: 'rgba(34, 197, 94, 0.08)',
+                borderWidth: 3,
+                pointBackgroundColor: '#22C55E',
+                pointBorderColor: '#000000',
+                pointBorderWidth: 2,
+                pointRadius: 4,
+                fill: true,
+                tension: 0.3
+            }]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+                legend: { display: false },
+                tooltip: {
+                    callbacks: {
+                        label: function(context) {
+                            if (currentChartType === 'faturamento') {
+                                return `R$ ${context.parsed.y}`;
+                            }
+                            return `${context.parsed.y}`;
+                        }
+                    }
+                }
+            },
+            scales: {
+                y: {
+                    beginAtZero: true,
+                    ticks: { color: '#777777' },
+                    grid: { color: 'rgba(255,255,255,0.05)' }
+                },
+                x: {
+                    ticks: { color: '#777777' },
+                    grid: { display: false }
+                }
+            }
+        }
+    });
+}
+
+// ============================================
+// 7. ATUALIZAR GRÁFICO
+// ============================================
+function updateChart(type) {
+    currentChartType = type;
+    
+    document.querySelectorAll('.btn-chart').forEach(btn => {
+        btn.classList.remove('active');
+    });
+    document.querySelector(`.btn-chart[data-chart="${type}"]`)?.classList.add('active');
+    
+    const dataSets = {
+        'aulas': {
+            label: 'Aulas realizadas',
+            data: [3, 5, 2, 6, 4, 7, 5],
+            color: '#3B82F6'
+        },
+        'faturamento': {
+            label: 'Faturamento (R$)',
+            data: [320, 450, 280, 520, 380, 680, 420],
+            color: '#22C55E'
+        },
+        'alunos': {
+            label: 'Novos alunos',
+            data: [1, 3, 0, 2, 1, 4, 2],
+            color: '#F59E0B'
+        }
+    };
+    
+    const dataSet = dataSets[type];
+    if (!dataSet || !performanceChart) return;
+    
+    performanceChart.data.datasets[0].label = dataSet.label;
+    performanceChart.data.datasets[0].data = dataSet.data;
+    performanceChart.data.datasets[0].borderColor = dataSet.color;
+    performanceChart.data.datasets[0].backgroundColor = dataSet.color + '14';
+    performanceChart.data.datasets[0].pointBackgroundColor = dataSet.color;
+    
+    performanceChart.update();
+}
+
+// ============================================
+// 8. FILTRAR AULAS
+// ============================================
+function filterAulas(filter) {
+    document.querySelectorAll('.btn-filter').forEach(btn => {
+        btn.classList.remove('active');
+    });
+    document.querySelector(`.btn-filter[data-filter="${filter}"]`)?.classList.add('active');
+    
+    const items = document.querySelectorAll('.class-list-full li');
+    const hoje = new Date();
+    const hojeStr = hoje.toISOString().split('T')[0];
+    
+    items.forEach(item => {
+        const date = item.dataset.date;
+        let show = false;
+        
+        if (filter === 'all') {
+            show = true;
+        } else if (filter === 'hoje') {
+            show = date === hojeStr;
+        } else if (filter === 'semana') {
+            const itemDate = new Date(date);
+            const diffDays = Math.floor((itemDate - hoje) / (1000 * 60 * 60 * 24));
+            show = diffDays >= 0 && diffDays <= 7;
+        }
+        
+        item.style.display = show ? '' : 'none';
+    });
+}
+
+// ============================================
+// 9. GRÁFICOS DOS RELATÓRIOS
 // ============================================
 function initReportCharts() {
-    // Gráfico de Evolução (Line)
     const ctx1 = document.getElementById('evolutionChart');
     if (ctx1) {
         new Chart(ctx1, {
@@ -277,7 +373,6 @@ function initReportCharts() {
         });
     }
     
-    // Gráfico de Categorias (Doughnut)
     const ctx2 = document.getElementById('categoryChart');
     if (ctx2) {
         new Chart(ctx2, {
@@ -302,7 +397,6 @@ function initReportCharts() {
         });
     }
     
-    // Gráfico de Receita Mensal (Bar)
     const ctx3 = document.getElementById('monthlyRevenueChart');
     if (ctx3) {
         new Chart(ctx3, {
@@ -351,7 +445,7 @@ function initReportCharts() {
 }
 
 // ============================================
-// 7. GRÁFICO DO FINANCEIRO
+// 10. GRÁFICO DO FINANCEIRO
 // ============================================
 function initFinanceChart() {
     const ctx = document.getElementById('earningsChart');
@@ -409,17 +503,164 @@ function initFinanceChart() {
 }
 
 // ============================================
-// 8. ABRIR SUPORTE
+// 11. ANIMAR ELEMENTOS
+// ============================================
+function animateElements() {
+    document.querySelectorAll('.kpi-card-full').forEach((card, index) => {
+        card.style.opacity = '0';
+        card.style.transform = 'translateY(20px)';
+        setTimeout(() => {
+            card.style.transition = 'all 0.5s ease';
+            card.style.opacity = '1';
+            card.style.transform = 'translateY(0)';
+        }, 100 * index);
+    });
+}
+
+// ============================================
+// 12. ATUALIZAR NOTIFICAÇÕES
+// ============================================
+function updateNotifications() {
+    const badge = document.getElementById('notificationBadge');
+    if (badge) {
+        const count = Math.floor(Math.random() * 5) + 1;
+        badge.textContent = count;
+        badge.classList.remove('hidden');
+    }
+}
+
+// ============================================
+// 13. MOSTRAR NOTIFICAÇÕES
+// ============================================
+function showNotifications() {
+    const modal = document.getElementById('detailModal');
+    if (!modal) return;
+    
+    const title = document.getElementById('modalTitle');
+    const body = document.getElementById('modalBody');
+    
+    const notifications = [
+        { icon: 'fa-calendar-check', text: 'Aula de Juliana Oliveira confirmada para amanhã', time: '10:30' },
+        { icon: 'fa-star', text: 'Nova avaliação de Lucas Andrade (4.8)', time: '09:15' },
+        { icon: 'fa-coins', text: 'Pagamento de R$ 150,00 recebido de Beatriz Lima', time: '08:00' }
+    ];
+    
+    title.textContent = '🔔 Notificações';
+    body.innerHTML = `
+        <div style="padding:4px 0;">
+            ${notifications.map(n => `
+                <div style="display:flex;align-items:center;gap:12px;padding:12px 0;border-bottom:1px solid #1a1a1a;">
+                    <div style="width:36px;height:36px;background:rgba(34,197,94,0.1);border-radius:50%;display:flex;align-items:center;justify-content:center;color:#22C55E;">
+                        <i class="fas ${n.icon}"></i>
+                    </div>
+                    <div style="flex:1;">
+                        <div style="color:#ffffff;font-size:14px;">${n.text}</div>
+                        <div style="color:#777777;font-size:12px;">${n.time}</div>
+                    </div>
+                </div>
+            `).join('')}
+            <button class="btn-settings primary" style="margin-top:16px;width:100%;justify-content:center;" onclick="closeDetailModal()">Fechar</button>
+        </div>
+    `;
+    
+    const badge = document.getElementById('notificationBadge');
+    if (badge) badge.classList.add('hidden');
+    
+    modal.style.display = 'block';
+    document.body.style.overflow = 'hidden';
+}
+
+// ============================================
+// 14. ATUALIZAR DASHBOARD
+// ============================================
+function refreshDashboard() {
+    const btn = document.querySelector('.btn-refresh-top');
+    if (btn) btn.classList.add('spinning');
+    
+    showToast('🔄 Atualizando dados...');
+    
+    setTimeout(() => {
+        const kpiAulas = document.getElementById('kpiAulasHoje');
+        const kpiAlunos = document.getElementById('kpiAlunos');
+        const kpiGanho = document.getElementById('kpiGanho');
+        const kpiAvaliacao = document.getElementById('kpiAvaliacao');
+        
+        if (kpiAulas) {
+            const novoValor = Math.floor(Math.random() * 8) + 2;
+            kpiAulas.textContent = novoValor;
+            animateValue(kpiAulas);
+        }
+        
+        if (kpiAlunos) {
+            const novoValor = Math.floor(Math.random() * 15) + 20;
+            kpiAlunos.textContent = novoValor;
+            animateValue(kpiAlunos);
+        }
+        
+        if (kpiGanho) {
+            const novoValor = (Math.random() * 2000 + 3000).toFixed(2);
+            kpiGanho.textContent = `R$ ${novoValor.replace('.', ',')}`;
+            animateValue(kpiGanho);
+        }
+        
+        if (kpiAvaliacao) {
+            const novoValor = (Math.random() * 0.4 + 4.6).toFixed(1);
+            kpiAvaliacao.textContent = novoValor;
+            animateValue(kpiAvaliacao);
+        }
+        
+        updateNotifications();
+        
+        if (btn) btn.classList.remove('spinning');
+        showToast('✅ Dados atualizados com sucesso!');
+    }, 1500);
+}
+
+// ============================================
+// 15. ANIMAR VALOR
+// ============================================
+function animateValue(element) {
+    element.style.transition = 'transform 0.3s ease';
+    element.style.transform = 'scale(1.2)';
+    setTimeout(() => {
+        element.style.transform = 'scale(1)';
+    }, 300);
+}
+
+// ============================================
+// 16. MUDAR PERÍODO FINANCEIRO
+// ============================================
+function changeFinancePeriod(period) {
+    const periodNames = {
+        'mes': 'Este mês',
+        'trimestre': 'Último trimestre',
+        'ano': 'Último ano'
+    };
+    showToast(`📊 Alterando período para: ${periodNames[period]}`);
+}
+
+// ============================================
+// 17. FECHAR MODAL
+// ============================================
+function closeDetailModal() {
+    const modal = document.getElementById('detailModal');
+    if (modal) {
+        modal.style.display = 'none';
+        document.body.style.overflow = 'auto';
+    }
+}
+
+// ============================================
+// 18. ABRIR SUPORTE
 // ============================================
 function openSupport() {
     showToast('🛟 Chamado aberto! Em breve responderemos.');
 }
 
 // ============================================
-// 9. TOAST NOTIFICATION
+// 19. TOAST NOTIFICATION
 // ============================================
 function showToast(message) {
-    // Remover toast existente
     const existingToast = document.querySelector('.toast-notification');
     if (existingToast) {
         existingToast.remove();
@@ -440,8 +681,277 @@ function showToast(message) {
 }
 
 // ============================================
-// 10. EXPORTAR FUNÇÕES (para uso global)
+// 20. FECHAR MODAL COM ESC
 // ============================================
+window.addEventListener('keydown', function(event) {
+    if (event.key === 'Escape') {
+        closeDetailModal();
+    }
+});
+
+// ============================================
+// 21. EXPORTAR FUNÇÕES
+// ============================================
+window.filterStudents = filterStudents;
+window.filterAulas = filterAulas;
+window.updateChart = updateChart;
+window.refreshDashboard = refreshDashboard;
+window.showNotifications = showNotifications;
 window.showToast = showToast;
 window.openSupport = openSupport;
-window.updateCurrentDate = updateCurrentDate;
+window.closeDetailModal = closeDetailModal;
+window.changeFinancePeriod = changeFinancePeriod;
+
+
+
+
+
+// ============================================
+// DRIVEMARCH - FUNÇÕES DOS ALUNOS
+// ============================================
+
+// ============================================
+// 1. MOSTRAR DETALHES DO ALUNO
+// ============================================
+function showStudentDetail(name) {
+    const modal = document.getElementById('studentModal');
+    if (!modal) return;
+    
+    const title = document.getElementById('modalStudentTitle');
+    const body = document.getElementById('modalStudentBody');
+    
+    title.textContent = `📋 ${name}`;
+    body.innerHTML = `
+        <div class="detail-row">
+            <span class="detail-label">Nome completo</span>
+            <span class="detail-value">${name}</span>
+        </div>
+        <div class="detail-row">
+            <span class="detail-label">Categoria</span>
+            <span class="detail-value">Categoria B</span>
+        </div>
+        <div class="detail-row">
+            <span class="detail-label">Status</span>
+            <span class="detail-value" style="color:#22C55E;">Ativo</span>
+        </div>
+        <div class="detail-row">
+            <span class="detail-label">Total de aulas</span>
+            <span class="detail-value">12</span>
+        </div>
+        <div class="detail-row">
+            <span class="detail-label">Progresso</span>
+            <span class="detail-value">75%</span>
+        </div>
+        <div class="detail-row">
+            <span class="detail-label">Data de cadastro</span>
+            <span class="detail-value">15/03/2024</span>
+        </div>
+        <div class="detail-row">
+            <span class="detail-label">Telefone</span>
+            <span class="detail-value">(11) 99999-9999</span>
+        </div>
+        <div class="detail-row" style="border-bottom:none;">
+            <span class="detail-label">E-mail</span>
+            <span class="detail-value">${name.toLowerCase().replace(' ', '.')}@email.com</span>
+        </div>
+        <button class="btn-settings primary" style="margin-top:16px;width:100%;justify-content:center;" onclick="closeStudentModal()">Fechar</button>
+    `;
+    
+    modal.style.display = 'block';
+    document.body.style.overflow = 'hidden';
+}
+
+// ============================================
+// 2. MOSTRAR AULAS DO ALUNO
+// ============================================
+function showStudentClasses(name) {
+    const modal = document.getElementById('studentModal');
+    if (!modal) return;
+    
+    const title = document.getElementById('modalStudentTitle');
+    const body = document.getElementById('modalStudentBody');
+    
+    title.textContent = `📅 Aulas de ${name}`;
+    body.innerHTML = `
+        <div class="detail-row">
+            <span class="detail-label">Próxima aula</span>
+            <span class="detail-value">15/06/2024 - 08:00</span>
+        </div>
+        <div class="detail-row">
+            <span class="detail-label">Última aula</span>
+            <span class="detail-value">08/06/2024 - 10:00</span>
+        </div>
+        <div class="detail-row">
+            <span class="detail-label">Total de aulas</span>
+            <span class="detail-value">12</span>
+        </div>
+        <div class="detail-row">
+            <span class="detail-label">Aulas concluídas</span>
+            <span class="detail-value">9</span>
+        </div>
+        <div class="detail-row" style="border-bottom:none;">
+            <span class="detail-label">Frequência</span>
+            <span class="detail-value" style="color:#22C55E;">95%</span>
+        </div>
+        <button class="btn-settings primary" style="margin-top:16px;width:100%;justify-content:center;" onclick="closeStudentModal()">Fechar</button>
+    `;
+    
+    modal.style.display = 'block';
+    document.body.style.overflow = 'hidden';
+}
+
+// ============================================
+// 3. MOSTRAR FINANCEIRO DO ALUNO
+// ============================================
+function showStudentFinance(name) {
+    const modal = document.getElementById('studentModal');
+    if (!modal) return;
+    
+    const title = document.getElementById('modalStudentTitle');
+    const body = document.getElementById('modalStudentBody');
+    
+    title.textContent = `💰 Financeiro de ${name}`;
+    body.innerHTML = `
+        <div class="detail-row">
+            <span class="detail-label">Total investido</span>
+            <span class="detail-value">R$ 1.800,00</span>
+        </div>
+        <div class="detail-row">
+            <span class="detail-label">Último pagamento</span>
+            <span class="detail-value">R$ 150,00 - 10/06/2024</span>
+        </div>
+        <div class="detail-row">
+            <span class="detail-label">Próximo vencimento</span>
+            <span class="detail-value">15/06/2024</span>
+        </div>
+        <div class="detail-row">
+            <span class="detail-label">Status</span>
+            <span class="detail-value" style="color:#22C55E;">Em dia</span>
+        </div>
+        <div class="detail-row" style="border-bottom:none;">
+            <span class="detail-label">Pacote</span>
+            <span class="detail-value">10 aulas + 2 extras</span>
+        </div>
+        <button class="btn-settings primary" style="margin-top:16px;width:100%;justify-content:center;" onclick="closeStudentModal()">Fechar</button>
+    `;
+    
+    modal.style.display = 'block';
+    document.body.style.overflow = 'hidden';
+}
+
+// ============================================
+// 4. VER PERFIL COMPLETO
+// ============================================
+function viewFullProfile(name) {
+    showToast(`👤 Abrindo perfil completo de ${name}`);
+}
+
+// ============================================
+// 5. FECHAR MODAL DE ALUNOS
+// ============================================
+function closeStudentModal() {
+    const modal = document.getElementById('studentModal');
+    if (modal) {
+        modal.style.display = 'none';
+        document.body.style.overflow = 'auto';
+    }
+}
+
+// ============================================
+// 6. FILTRAR ALUNOS
+// ============================================
+function filterStudents(filter) {
+    const buttons = document.querySelectorAll('.filter-btn-full');
+    buttons.forEach(btn => btn.classList.remove('active'));
+    document.querySelector(`.filter-btn-full[data-filter="${filter}"]`)?.classList.add('active');
+    
+    const studentCards = document.querySelectorAll('.student-card-full');
+    const searchInput = document.getElementById('searchInput');
+    const searchTerm = searchInput?.value?.toLowerCase().trim() || '';
+    
+    studentCards.forEach(card => {
+        const status = card.dataset.status;
+        let show = true;
+        
+        if (filter === 'active' && status !== 'active') show = false;
+        if (filter === 'inactive' && status !== 'inactive') show = false;
+        
+        if (show && searchTerm) {
+            const name = card.querySelector('.student-name-full')?.textContent?.toLowerCase() || '';
+            const category = card.querySelector('.student-category-full')?.textContent?.toLowerCase() || '';
+            if (!name.includes(searchTerm) && !category.includes(searchTerm)) {
+                show = false;
+            }
+        }
+        
+        card.style.display = show ? '' : 'none';
+    });
+}
+
+// ============================================
+// 7. BUSCA DE ALUNOS
+// ============================================
+document.addEventListener('DOMContentLoaded', function() {
+    const searchInput = document.getElementById('searchInput');
+    if (searchInput) {
+        searchInput.addEventListener('input', function() {
+            const searchTerm = this.value.toLowerCase().trim();
+            const studentCards = document.querySelectorAll('.student-card-full');
+            
+            // Pegar o filtro ativo
+            const activeFilter = document.querySelector('.filter-btn-full.active');
+            const filter = activeFilter?.dataset?.filter || 'all';
+            
+            studentCards.forEach(card => {
+                const status = card.dataset.status;
+                const name = card.querySelector('.student-name-full')?.textContent?.toLowerCase() || '';
+                const category = card.querySelector('.student-category-full')?.textContent?.toLowerCase() || '';
+                
+                let show = true;
+                
+                // Aplicar filtro de status
+                if (filter === 'active' && status !== 'active') show = false;
+                if (filter === 'inactive' && status !== 'inactive') show = false;
+                
+                // Aplicar busca
+                if (show && searchTerm) {
+                    if (!name.includes(searchTerm) && !category.includes(searchTerm)) {
+                        show = false;
+                    }
+                }
+                
+                card.style.display = show ? '' : 'none';
+            });
+        });
+    }
+});
+
+// ============================================
+// 8. FECHAR MODAL CLICANDO FORA
+// ============================================
+window.addEventListener('click', function(event) {
+    const studentModal = document.getElementById('studentModal');
+    if (event.target === studentModal) {
+        closeStudentModal();
+    }
+});
+
+// ============================================
+// 9. FECHAR MODAL COM ESC
+// ============================================
+window.addEventListener('keydown', function(event) {
+    if (event.key === 'Escape') {
+        closeStudentModal();
+        closeDetailModal();
+    }
+});
+
+// ============================================
+// 10. EXPORTAR FUNÇÕES
+// ============================================
+window.showStudentDetail = showStudentDetail;
+window.showStudentClasses = showStudentClasses;
+window.showStudentFinance = showStudentFinance;
+window.viewFullProfile = viewFullProfile;
+window.closeStudentModal = closeStudentModal;
+window.filterStudents = filterStudents;

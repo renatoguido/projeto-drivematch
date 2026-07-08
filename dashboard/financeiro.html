@@ -16,18 +16,17 @@
 </head>
 
 <body>
-    <div class="site-wrapper">
+   <div class="site-wrapper">
         <!-- TOP BAR -->
         <header class="top-bar">
             <div class="top-bar-content">
                 <div class="logo-area">
                     <i class="fas fa-car-side"></i>
-                    <span>DRIVEMACH</span>
+                    <span>DRIVEMATCH</span>
                 </div>
                 <div class="top-bar-right">
-                    <span class="user-greeting">Olá, Marcos Silva</span>
+                    <span class="user-greeting">Olá, <span id="userNameDisplay">Marcos Silva</span></span>
                     <span class="user-role-badge">Instrutor</span>
-                    <button class="btn-logout"><i class="fas fa-sign-out-alt"></i> Sair</button>
                 </div>
             </div>
         </header>
@@ -63,11 +62,12 @@
                     <div class="header-actions-full">
                         <span class="notification-bell"><i class="far fa-bell"></i></span>
                         <span class="date-display" id="currentDate"></span>
+                        <span class="time-display" id="currentTime"></span>
                     </div>
                 </div>
 
                 <section class="finance-kpi-grid-full">
-                    <div class="finance-kpi-card-full">
+                    <div class="finance-kpi-card-full" onclick="showToast('💰 Ganho do mês: R$ 4.680,00')">
                         <div class="finance-kpi-icon-full green"><i class="fas fa-arrow-up"></i></div>
                         <div class="finance-kpi-content-full">
                             <span class="finance-kpi-label-full">Ganho do mês</span>
@@ -75,7 +75,7 @@
                             <span class="finance-kpi-sub-full negative">-12% vs mês anterior</span>
                         </div>
                     </div>
-                    <div class="finance-kpi-card-full">
+                    <div class="finance-kpi-card-full" onclick="showToast('💰 Recebidos: R$ 4.200,00')">
                         <div class="finance-kpi-icon-full blue"><i class="fas fa-check-circle"></i></div>
                         <div class="finance-kpi-content-full">
                             <span class="finance-kpi-label-full">Recebidos</span>
@@ -83,7 +83,7 @@
                             <span class="finance-kpi-sub-full">69% do total</span>
                         </div>
                     </div>
-                    <div class="finance-kpi-card-full">
+                    <div class="finance-kpi-card-full" onclick="showToast('💰 Pendentes: R$ 480,00')">
                         <div class="finance-kpi-icon-full orange"><i class="fas fa-clock"></i></div>
                         <div class="finance-kpi-content-full">
                             <span class="finance-kpi-label-full">Pendentes</span>
@@ -159,7 +159,7 @@
 
         <footer class="site-footer">
             <div class="footer-content">
-                <p>© 2026 DriveMach. Todos os direitos reservados.</p>
+                <p>© 2026 DriveMatch. Todos os direitos reservados.</p>
                 <div class="footer-links-full">
                     <a href="#">Política de Privacidade</a>
                     <a href="#">Termos de Uso</a>
@@ -168,7 +168,6 @@
             </div>
         </footer>
     </div>
-
     <script src="../js/dashboard.js"></script>
 </body>
 

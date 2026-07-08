@@ -16,18 +16,17 @@
 </head>
 
 <body>
-    <div class="site-wrapper">
+     <div class="site-wrapper">
         <!-- TOP BAR -->
         <header class="top-bar">
             <div class="top-bar-content">
                 <div class="logo-area">
                     <i class="fas fa-car-side"></i>
-                    <span>DRIVEMACH</span>
+                    <span>DRIVEMATCH</span>
                 </div>
                 <div class="top-bar-right">
-                    <span class="user-greeting">Olá, Marcos Silva</span>
+                    <span class="user-greeting">Olá, <span id="userNameDisplay">Marcos Silva</span></span>
                     <span class="user-role-badge">Instrutor</span>
-                    <button class="btn-logout"><i class="fas fa-sign-out-alt"></i> Sair</button>
                 </div>
             </div>
         </header>
@@ -63,6 +62,7 @@
                     <div class="header-actions-full">
                         <span class="notification-bell"><i class="far fa-bell"></i></span>
                         <span class="date-display" id="currentDate"></span>
+                        <span class="time-display" id="currentTime"></span>
                     </div>
                 </div>
 
@@ -124,14 +124,10 @@
                             <canvas id="categoryChart"></canvas>
                         </div>
                         <div class="category-legend-full">
-                            <span class="legend-item"><span class="color-dot" style="background:#22C55E;"></span> B - 24
-                                (50%)</span>
-                            <span class="legend-item"><span class="color-dot" style="background:#3B82F6;"></span> A - 12
-                                (25%)</span>
-                            <span class="legend-item"><span class="color-dot" style="background:#F59E0B;"></span> AB - 8
-                                (16,7%)</span>
-                            <span class="legend-item"><span class="color-dot" style="background:#8B5CF6;"></span> D - 4
-                                (8,3%)</span>
+                            <span class="legend-item"><span class="color-dot" style="background:#22C55E;"></span> B - 24 (50%)</span>
+                            <span class="legend-item"><span class="color-dot" style="background:#3B82F6;"></span> A - 12 (25%)</span>
+                            <span class="legend-item"><span class="color-dot" style="background:#F59E0B;"></span> AB - 8 (16,7%)</span>
+                            <span class="legend-item"><span class="color-dot" style="background:#8B5CF6;"></span> D - 4 (8,3%)</span>
                         </div>
                     </section>
                 </div>
@@ -150,7 +146,7 @@
 
         <footer class="site-footer">
             <div class="footer-content">
-                <p>© 2026 DriveMach. Todos os direitos reservados.</p>
+                <p>© 2026 DriveMatch. Todos os direitos reservados.</p>
                 <div class="footer-links-full">
                     <a href="#">Política de Privacidade</a>
                     <a href="#">Termos de Uso</a>

@@ -11,18 +11,17 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
 </head>
 <body>
-    <div class="site-wrapper">
+   <div class="site-wrapper">
         <!-- TOP BAR -->
         <header class="top-bar">
             <div class="top-bar-content">
                 <div class="logo-area">
                     <i class="fas fa-car-side"></i>
-                    <span>DRIVEMACH</span>
+                    <span>DRIVEMATCH</span>
                 </div>
                 <div class="top-bar-right">
-                    <span class="user-greeting">Olá, Marcos Silva</span>
+                    <span class="user-greeting">Olá, <span id="userNameDisplay">Marcos Silva</span></span>
                     <span class="user-role-badge">Instrutor</span>
-                    <button class="btn-logout"><i class="fas fa-sign-out-alt"></i> Sair</button>
                 </div>
             </div>
         </header>
@@ -58,6 +57,7 @@
                     <div class="header-actions-full">
                         <span class="notification-bell"><i class="far fa-bell"></i></span>
                         <span class="date-display" id="currentDate"></span>
+                        <span class="time-display" id="currentTime"></span>
                     </div>
                 </div>
 
@@ -135,7 +135,7 @@
 
         <footer class="site-footer">
             <div class="footer-content">
-                <p>© 2026 DriveMach. Todos os direitos reservados.</p>
+                <p>© 2026 DriveMatch. Todos os direitos reservados.</p>
                 <div class="footer-links-full">
                     <a href="#">Política de Privacidade</a>
                     <a href="#">Termos de Uso</a>

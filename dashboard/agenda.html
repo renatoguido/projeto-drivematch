@@ -15,18 +15,17 @@
 </head>
 
 <body>
-    <div class="site-wrapper">
+ <div class="site-wrapper">
         <!-- TOP BAR -->
         <header class="top-bar">
             <div class="top-bar-content">
                 <div class="logo-area">
                     <i class="fas fa-car-side"></i>
-                    <span>DRIVEMACH</span>
+                    <span>DRIVEMATCH</span>
                 </div>
                 <div class="top-bar-right">
-                    <span class="user-greeting">Olá, Marcos Silva</span>
+                    <span class="user-greeting">Olá, <span id="userNameDisplay">Marcos Silva</span></span>
                     <span class="user-role-badge">Instrutor</span>
-                    <button class="btn-logout"><i class="fas fa-sign-out-alt"></i> Sair</button>
                 </div>
             </div>
         </header>
@@ -62,6 +61,7 @@
                     <div class="header-actions-full">
                         <span class="notification-bell"><i class="far fa-bell"></i></span>
                         <span class="date-display" id="currentDate"></span>
+                        <span class="time-display" id="currentTime"></span>
                     </div>
                 </div>
 
@@ -70,7 +70,9 @@
                         <span class="today-label-full"><i class="far fa-calendar-alt"></i> Hoje</span>
                         <span class="today-date-full" id="todayDate"></span>
                     </div>
-                    <button class="btn-new-class-full"><i class="fas fa-plus-circle"></i> Nova aula</button>
+                    <button class="btn-new-class-full" onclick="showToast('➕ Abrir formulário para nova aula')">
+                        <i class="fas fa-plus-circle"></i> Nova aula
+                    </button>
                 </div>
 
                 <section class="class-cards-full">
@@ -80,7 +82,7 @@
                             <span class="class-detail-full">Categoria B • Aula prática</span>
                             <span class="class-status-full confirmed">Confirmada</span>
                         </div>
-                        <a href="#" class="link-ver">Ver</a>
+                        <a href="#" class="link-ver" onclick="showToast('👁️ Detalhes da aula de Juliana Oliveira')">Ver</a>
                     </div>
                     <div class="class-card-full">
                         <div class="class-info-full">
@@ -88,7 +90,7 @@
                             <span class="class-detail-full">Categoria B • Aula prática</span>
                             <span class="class-status-full confirmed">Confirmada</span>
                         </div>
-                        <a href="#" class="link-ver">Ver</a>
+                        <a href="#" class="link-ver" onclick="showToast('👁️ Detalhes da aula de Lucas Andrade')">Ver</a>
                     </div>
                     <div class="class-card-full">
                         <div class="class-info-full">
@@ -96,7 +98,7 @@
                             <span class="class-detail-full">Categoria A • Aula prática</span>
                             <span class="class-status-full confirmed">Confirmada</span>
                         </div>
-                        <a href="#" class="link-ver">Ver</a>
+                        <a href="#" class="link-ver" onclick="showToast('👁️ Detalhes da aula de Beatriz Lima')">Ver</a>
                     </div>
                     <div class="class-card-full">
                         <div class="class-info-full">
@@ -104,7 +106,7 @@
                             <span class="class-detail-full">Categoria B • Aula prática</span>
                             <span class="class-status-full confirmed">Confirmada</span>
                         </div>
-                        <a href="#" class="link-ver">Ver</a>
+                        <a href="#" class="link-ver" onclick="showToast('👁️ Detalhes da aula de Carlos Henrique')">Ver</a>
                     </div>
                     <div class="class-card-full">
                         <div class="class-info-full">
@@ -112,20 +114,19 @@
                             <span class="class-detail-full">Categoria B • Aula prática</span>
                             <span class="class-status-full confirmed">Confirmada</span>
                         </div>
-                        <a href="#" class="link-ver">Ver</a>
+                        <a href="#" class="link-ver" onclick="showToast('👁️ Detalhes da aula de Tatiane Mendes')">Ver</a>
                     </div>
                 </section>
 
                 <div class="support-message-full">
-                    <p><i class="fas fa-info-circle"></i> Não encontrou sua aula? Atualize a página ou entre em contato
-                        com o suporte.</p>
+                    <p><i class="fas fa-info-circle"></i> Não encontrou sua aula? Atualize a página ou entre em contato com o suporte.</p>
                 </div>
             </div>
         </main>
 
         <footer class="site-footer">
             <div class="footer-content">
-                <p>© 2026 DriveMach. Todos os direitos reservados.</p>
+                <p>© 2026 DriveMatch. Todos os direitos reservados.</p>
                 <div class="footer-links-full">
                     <a href="#">Política de Privacidade</a>
                     <a href="#">Termos de Uso</a>
