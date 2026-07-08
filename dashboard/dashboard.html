@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -7,10 +8,13 @@
     <link rel="stylesheet" href="../css/dashboard.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&display=swap"
+        rel="stylesheet" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
+
 <body>
     <div class="site-wrapper">
         <!-- TOP BAR -->
@@ -23,6 +27,10 @@
                 <div class="top-bar-right">
                     <span class="user-greeting">Olá, <span id="userNameDisplay">Marcos Silva</span></span>
                     <span class="user-role-badge">Instrutor</span>
+                    <button class="btn-logout-dashboard" onclick="openLogoutModal()">
+                        <i class="fas fa-sign-out-alt"></i>
+                        <span>Sair</span>
+                    </button>
                 </div>
             </div>
         </header>
@@ -53,11 +61,11 @@
         <!-- CONTEÚDO PRINCIPAL -->
         <main class="main-content-full">
             <div class="content-wrapper">
-                <!-- HEADER DO CONTEÚDO -->
                 <div class="content-header">
                     <div>
                         <h1>Dashboard</h1>
-                        <p class="content-subtitle" id="welcomeMessage">Bem-vindo(a) de volta! Veja o resumo das suas atividades.</p>
+                        <p class="content-subtitle" id="welcomeMessage">Bem-vindo(a) de volta! Veja o resumo das suas
+                            atividades.</p>
                     </div>
                     <div class="header-actions-full">
                         <span class="notification-bell" onclick="showNotifications()">
@@ -69,7 +77,7 @@
                     </div>
                 </div>
 
-                <!-- KPI CARDS INTERATIVOS -->
+                <!-- KPI CARDS -->
                 <section class="kpi-grid-full" id="kpiGrid">
                     <div class="kpi-card-full" onclick="showKpiDetail('Aulas hoje', '5')" data-kpi="aulas">
                         <div class="kpi-icon-full"><i class="fas fa-calendar-check"></i></div>
@@ -119,57 +127,61 @@
 
                 <!-- GRID DE CONTEÚDO -->
                 <div class="content-grid-full">
-                    <!-- Próximas aulas interativas -->
                     <section class="card-full" id="proximasAulas">
                         <div class="card-header-full">
                             <h2><i class="fas fa-clock"></i> Próximas aulas</h2>
                             <div class="card-actions">
                                 <button class="btn-filter" onclick="filterAulas('all')" data-filter="all">Todas</button>
-                                <button class="btn-filter active" onclick="filterAulas('hoje')" data-filter="hoje">Hoje</button>
-                                <button class="btn-filter" onclick="filterAulas('semana')" data-filter="semana">Semana</button>
-                                <a href="agenda.html" class="link-ver-all">Ver todas <i class="fas fa-arrow-right"></i></a>
+                                <button class="btn-filter active" onclick="filterAulas('hoje')"
+                                    data-filter="hoje">Hoje</button>
+                                <button class="btn-filter" onclick="filterAulas('semana')"
+                                    data-filter="semana">Semana</button>
+                                <a href="agenda.html" class="link-ver-all">Ver todas <i
+                                        class="fas fa-arrow-right"></i></a>
                             </div>
                         </div>
                         <ul class="class-list-full" id="classList">
-                            <li data-date="2024-06-10">
+                            <li data-date="2026-06-10">
                                 <span class="time-full">08:00</span>
                                 <span class="student-full">Juliana Oliveira</span>
                                 <span class="category-full">Categoria B - Aula prática</span>
                                 <span class="status-badge-small confirmed">Confirmada</span>
-                                <a href="#" class="link-ver" onclick="viewClassDetail('Juliana Oliveira', '08:00')">Ver</a>
+                                <a href="#" class="link-ver"
+                                    onclick="viewClassDetail('Juliana Oliveira', '08:00')">Ver</a>
                             </li>
-                            <li data-date="2024-06-10">
+                            <li data-date="2026-06-10">
                                 <span class="time-full">10:00</span>
                                 <span class="student-full">Lucas Andrade</span>
                                 <span class="category-full">Categoria B - Aula prática</span>
                                 <span class="status-badge-small confirmed">Confirmada</span>
                                 <a href="#" class="link-ver" onclick="viewClassDetail('Lucas Andrade', '10:00')">Ver</a>
                             </li>
-                            <li data-date="2024-06-11">
+                            <li data-date="2026-06-11">
                                 <span class="time-full">13:30</span>
                                 <span class="student-full">Beatriz Lima</span>
                                 <span class="category-full">Categoria A - Aula prática</span>
                                 <span class="status-badge-small pending">Pendente</span>
                                 <a href="#" class="link-ver" onclick="viewClassDetail('Beatriz Lima', '13:30')">Ver</a>
                             </li>
-                            <li data-date="2024-06-12">
+                            <li data-date="2026-06-12">
                                 <span class="time-full">15:30</span>
                                 <span class="student-full">Carlos Henrique</span>
                                 <span class="category-full">Categoria B - Aula prática</span>
                                 <span class="status-badge-small confirmed">Confirmada</span>
-                                <a href="#" class="link-ver" onclick="viewClassDetail('Carlos Henrique', '15:30')">Ver</a>
+                                <a href="#" class="link-ver"
+                                    onclick="viewClassDetail('Carlos Henrique', '15:30')">Ver</a>
                             </li>
-                            <li data-date="2024-06-12">
+                            <li data-date="2026-06-12">
                                 <span class="time-full">17:00</span>
                                 <span class="student-full">Tatiane Mendes</span>
                                 <span class="category-full">Categoria B - Aula prática</span>
                                 <span class="status-badge-small cancelled">Cancelada</span>
-                                <a href="#" class="link-ver" onclick="viewClassDetail('Tatiane Mendes', '17:00')">Ver</a>
+                                <a href="#" class="link-ver"
+                                    onclick="viewClassDetail('Tatiane Mendes', '17:00')">Ver</a>
                             </li>
                         </ul>
                     </section>
 
-                    <!-- Resumo financeiro interativo -->
                     <section class="card-full">
                         <div class="card-header-full">
                             <h2><i class="fas fa-chart-pie"></i> Resumo financeiro (mês)</h2>
@@ -195,16 +207,18 @@
                                 <span class="finance-value-full">R$ 480,00</span>
                                 <span class="finance-badge-full negative">-3%</span>
                             </div>
-                            <div class="finance-item-full total" onclick="showFinanceDetail('Total líquido', 'R$ 4.180,00')">
+                            <div class="finance-item-full total"
+                                onclick="showFinanceDetail('Total líquido', 'R$ 4.180,00')">
                                 <span class="finance-label-full" style="font-weight:700;">Total líquido</span>
-                                <span class="finance-value-full" style="font-size:20px;color:#22C55E;">R$ 4.180,00</span>
+                                <span class="finance-value-full" style="font-size:20px;color:#22C55E;">R$
+                                    4.180,00</span>
                                 <span class="finance-badge-full positive">+10%</span>
                             </div>
-                            <a href="financeiro.html" class="btn-finance-full">Ver financeiro <i class="fas fa-arrow-right"></i></a>
+                            <a href="financeiro.html" class="btn-finance-full">Ver financeiro <i
+                                    class="fas fa-arrow-right"></i></a>
                         </div>
                     </section>
 
-                    <!-- Avaliações interativas -->
                     <section class="card-full">
                         <div class="card-header-full">
                             <h2><i class="fas fa-star"></i> Avaliações</h2>
@@ -213,19 +227,19 @@
                         <ul class="review-list-full" id="reviewList">
                             <li onclick="showReviewDetail('Juliana Oliveira', 5.0)">
                                 <span class="review-student-full">Juliana Oliveira</span>
-                                <span class="review-date-full">10/06/2024</span>
+                                <span class="review-date-full">10/06/2026</span>
                                 <span class="review-score-full">5,0</span>
                                 <span class="stars-display">★★★★★</span>
                             </li>
                             <li onclick="showReviewDetail('Lucas Andrade', 4.8)">
                                 <span class="review-student-full">Lucas Andrade</span>
-                                <span class="review-date-full">08/06/2024</span>
+                                <span class="review-date-full">08/06/2026</span>
                                 <span class="review-score-full">4,8</span>
                                 <span class="stars-display">★★★★☆</span>
                             </li>
                             <li onclick="showReviewDetail('Beatriz Lima', 5.0)">
                                 <span class="review-student-full">Beatriz Lima</span>
-                                <span class="review-date-full">08/06/2024</span>
+                                <span class="review-date-full">08/06/2026</span>
                                 <span class="review-score-full">5,0</span>
                                 <span class="stars-display">★★★★★</span>
                             </li>
@@ -244,7 +258,9 @@
                     <div class="card-header-full">
                         <h2><i class="fas fa-users"></i> Alunos cadastrados</h2>
                         <span class="badge-full" id="totalAlunos">5 alunos</span>
-                        <button class="btn-new-student-full" onclick="showToast('➕ Abrir formulário para cadastrar novo aluno')" style="padding:4px 16px;font-size:12px;">
+                        <button class="btn-new-student-full"
+                            onclick="showToast('➕ Abrir formulário para cadastrar novo aluno')"
+                            style="padding:4px 16px;font-size:12px;">
                             <i class="fas fa-plus-circle"></i> Novo aluno
                         </button>
                     </div>
@@ -267,45 +283,50 @@
                                     <td><span class="student-name">Juliana Oliveira</span></td>
                                     <td><span class="student-category">Categoria B</span></td>
                                     <td>12</td>
-                                    <td>12/06/2024</td>
+                                    <td>12/06/2026</td>
                                     <td><span class="rating">★ 5,0</span></td>
-                                    <td><button class="btn-view" onclick="showToast('👤 Perfil de Juliana Oliveira')">Ver</button></td>
+                                    <td><button class="btn-view"
+                                            onclick="showToast('👤 Perfil de Juliana Oliveira')">Ver</button></td>
                                 </tr>
                                 <tr>
                                     <td>2</td>
                                     <td><span class="student-name">Lucas Andrade</span></td>
                                     <td><span class="student-category">Categoria B</span></td>
                                     <td>10</td>
-                                    <td>10/06/2024</td>
+                                    <td>10/06/2026</td>
                                     <td><span class="rating">★ 4,8</span></td>
-                                    <td><button class="btn-view" onclick="showToast('👤 Perfil de Lucas Andrade')">Ver</button></td>
+                                    <td><button class="btn-view"
+                                            onclick="showToast('👤 Perfil de Lucas Andrade')">Ver</button></td>
                                 </tr>
                                 <tr>
                                     <td>3</td>
                                     <td><span class="student-name">Beatriz Lima</span></td>
                                     <td><span class="student-category">Categoria A</span></td>
                                     <td>8</td>
-                                    <td>11/06/2024</td>
+                                    <td>11/06/2026</td>
                                     <td><span class="rating">★ 5,0</span></td>
-                                    <td><button class="btn-view" onclick="showToast('👤 Perfil de Beatriz Lima')">Ver</button></td>
+                                    <td><button class="btn-view"
+                                            onclick="showToast('👤 Perfil de Beatriz Lima')">Ver</button></td>
                                 </tr>
                                 <tr>
                                     <td>4</td>
                                     <td><span class="student-name">Carlos Henrique</span></td>
                                     <td><span class="student-category">Categoria B</span></td>
                                     <td>6</td>
-                                    <td>10/06/2024</td>
+                                    <td>10/06/2026</td>
                                     <td><span class="rating">★ 4,9</span></td>
-                                    <td><button class="btn-view" onclick="showToast('👤 Perfil de Carlos Henrique')">Ver</button></td>
+                                    <td><button class="btn-view"
+                                            onclick="showToast('👤 Perfil de Carlos Henrique')">Ver</button></td>
                                 </tr>
                                 <tr>
                                     <td>5</td>
                                     <td><span class="student-name">Tatiane Mendes</span></td>
                                     <td><span class="student-category">Categoria B</span></td>
                                     <td>4</td>
-                                    <td>09/06/2024</td>
+                                    <td>09/06/2026</td>
                                     <td><span class="rating">★ 5,0</span></td>
-                                    <td><button class="btn-view" onclick="showToast('👤 Perfil de Tatiane Mendes')">Ver</button></td>
+                                    <td><button class="btn-view"
+                                            onclick="showToast('👤 Perfil de Tatiane Mendes')">Ver</button></td>
                                 </tr>
                             </tbody>
                         </table>
@@ -323,8 +344,10 @@
                         <h2><i class="fas fa-chart-area"></i> Desempenho semanal</h2>
                         <div class="chart-controls">
                             <button class="btn-chart" onclick="updateChart('aulas')" data-chart="aulas">Aulas</button>
-                            <button class="btn-chart active" onclick="updateChart('faturamento')" data-chart="faturamento">Faturamento</button>
-                            <button class="btn-chart" onclick="updateChart('alunos')" data-chart="alunos">Alunos</button>
+                            <button class="btn-chart active" onclick="updateChart('faturamento')"
+                                data-chart="faturamento">Faturamento</button>
+                            <button class="btn-chart" onclick="updateChart('alunos')"
+                                data-chart="alunos">Alunos</button>
                         </div>
                     </div>
                     <div class="chart-container-full" style="height:200px;">
@@ -358,6 +381,18 @@
         </div>
     </div>
 
+    <!-- ===== MODAL DE ALUNOS ===== -->
+    <div id="studentModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 id="modalStudentTitle">Detalhes do Aluno</h2>
+                <span class="modal-close" onclick="closeStudentModal()">&times;</span>
+            </div>
+            <div class="modal-body" id="modalStudentBody"></div>
+        </div>
+    </div>
+
     <script src="../js/dashboard.js"></script>
 </body>
+
 </html>

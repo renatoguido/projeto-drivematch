@@ -15,8 +15,8 @@
 </head>
 
 <body>
- <div class="site-wrapper">
-        <!-- TOP BAR -->
+    <div class="site-wrapper">
+        <!-- TOP BAR ATUALIZADA COM BOTÃO SAIR -->
         <header class="top-bar">
             <div class="top-bar-content">
                 <div class="logo-area">
@@ -26,9 +26,18 @@
                 <div class="top-bar-right">
                     <span class="user-greeting">Olá, <span id="userNameDisplay">Marcos Silva</span></span>
                     <span class="user-role-badge">Instrutor</span>
+                    <span class="top-bar-divider"></span>
+                    <div class="btn-logout-wrapper">
+                        <button class="btn-logout-dashboard" onclick="openLogoutModal()" title="Sair do sistema">
+                            <i class="fas fa-sign-out-alt"></i>
+                            <span>Sair</span>
+                            <span class="tooltip">Sair do sistema</span>
+                        </button>
+                    </div>
                 </div>
             </div>
         </header>
+
 
         <!-- MENU PRINCIPAL -->
         <nav class="main-nav">
@@ -82,7 +91,8 @@
                             <span class="class-detail-full">Categoria B • Aula prática</span>
                             <span class="class-status-full confirmed">Confirmada</span>
                         </div>
-                        <a href="#" class="link-ver" onclick="showToast('👁️ Detalhes da aula de Juliana Oliveira')">Ver</a>
+                        <a href="#" class="link-ver"
+                            onclick="showToast('👁️ Detalhes da aula de Juliana Oliveira')">Ver</a>
                     </div>
                     <div class="class-card-full">
                         <div class="class-info-full">
@@ -90,7 +100,8 @@
                             <span class="class-detail-full">Categoria B • Aula prática</span>
                             <span class="class-status-full confirmed">Confirmada</span>
                         </div>
-                        <a href="#" class="link-ver" onclick="showToast('👁️ Detalhes da aula de Lucas Andrade')">Ver</a>
+                        <a href="#" class="link-ver"
+                            onclick="showToast('👁️ Detalhes da aula de Lucas Andrade')">Ver</a>
                     </div>
                     <div class="class-card-full">
                         <div class="class-info-full">
@@ -106,7 +117,8 @@
                             <span class="class-detail-full">Categoria B • Aula prática</span>
                             <span class="class-status-full confirmed">Confirmada</span>
                         </div>
-                        <a href="#" class="link-ver" onclick="showToast('👁️ Detalhes da aula de Carlos Henrique')">Ver</a>
+                        <a href="#" class="link-ver"
+                            onclick="showToast('👁️ Detalhes da aula de Carlos Henrique')">Ver</a>
                     </div>
                     <div class="class-card-full">
                         <div class="class-info-full">
@@ -114,12 +126,14 @@
                             <span class="class-detail-full">Categoria B • Aula prática</span>
                             <span class="class-status-full confirmed">Confirmada</span>
                         </div>
-                        <a href="#" class="link-ver" onclick="showToast('👁️ Detalhes da aula de Tatiane Mendes')">Ver</a>
+                        <a href="#" class="link-ver"
+                            onclick="showToast('👁️ Detalhes da aula de Tatiane Mendes')">Ver</a>
                     </div>
                 </section>
 
                 <div class="support-message-full">
-                    <p><i class="fas fa-info-circle"></i> Não encontrou sua aula? Atualize a página ou entre em contato com o suporte.</p>
+                    <p><i class="fas fa-info-circle"></i> Não encontrou sua aula? Atualize a página ou entre em contato
+                        com o suporte.</p>
                 </div>
             </div>
         </main>

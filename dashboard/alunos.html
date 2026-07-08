@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>DriveMach · Alunos</title>
+    <title>DriveMatch · Alunos</title>
     <link rel="stylesheet" href="../css/dashboard.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -15,17 +15,21 @@
 </head>
 
 <body>
-     <div class="site-wrapper">
+    <div class="site-wrapper">
         <!-- TOP BAR -->
         <header class="top-bar">
             <div class="top-bar-content">
                 <div class="logo-area">
                     <i class="fas fa-car-side"></i>
                     <span>DRIVEMATCH</span>
+
                 </div>
                 <div class="top-bar-right">
                     <span class="user-greeting">Olá, <span id="userNameDisplay">Marcos Silva</span></span>
                     <span class="user-role-badge">Instrutor</span>
+                    <button class="btn-logout-dashboard" onclick="openLogoutModal()">
+                        <i class="fas fa-sign-out-alt"></i> <span>Sair</span>
+                    </button>
                 </div>
             </div>
         </header>
@@ -71,11 +75,15 @@
                         <input type="text" id="searchInput" placeholder="Buscar aluno..." />
                     </div>
                     <div class="filter-buttons-full">
-                        <button class="filter-btn-full active" data-filter="all" onclick="filterStudents('all')">Todos</button>
-                        <button class="filter-btn-full" data-filter="active" onclick="filterStudents('active')">Ativos</button>
-                        <button class="filter-btn-full" data-filter="inactive" onclick="filterStudents('inactive')">Inativos</button>
+                        <button class="filter-btn-full active" data-filter="all"
+                            onclick="filterStudents('all')">Todos</button>
+                        <button class="filter-btn-full" data-filter="active"
+                            onclick="filterStudents('active')">Ativos</button>
+                        <button class="filter-btn-full" data-filter="inactive"
+                            onclick="filterStudents('inactive')">Inativos</button>
                     </div>
-                    <button class="btn-new-student-full" onclick="showToast('➕ Abrir formulário para cadastrar novo aluno')">
+                    <button class="btn-new-student-full"
+                        onclick="showToast('➕ Abrir formulário para cadastrar novo aluno')">
                         <i class="fas fa-plus-circle"></i> Novo aluno
                     </button>
                 </div>
@@ -93,21 +101,29 @@
                         </div>
                         <div class="student-card-body-full">
                             <div class="student-stats-full">
-                                <div class="stat-item-full"><span class="stat-label-full">Aulas</span><span class="stat-value-full">12</span></div>
-                                <div class="stat-item-full"><span class="stat-label-full">Progresso</span><span class="stat-value-full">75%</span></div>
+                                <div class="stat-item-full"><span class="stat-label-full">Aulas</span><span
+                                        class="stat-value-full">12</span></div>
+                                <div class="stat-item-full"><span class="stat-label-full">Progresso</span><span
+                                        class="stat-value-full">75%</span></div>
                             </div>
                             <div class="student-contact-full">
-                                <div class="contact-item-full"><i class="fas fa-phone"></i><span>(11) 99999-9999</span></div>
-                                <div class="contact-item-full"><i class="fas fa-envelope"></i><span>lucas.andrade@email.com</span></div>
+                                <div class="contact-item-full"><i class="fas fa-phone"></i><span>(11) 99999-9999</span>
+                                </div>
+                                <div class="contact-item-full"><i
+                                        class="fas fa-envelope"></i><span>lucas.andrade@email.com</span></div>
                             </div>
                             <div class="student-actions-full">
-                                <button class="btn-student-action-full" onclick="showStudentDetail('Lucas Andrade')"><i class="fas fa-user"></i> Resumo</button>
-                                <button class="btn-student-action-full" onclick="showStudentClasses('Lucas Andrade')"><i class="fas fa-calendar-alt"></i> Aulas</button>
-                                <button class="btn-student-action-full" onclick="showStudentFinance('Lucas Andrade')"><i class="fas fa-coins"></i> Financeiro</button>
+                                <button class="btn-student-action-full" onclick="showStudentDetail('Lucas Andrade')"><i
+                                        class="fas fa-user"></i> Resumo</button>
+                                <button class="btn-student-action-full" onclick="showStudentClasses('Lucas Andrade')"><i
+                                        class="fas fa-calendar-alt"></i> Aulas</button>
+                                <button class="btn-student-action-full" onclick="showStudentFinance('Lucas Andrade')"><i
+                                        class="fas fa-coins"></i> Financeiro</button>
                             </div>
                         </div>
                         <div class="student-card-footer-full">
-                            <button class="btn-view-profile-full" onclick="viewFullProfile('Lucas Andrade')">Ver perfil completo <i class="fas fa-arrow-right"></i></button>
+                            <button class="btn-view-profile-full" onclick="viewFullProfile('Lucas Andrade')">Ver perfil
+                                completo <i class="fas fa-arrow-right"></i></button>
                         </div>
                     </div>
 
@@ -123,21 +139,32 @@
                         </div>
                         <div class="student-card-body-full">
                             <div class="student-stats-full">
-                                <div class="stat-item-full"><span class="stat-label-full">Aulas</span><span class="stat-value-full">8</span></div>
-                                <div class="stat-item-full"><span class="stat-label-full">Progresso</span><span class="stat-value-full">50%</span></div>
+                                <div class="stat-item-full"><span class="stat-label-full">Aulas</span><span
+                                        class="stat-value-full">8</span></div>
+                                <div class="stat-item-full"><span class="stat-label-full">Progresso</span><span
+                                        class="stat-value-full">50%</span></div>
                             </div>
                             <div class="student-contact-full">
-                                <div class="contact-item-full"><i class="fas fa-phone"></i><span>(11) 98888-8888</span></div>
-                                <div class="contact-item-full"><i class="fas fa-envelope"></i><span>juliana.oliveira@email.com</span></div>
+                                <div class="contact-item-full"><i class="fas fa-phone"></i><span>(11) 98888-8888</span>
+                                </div>
+                                <div class="contact-item-full"><i
+                                        class="fas fa-envelope"></i><span>juliana.oliveira@email.com</span></div>
                             </div>
                             <div class="student-actions-full">
-                                <button class="btn-student-action-full" onclick="showStudentDetail('Juliana Oliveira')"><i class="fas fa-user"></i> Resumo</button>
-                                <button class="btn-student-action-full" onclick="showStudentClasses('Juliana Oliveira')"><i class="fas fa-calendar-alt"></i> Aulas</button>
-                                <button class="btn-student-action-full" onclick="showStudentFinance('Juliana Oliveira')"><i class="fas fa-coins"></i> Financeiro</button>
+                                <button class="btn-student-action-full"
+                                    onclick="showStudentDetail('Juliana Oliveira')"><i class="fas fa-user"></i>
+                                    Resumo</button>
+                                <button class="btn-student-action-full"
+                                    onclick="showStudentClasses('Juliana Oliveira')"><i class="fas fa-calendar-alt"></i>
+                                    Aulas</button>
+                                <button class="btn-student-action-full"
+                                    onclick="showStudentFinance('Juliana Oliveira')"><i class="fas fa-coins"></i>
+                                    Financeiro</button>
                             </div>
                         </div>
                         <div class="student-card-footer-full">
-                            <button class="btn-view-profile-full" onclick="viewFullProfile('Juliana Oliveira')">Ver perfil completo <i class="fas fa-arrow-right"></i></button>
+                            <button class="btn-view-profile-full" onclick="viewFullProfile('Juliana Oliveira')">Ver
+                                perfil completo <i class="fas fa-arrow-right"></i></button>
                         </div>
                     </div>
 
@@ -153,22 +180,31 @@
                         </div>
                         <div class="student-card-body-full">
                             <div class="student-stats-full">
-                                <div class="stat-item-full"><span class="stat-label-full">Aulas</span><span class="stat-value-full">10</span></div>
-                                <div class="stat-item-full"><span class="stat-label-full">Progresso</span><span class="stat-value-full">63%</span></div>
+                                <div class="stat-item-full"><span class="stat-label-full">Aulas</span><span
+                                        class="stat-value-full">10</span></div>
+                                <div class="stat-item-full"><span class="stat-label-full">Progresso</span><span
+                                        class="stat-value-full">63%</span></div>
                             </div>
                             <div class="student-info-grid-full">
-                                <div class="info-item-full"><span class="info-label-full">Categoria</span><span class="info-value-full">A</span></div>
-                                <div class="info-item-full"><span class="info-label-full">Data de cadastro</span><span class="info-value-full">10/05/2024</span></div>
-                                <div class="info-item-full"><span class="info-label-full">Total de aulas</span><span class="info-value-full">10</span></div>
+                                <div class="info-item-full"><span class="info-label-full">Categoria</span><span
+                                        class="info-value-full">A</span></div>
+                                <div class="info-item-full"><span class="info-label-full">Data de cadastro</span><span
+                                        class="info-value-full">10/05/2026</span></div>
+                                <div class="info-item-full"><span class="info-label-full">Total de aulas</span><span
+                                        class="info-value-full">10</span></div>
                             </div>
                             <div class="student-actions-full">
-                                <button class="btn-student-action-full" onclick="showStudentDetail('Beatriz Lima')"><i class="fas fa-user"></i> Resumo</button>
-                                <button class="btn-student-action-full" onclick="showStudentClasses('Beatriz Lima')"><i class="fas fa-calendar-alt"></i> Aulas</button>
-                                <button class="btn-student-action-full" onclick="showStudentFinance('Beatriz Lima')"><i class="fas fa-coins"></i> Financeiro</button>
+                                <button class="btn-student-action-full" onclick="showStudentDetail('Beatriz Lima')"><i
+                                        class="fas fa-user"></i> Resumo</button>
+                                <button class="btn-student-action-full" onclick="showStudentClasses('Beatriz Lima')"><i
+                                        class="fas fa-calendar-alt"></i> Aulas</button>
+                                <button class="btn-student-action-full" onclick="showStudentFinance('Beatriz Lima')"><i
+                                        class="fas fa-coins"></i> Financeiro</button>
                             </div>
                         </div>
                         <div class="student-card-footer-full">
-                            <button class="btn-view-profile-full" onclick="viewFullProfile('Beatriz Lima')">Ver perfil completo <i class="fas fa-arrow-right"></i></button>
+                            <button class="btn-view-profile-full" onclick="viewFullProfile('Beatriz Lima')">Ver perfil
+                                completo <i class="fas fa-arrow-right"></i></button>
                         </div>
                     </div>
 
@@ -184,17 +220,26 @@
                         </div>
                         <div class="student-card-body-full">
                             <div class="student-stats-full">
-                                <div class="stat-item-full"><span class="stat-label-full">Aulas</span><span class="stat-value-full">6</span></div>
-                                <div class="stat-item-full"><span class="stat-label-full">Progresso</span><span class="stat-value-full">38%</span></div>
+                                <div class="stat-item-full"><span class="stat-label-full">Aulas</span><span
+                                        class="stat-value-full">6</span></div>
+                                <div class="stat-item-full"><span class="stat-label-full">Progresso</span><span
+                                        class="stat-value-full">38%</span></div>
                             </div>
                             <div class="student-actions-full">
-                                <button class="btn-student-action-full" onclick="showStudentDetail('Carlos Henrique')"><i class="fas fa-user"></i> Resumo</button>
-                                <button class="btn-student-action-full" onclick="showStudentClasses('Carlos Henrique')"><i class="fas fa-calendar-alt"></i> Aulas</button>
-                                <button class="btn-student-action-full" onclick="showStudentFinance('Carlos Henrique')"><i class="fas fa-coins"></i> Financeiro</button>
+                                <button class="btn-student-action-full"
+                                    onclick="showStudentDetail('Carlos Henrique')"><i class="fas fa-user"></i>
+                                    Resumo</button>
+                                <button class="btn-student-action-full"
+                                    onclick="showStudentClasses('Carlos Henrique')"><i class="fas fa-calendar-alt"></i>
+                                    Aulas</button>
+                                <button class="btn-student-action-full"
+                                    onclick="showStudentFinance('Carlos Henrique')"><i class="fas fa-coins"></i>
+                                    Financeiro</button>
                             </div>
                         </div>
                         <div class="student-card-footer-full">
-                            <button class="btn-view-profile-full" onclick="viewFullProfile('Carlos Henrique')">Ver perfil completo <i class="fas fa-arrow-right"></i></button>
+                            <button class="btn-view-profile-full" onclick="viewFullProfile('Carlos Henrique')">Ver
+                                perfil completo <i class="fas fa-arrow-right"></i></button>
                         </div>
                     </div>
 
@@ -210,17 +255,25 @@
                         </div>
                         <div class="student-card-body-full">
                             <div class="student-stats-full">
-                                <div class="stat-item-full"><span class="stat-label-full">Aulas</span><span class="stat-value-full">4</span></div>
-                                <div class="stat-item-full"><span class="stat-label-full">Progresso</span><span class="stat-value-full">25%</span></div>
+                                <div class="stat-item-full"><span class="stat-label-full">Aulas</span><span
+                                        class="stat-value-full">4</span></div>
+                                <div class="stat-item-full"><span class="stat-label-full">Progresso</span><span
+                                        class="stat-value-full">25%</span></div>
                             </div>
                             <div class="student-actions-full">
-                                <button class="btn-student-action-full" onclick="showStudentDetail('Tatiane Mendes')"><i class="fas fa-user"></i> Resumo</button>
-                                <button class="btn-student-action-full" onclick="showStudentClasses('Tatiane Mendes')"><i class="fas fa-calendar-alt"></i> Aulas</button>
-                                <button class="btn-student-action-full" onclick="showStudentFinance('Tatiane Mendes')"><i class="fas fa-coins"></i> Financeiro</button>
+                                <button class="btn-student-action-full" onclick="showStudentDetail('Tatiane Mendes')"><i
+                                        class="fas fa-user"></i> Resumo</button>
+                                <button class="btn-student-action-full"
+                                    onclick="showStudentClasses('Tatiane Mendes')"><i class="fas fa-calendar-alt"></i>
+                                    Aulas</button>
+                                <button class="btn-student-action-full"
+                                    onclick="showStudentFinance('Tatiane Mendes')"><i class="fas fa-coins"></i>
+                                    Financeiro</button>
                             </div>
                         </div>
                         <div class="student-card-footer-full">
-                            <button class="btn-view-profile-full" onclick="viewFullProfile('Tatiane Mendes')">Ver perfil completo <i class="fas fa-arrow-right"></i></button>
+                            <button class="btn-view-profile-full" onclick="viewFullProfile('Tatiane Mendes')">Ver perfil
+                                completo <i class="fas fa-arrow-right"></i></button>
                         </div>
                     </div>
                 </section>

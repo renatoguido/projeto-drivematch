@@ -16,8 +16,8 @@
 </head>
 
 <body>
-     <div class="site-wrapper">
-        <!-- TOP BAR -->
+    <div class="site-wrapper">
+        <!-- TOP BAR ATUALIZADA COM BOTÃO SAIR -->
         <header class="top-bar">
             <div class="top-bar-content">
                 <div class="logo-area">
@@ -27,9 +27,18 @@
                 <div class="top-bar-right">
                     <span class="user-greeting">Olá, <span id="userNameDisplay">Marcos Silva</span></span>
                     <span class="user-role-badge">Instrutor</span>
+                    <span class="top-bar-divider"></span>
+                    <div class="btn-logout-wrapper">
+                        <button class="btn-logout-dashboard" onclick="openLogoutModal()" title="Sair do sistema">
+                            <i class="fas fa-sign-out-alt"></i>
+                            <span>Sair</span>
+                            <span class="tooltip">Sair do sistema</span>
+                        </button>
+                    </div>
                 </div>
             </div>
         </header>
+
 
         <!-- MENU PRINCIPAL -->
         <nav class="main-nav">
@@ -124,10 +133,14 @@
                             <canvas id="categoryChart"></canvas>
                         </div>
                         <div class="category-legend-full">
-                            <span class="legend-item"><span class="color-dot" style="background:#22C55E;"></span> B - 24 (50%)</span>
-                            <span class="legend-item"><span class="color-dot" style="background:#3B82F6;"></span> A - 12 (25%)</span>
-                            <span class="legend-item"><span class="color-dot" style="background:#F59E0B;"></span> AB - 8 (16,7%)</span>
-                            <span class="legend-item"><span class="color-dot" style="background:#8B5CF6;"></span> D - 4 (8,3%)</span>
+                            <span class="legend-item"><span class="color-dot" style="background:#22C55E;"></span> B - 24
+                                (50%)</span>
+                            <span class="legend-item"><span class="color-dot" style="background:#3B82F6;"></span> A - 12
+                                (25%)</span>
+                            <span class="legend-item"><span class="color-dot" style="background:#F59E0B;"></span> AB - 8
+                                (16,7%)</span>
+                            <span class="legend-item"><span class="color-dot" style="background:#8B5CF6;"></span> D - 4
+                                (8,3%)</span>
                         </div>
                     </section>
                 </div>

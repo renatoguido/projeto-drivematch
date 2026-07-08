@@ -216,8 +216,13 @@
 }
 
 @keyframes spin {
-    from { transform: rotate(0deg); }
-    to { transform: rotate(360deg); }
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
 }
 
 /* Time Display */
@@ -236,25 +241,25 @@
         flex-wrap: wrap;
         gap: 4px;
     }
-    
+
     .btn-filter {
         font-size: 11px;
         padding: 3px 10px;
     }
-    
+
     .chart-controls {
         flex-wrap: wrap;
     }
-    
+
     .btn-chart {
         font-size: 11px;
         padding: 3px 10px;
     }
-    
+
     .stars-display {
         font-size: 12px;
     }
-    
+
     .time-display {
         display: none;
     }
@@ -264,13 +269,13 @@
     .kpi-trend {
         display: none;
     }
-    
+
     .card-actions {
         flex-direction: column;
         align-items: flex-start;
         width: 100%;
     }
-    
+
     .btn-filter {
         width: 100%;
         text-align: center;
@@ -302,7 +307,8 @@
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
 }
 
-html, body {
+html,
+body {
     height: 100%;
     background: #000000;
     color: #ffffff;
@@ -494,8 +500,13 @@ html, body {
 }
 
 @keyframes spin {
-    from { transform: rotate(0deg); }
-    to { transform: rotate(360deg); }
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
 }
 
 /* ============================================
@@ -2042,7 +2053,7 @@ html, body {
     padding: 14px 24px;
     border-radius: 12px;
     border: 1px solid #22C55E;
-    box-shadow: 0 10px 40px rgba(0,0,0,0.5);
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
     z-index: 9999;
     font-size: 14px;
     font-weight: 500;
@@ -2054,8 +2065,13 @@ html, body {
    ANIMAÇÕES
    ============================================ */
 @keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
 }
 
 @keyframes fadeInUp {
@@ -2063,6 +2079,7 @@ html, body {
         opacity: 0;
         transform: translateY(20px);
     }
+
     to {
         opacity: 1;
         transform: translateY(0);
@@ -2074,6 +2091,7 @@ html, body {
         opacity: 0;
         transform: translateY(-30px);
     }
+
     to {
         opacity: 1;
         transform: translateY(0);
@@ -2087,6 +2105,7 @@ html, body {
     .kpi-grid-full {
         grid-template-columns: repeat(2, 1fr);
     }
+
     .reports-cards-grid-full {
         grid-template-columns: repeat(3, 1fr);
     }
@@ -2096,36 +2115,45 @@ html, body {
     .content-grid-full {
         grid-template-columns: 1fr;
     }
+
     .finance-two-col-full {
         grid-template-columns: 1fr;
     }
+
     .reports-grid-full {
         grid-template-columns: 1fr;
     }
+
     .settings-grid-full {
         grid-template-columns: 1fr;
     }
+
     .finance-kpi-grid-full {
         grid-template-columns: 1fr 1fr;
     }
-    
+
     .top-bar {
         padding: 0 16px;
         height: 56px;
     }
+
     .main-nav {
         padding: 0 16px;
     }
+
     .main-content-full {
         padding: 20px 16px;
     }
+
     .site-footer {
         padding: 12px 16px;
     }
+
     .nav-menu {
         flex-wrap: wrap;
         gap: 2px;
     }
+
     .nav-menu li a {
         padding: 6px 12px;
         font-size: 13px;
@@ -2137,98 +2165,125 @@ html, body {
         flex-wrap: wrap;
         gap: 8px;
     }
+
     .top-bar-right {
         flex-wrap: wrap;
         gap: 8px;
     }
+
     .user-greeting {
         font-size: 12px;
     }
+
     .kpi-grid-full {
         grid-template-columns: 1fr 1fr;
         gap: 12px;
     }
+
     .kpi-card-full {
         padding: 14px 16px;
     }
+
     .kpi-value-full {
         font-size: 20px;
     }
+
     .content-header {
         flex-direction: column;
         align-items: flex-start;
     }
+
     .header-actions-full {
         width: 100%;
         justify-content: flex-start;
     }
+
     .footer-content {
         flex-direction: column;
         text-align: center;
     }
+
     .footer-links-full {
         justify-content: center;
         flex-wrap: wrap;
     }
+
     .nav-support {
         display: flex;
         gap: 4px;
     }
+
     .students-grid-full {
         grid-template-columns: 1fr;
     }
+
     .reports-cards-grid-full {
         grid-template-columns: 1fr 1fr;
     }
+
     .finance-kpi-grid-full {
         grid-template-columns: 1fr;
     }
+
     .students-toolbar-full {
         flex-direction: column;
         align-items: stretch;
     }
+
     .search-box-full {
         min-width: 100%;
     }
+
     .filter-buttons-full {
         justify-content: center;
     }
+
     .btn-new-student-full {
         width: 100%;
         justify-content: center;
     }
+
     .agenda-toolbar-full {
         flex-direction: column;
         align-items: stretch;
     }
+
     .date-filter-full {
         justify-content: center;
     }
+
     .btn-new-class-full {
         width: 100%;
         justify-content: center;
     }
+
     .time-display {
         display: none;
     }
+
     .card-actions {
         flex-wrap: wrap;
         gap: 4px;
     }
+
     .btn-filter {
         font-size: 11px;
         padding: 3px 10px;
     }
+
     .chart-controls {
         flex-wrap: wrap;
     }
+
     .btn-chart {
         font-size: 11px;
         padding: 3px 10px;
     }
+
     .stars-display {
         font-size: 12px;
     }
+
     .modal-content {
         margin: 10% auto;
         width: 95%;
@@ -2239,70 +2294,90 @@ html, body {
     .kpi-grid-full {
         grid-template-columns: 1fr;
     }
+
     .reports-cards-grid-full {
         grid-template-columns: 1fr;
     }
+
     .finance-kpi-grid-full {
         grid-template-columns: 1fr;
     }
+
     .finance-two-col-full {
         grid-template-columns: 1fr;
     }
+
     .logo-area span {
         font-size: 16px;
     }
+
     .gov-badge {
         font-size: 8px;
         padding: 1px 8px;
     }
+
     .kpi-trend {
         display: none;
     }
+
     .class-list-full li {
         font-size: 12px;
         gap: 6px;
     }
+
     .student-full {
         min-width: 80px;
     }
+
     .time-full {
         min-width: 40px;
     }
+
     .card-full {
         padding: 16px;
     }
+
     .content-header h1 {
         font-size: 22px;
     }
+
     .student-card-full {
         margin-bottom: 12px;
     }
+
     .student-actions-full {
         flex-direction: column;
     }
+
     .btn-student-action-full {
         min-width: 100%;
     }
+
     .card-actions {
         flex-direction: column;
         align-items: flex-start;
         width: 100%;
     }
+
     .btn-filter {
         width: 100%;
         text-align: center;
     }
+
     .date-display {
         font-size: 12px;
         padding: 4px 12px;
     }
+
     .modal-content {
         margin: 5% auto;
         width: 98%;
     }
+
     .settings-card-body-full {
         padding: 16px 18px 20px;
     }
+
     .photo-preview-full {
         font-size: 80px;
     }
@@ -2441,29 +2516,31 @@ html, body {
    RESPONSIVIDADE - TABELA
    ============================================ */
 @media (max-width: 768px) {
+
     .ranking-table th,
     .ranking-table td {
         padding: 8px 10px;
         font-size: 12px;
     }
-    
+
     .ranking-table .student-name {
         font-size: 13px;
     }
 }
 
 @media (max-width: 480px) {
+
     .ranking-table th:nth-child(3),
     .ranking-table td:nth-child(3),
     .ranking-table th:nth-child(5),
     .ranking-table td:nth-child(5) {
         display: none;
     }
-    
+
     .ranking-table {
         font-size: 11px;
     }
-    
+
     .btn-view {
         padding: 3px 10px;
         font-size: 10px;
@@ -2540,5 +2617,1313 @@ html, body {
 @media (max-width: 480px) {
     .student-info-grid-full {
         grid-template-columns: 1fr;
+    }
+}
+
+
+
+
+
+/* Adicione ao final do arquivo dashboard.css */
+
+/* ============================================
+   RELATÓRIOS - GRÁFICOS
+   ============================================ */
+
+/* Cards de relatórios */
+.reports-cards-grid-full {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 16px;
+    margin-bottom: 28px;
+}
+
+.report-card-full {
+    background: #111111;
+    border-radius: 16px;
+    padding: 16px 20px;
+    border: 1px solid #1f1f1f;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.report-card-full:hover {
+    border-color: #22C55E;
+    transform: translateY(-4px);
+    box-shadow: 0 4px 16px rgba(34, 197, 94, 0.1);
+}
+
+.report-card-full .card-icon-full {
+    font-size: 20px;
+    color: #22C55E;
+    margin-bottom: 6px;
+}
+
+.report-card-full .card-label-full {
+    font-size: 12px;
+    color: #BDBDBD;
+    font-weight: 500;
+}
+
+.report-card-full .card-value-full {
+    font-size: 20px;
+    font-weight: 700;
+    color: #ffffff;
+    margin: 4px 0;
+}
+
+.report-card-full .card-change-full {
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.report-card-full .card-change-full.positive {
+    color: #22C55E;
+}
+
+.report-card-full .card-change-full.negative {
+    color: #ef4444;
+}
+
+/* Grid de gráficos */
+.reports-grid-full {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    margin-bottom: 24px;
+}
+
+/* Wrapper para os gráficos */
+.chart-wrapper {
+    width: 100%;
+    position: relative;
+}
+
+.chart-container-full {
+    width: 100%;
+    height: 200px;
+    position: relative;
+}
+
+/* Chart Card */
+.chart-card-full {
+    background: #111111;
+    border-radius: 16px;
+    padding: 20px;
+    border: 1px solid #1f1f1f;
+}
+
+.chart-card-full .card-header-full {
+    margin-bottom: 12px;
+}
+
+/* Legendas das categorias */
+.category-legend-full {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+    flex-wrap: wrap;
+    padding-top: 12px;
+    border-top: 1px solid #1a1a1a;
+    margin-top: 12px;
+}
+
+.legend-item {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 13px;
+    color: #BDBDBD;
+}
+
+.color-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    flex-shrink: 0;
+}
+
+/* Badge */
+.badge-full {
+    background: rgba(34, 197, 94, 0.12);
+    color: #22C55E;
+    padding: 4px 14px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+/* ============================================
+   RESPONSIVIDADE - RELATÓRIOS
+   ============================================ */
+@media (max-width: 1200px) {
+    .reports-cards-grid-full {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (max-width: 992px) {
+    .reports-grid-full {
+        grid-template-columns: 1fr;
+    }
+
+    .chart-container-full {
+        height: 180px;
+    }
+}
+
+@media (max-width: 768px) {
+    .reports-cards-grid-full {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .chart-container-full {
+        height: 160px;
+    }
+
+    .category-legend-full {
+        gap: 10px;
+        font-size: 12px;
+    }
+
+    .legend-item {
+        font-size: 12px;
+    }
+}
+
+@media (max-width: 480px) {
+    .reports-cards-grid-full {
+        grid-template-columns: 1fr;
+    }
+
+    .chart-container-full {
+        height: 140px;
+    }
+
+    .category-legend-full {
+        flex-direction: column;
+        align-items: center;
+        gap: 4px;
+    }
+
+    .chart-card-full {
+        padding: 14px;
+    }
+
+    .report-card-full {
+        padding: 12px 16px;
+    }
+
+    .report-card-full .card-value-full {
+        font-size: 18px;
+    }
+}
+
+
+
+/* ============================================
+   BOTÃO SAIR - ESTILO MODERNO
+   ============================================ */
+
+/* Container do botão sair */
+.btn-logout-wrapper {
+    display: inline-flex;
+    align-items: center;
+    margin-left: 12px;
+}
+
+/* Botão sair principal */
+.btn-logout-dashboard {
+    background: rgba(239, 68, 68, 0.08);
+    border: 1px solid rgba(239, 68, 68, 0.15);
+    color: #ef4444;
+    padding: 6px 18px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 13px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-family: inherit;
+    text-decoration: none;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Efeito de hover */
+.btn-logout-dashboard:hover {
+    background: rgba(239, 68, 68, 0.15);
+    border-color: #ef4444;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(239, 68, 68, 0.2);
+}
+
+/* Efeito de clique */
+.btn-logout-dashboard:active {
+    transform: scale(0.95);
+}
+
+/* Ícone do botão */
+.btn-logout-dashboard i {
+    font-size: 14px;
+    transition: transform 0.3s ease;
+}
+
+/* Animação do ícone ao passar o mouse */
+.btn-logout-dashboard:hover i {
+    transform: translateX(2px) rotate(-5deg);
+}
+
+/* Texto do botão */
+.btn-logout-dashboard span {
+    font-size: 13px;
+    font-weight: 500;
+}
+
+/* Separador antes do botão */
+.top-bar-divider {
+    width: 1px;
+    height: 28px;
+    background: rgba(255, 255, 255, 0.08);
+    margin: 0 8px;
+}
+
+/* ============================================
+   BOTÃO SAIR - VARIANTE ÍCONE APENAS
+   ============================================ */
+.btn-logout-dashboard.icon-only {
+    padding: 6px 12px;
+}
+
+.btn-logout-dashboard.icon-only span {
+    display: none;
+}
+
+.btn-logout-dashboard.icon-only i {
+    font-size: 16px;
+    margin: 0;
+}
+
+/* ============================================
+   BOTÃO SAIR - ESTADO DE CARREGAMENTO
+   ============================================ */
+.btn-logout-dashboard.loading {
+    opacity: 0.7;
+    pointer-events: none;
+}
+
+.btn-logout-dashboard.loading i {
+    animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* ============================================
+   BOTÃO SAIR - RESPONSIVIDADE
+   ============================================ */
+@media (max-width: 992px) {
+    .btn-logout-dashboard {
+        padding: 5px 14px;
+        font-size: 12px;
+    }
+
+    .btn-logout-dashboard i {
+        font-size: 13px;
+    }
+
+    .top-bar-divider {
+        height: 24px;
+        margin: 0 6px;
+    }
+}
+
+@media (max-width: 768px) {
+    .btn-logout-dashboard {
+        padding: 5px 12px;
+        font-size: 11px;
+        margin-left: 6px;
+    }
+
+    .btn-logout-dashboard span {
+        display: none;
+    }
+
+    .btn-logout-dashboard i {
+        font-size: 15px;
+        margin: 0;
+    }
+
+    .btn-logout-dashboard:hover i {
+        transform: none;
+    }
+
+    .top-bar-divider {
+        display: none;
+    }
+}
+
+@media (max-width: 480px) {
+    .btn-logout-dashboard {
+        padding: 4px 10px;
+        border-radius: 16px;
+    }
+
+    .btn-logout-dashboard i {
+        font-size: 13px;
+    }
+}
+
+/* ============================================
+   TOOLTIP DO BOTÃO SAIR
+   ============================================ */
+.btn-logout-dashboard .tooltip {
+    position: absolute;
+    bottom: calc(100% + 8px);
+    left: 50%;
+    transform: translateX(-50%) scale(0.8);
+    background: #111111;
+    color: #ffffff;
+    padding: 4px 12px;
+    border-radius: 6px;
+    font-size: 11px;
+    white-space: nowrap;
+    opacity: 0;
+    pointer-events: none;
+    transition: all 0.2s ease;
+    border: 1px solid #1f1f1f;
+}
+
+.btn-logout-dashboard .tooltip::after {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    border: 6px solid transparent;
+    border-top-color: #1f1f1f;
+}
+
+.btn-logout-dashboard:hover .tooltip {
+    opacity: 1;
+    transform: translateX(-50%) scale(1);
+}
+
+/* ============================================
+   MODAL DE CONFIRMAÇÃO - ESTILO MODERNO
+   ============================================ */
+.modal-logout-dashboard {
+    display: none;
+    position: fixed;
+    z-index: 9999;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(10px);
+    justify-content: center;
+    align-items: center;
+    animation: fadeIn 0.3s ease;
+}
+
+.modal-overlay-dashboard {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    padding: 20px;
+}
+
+.modal-content-dashboard {
+    background: #111111;
+    border-radius: 24px;
+    max-width: 420px;
+    width: 100%;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    box-shadow: 0 30px 80px rgba(0, 0, 0, 0.6);
+    animation: slideDown 0.3s ease;
+    overflow: hidden;
+}
+
+.modal-header-dashboard {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 24px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.modal-header-dashboard h2 {
+    font-size: 18px;
+    font-weight: 700;
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 0;
+}
+
+.modal-header-dashboard h2 i {
+    font-size: 20px;
+}
+
+.modal-close-dashboard {
+    background: rgba(255, 255, 255, 0.05);
+    border: none;
+    color: #BDBDBD;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+}
+
+.modal-close-dashboard:hover {
+    background: rgba(255, 255, 255, 0.1);
+    color: #ffffff;
+    transform: rotate(90deg);
+}
+
+.modal-body-dashboard {
+    padding: 32px 24px 24px;
+    text-align: center;
+}
+
+.logout-icon-dashboard {
+    font-size: 48px;
+    color: #ef4444;
+    margin-bottom: 16px;
+}
+
+.logout-icon-dashboard i {
+    background: rgba(239, 68, 68, 0.1);
+    padding: 20px;
+    border-radius: 50%;
+    display: inline-block;
+}
+
+.modal-body-dashboard h3 {
+    font-size: 20px;
+    font-weight: 700;
+    color: #ffffff;
+    margin-bottom: 8px;
+}
+
+.modal-body-dashboard p {
+    color: #BDBDBD;
+    font-size: 14px;
+    margin-bottom: 24px;
+    line-height: 1.6;
+}
+
+.modal-actions-dashboard {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+}
+
+.btn-cancel-dashboard,
+.btn-confirm-dashboard {
+    padding: 10px 24px;
+    border: none;
+    border-radius: 30px;
+    font-weight: 600;
+    font-size: 14px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    min-width: 120px;
+    justify-content: center;
+}
+
+.btn-cancel-dashboard {
+    background: rgba(255, 255, 255, 0.06);
+    color: #BDBDBD;
+    border: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.btn-cancel-dashboard:hover {
+    background: rgba(255, 255, 255, 0.1);
+    transform: translateY(-2px);
+}
+
+.btn-confirm-dashboard {
+    background: #ef4444;
+    color: #ffffff;
+    border: 1px solid #ef4444;
+}
+
+.btn-confirm-dashboard:hover {
+    background: #dc2626;
+    border-color: #dc2626;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 20px rgba(239, 68, 68, 0.3);
+}
+
+.btn-cancel-dashboard:active,
+.btn-confirm-dashboard:active {
+    transform: scale(0.95);
+}
+
+/* ============================================
+   ANIMAÇÕES
+   ============================================ */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-30px) scale(0.95);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+@keyframes pulse {
+
+    0%,
+    100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.05);
+    }
+}
+
+/* ============================================
+   TOAST NOTIFICATION
+   ============================================ */
+.toast-notification-dashboard {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background: #111111;
+    color: #ffffff;
+    padding: 14px 24px;
+    border-radius: 12px;
+    border: 1px solid #22C55E;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+    z-index: 9999;
+    font-size: 14px;
+    font-weight: 500;
+    animation: fadeInUp 0.3s ease;
+    max-width: 400px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.toast-notification-dashboard i {
+    color: #22C55E;
+    font-size: 18px;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ============================================
+   RESPONSIVIDADE DO MODAL
+   ============================================ */
+@media (max-width: 480px) {
+    .modal-content-dashboard {
+        width: 95%;
+        border-radius: 18px;
+        margin: 10px;
+    }
+
+    .modal-header-dashboard {
+        padding: 16px 20px;
+    }
+
+    .modal-header-dashboard h2 {
+        font-size: 16px;
+    }
+
+    .modal-body-dashboard {
+        padding: 24px 16px 20px;
+    }
+
+    .logout-icon-dashboard {
+        font-size: 40px;
+    }
+
+    .logout-icon-dashboard i {
+        padding: 16px;
+    }
+
+    .modal-body-dashboard h3 {
+        font-size: 18px;
+    }
+
+    .modal-actions-dashboard {
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    .btn-cancel-dashboard,
+    .btn-confirm-dashboard {
+        width: 100%;
+        min-width: unset;
+        padding: 12px;
+    }
+
+    .toast-notification-dashboard {
+        bottom: 16px;
+        right: 16px;
+        left: 16px;
+        max-width: none;
+        font-size: 13px;
+        padding: 12px 18px;
+    }
+}
+
+
+
+
+
+
+
+/* ============================================
+   MODAL DE ALUNOS - ESTILOS
+   ============================================ */
+
+/* Modal de alunos */
+#studentModal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(10px);
+    justify-content: center;
+    align-items: center;
+    animation: fadeIn 0.3s ease;
+}
+
+#studentModal .modal-content {
+    background: #111111;
+    margin: 0 auto;
+    max-width: 500px;
+    width: 90%;
+    border-radius: 24px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    box-shadow: 0 30px 80px rgba(0, 0, 0, 0.6);
+    animation: slideDown 0.3s ease;
+    overflow: hidden;
+}
+
+/* Header do modal */
+#studentModal .modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 24px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    background: #0a0a0a;
+}
+
+#studentModal .modal-header h2 {
+    font-size: 18px;
+    font-weight: 700;
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 0;
+}
+
+#studentModal .modal-header h2 i {
+    color: #22C55E;
+    font-size: 20px;
+}
+
+/* ============================================
+   BOTÃO FECHAR DO MODAL - ESTILO MODERNO
+   ============================================ */
+#studentModal .modal-close {
+    background: rgba(255, 255, 255, 0.05);
+    border: none;
+    color: #BDBDBD;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    font-weight: 300;
+    line-height: 1;
+    position: relative;
+}
+
+/* Efeito hover do botão fechar */
+#studentModal .modal-close:hover {
+    background: rgba(239, 68, 68, 0.15);
+    color: #ef4444;
+    transform: rotate(90deg) scale(1.1);
+}
+
+/* Efeito de clique */
+#studentModal .modal-close:active {
+    transform: rotate(90deg) scale(0.9);
+}
+
+/* Tooltip do botão fechar */
+#studentModal .modal-close .tooltip-close {
+    position: absolute;
+    top: calc(100% + 8px);
+    right: 0;
+    background: #111111;
+    color: #ffffff;
+    padding: 4px 12px;
+    border-radius: 6px;
+    font-size: 11px;
+    white-space: nowrap;
+    opacity: 0;
+    pointer-events: none;
+    transition: all 0.2s ease;
+    border: 1px solid #1f1f1f;
+}
+
+#studentModal .modal-close .tooltip-close::before {
+    content: '';
+    position: absolute;
+    bottom: 100%;
+    right: 12px;
+    border: 6px solid transparent;
+    border-bottom-color: #1f1f1f;
+}
+
+#studentModal .modal-close:hover .tooltip-close {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* ============================================
+   BOTÃO FECHAR - VARIANTE ÍCONE APENAS
+   ============================================ */
+#studentModal .modal-close.icon-only {
+    background: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+#studentModal .modal-close.icon-only:hover {
+    background: rgba(239, 68, 68, 0.1);
+    border-color: rgba(239, 68, 68, 0.2);
+}
+
+/* ============================================
+   CORPO DO MODAL
+   ============================================ */
+#studentModal .modal-body {
+    padding: 24px;
+    color: #BDBDBD;
+}
+
+#studentModal .modal-body .detail-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 12px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+#studentModal .modal-body .detail-row:last-child {
+    border-bottom: none;
+}
+
+#studentModal .modal-body .detail-label {
+    color: #BDBDBD;
+    font-weight: 500;
+}
+
+#studentModal .modal-body .detail-value {
+    color: #ffffff;
+    font-weight: 600;
+}
+
+/* ============================================
+   BOTÃO FECHAR DO MODAL - RESPONSIVO
+   ============================================ */
+@media (max-width: 480px) {
+    #studentModal .modal-close {
+        width: 32px;
+        height: 32px;
+        font-size: 16px;
+    }
+
+    #studentModal .modal-close .tooltip-close {
+        display: none;
+    }
+}
+
+/* ============================================
+   ANIMAÇÕES DO MODAL
+   ============================================ */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-30px) scale(0.95);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+/* ============================================
+   ANIMAÇÃO DO BOTÃO FECHAR - PULSO
+   ============================================ */
+@keyframes pulse-close {
+
+    0%,
+    100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.05);
+    }
+}
+
+#studentModal .modal-close.pulse {
+    animation: pulse-close 0.3s ease;
+}
+
+
+
+/* ============================================
+   BOTÃO FECHAR DO MODAL - ESTILO ADICIONAL
+   ============================================ */
+
+/* Botão de fechar no corpo do modal */
+.btn-close-modal {
+    width: 100%;
+    padding: 12px;
+    margin-top: 16px;
+    border: none;
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.05);
+    color: #BDBDBD;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.btn-close-modal:hover {
+    background: rgba(239, 68, 68, 0.1);
+    color: #ef4444;
+    transform: translateY(-2px);
+}
+
+.btn-close-modal:active {
+    transform: scale(0.98);
+}
+
+.btn-close-modal i {
+    font-size: 16px;
+}
+
+/* Botão de fechar no header (X) */
+.modal-close-btn {
+    background: rgba(255, 255, 255, 0.05);
+    border: none;
+    color: #BDBDBD;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    font-weight: 300;
+}
+
+.modal-close-btn:hover {
+    background: rgba(239, 68, 68, 0.15);
+    color: #ef4444;
+    transform: rotate(90deg) scale(1.1);
+}
+
+.modal-close-btn:active {
+    transform: rotate(90deg) scale(0.9);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+/* ============================================
+   DRIVEMARCH - BOTÃO SAIR E MODAL
+   ============================================ */
+
+/* ===== BOTÃO SAIR ===== */
+.btn-logout-dashboard {
+    background: rgba(239, 68, 68, 0.08);
+    border: 1px solid rgba(239, 68, 68, 0.15);
+    color: #ef4444;
+    padding: 6px 16px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 13px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-family: inherit;
+    text-decoration: none;
+    margin-left: 12px;
+}
+
+.btn-logout-dashboard:hover {
+    background: rgba(239, 68, 68, 0.15);
+    border-color: #ef4444;
+    transform: scale(1.02);
+    box-shadow: 0 0 20px rgba(239, 68, 68, 0.1);
+}
+
+.btn-logout-dashboard:active {
+    transform: scale(0.95);
+}
+
+.btn-logout-dashboard i {
+    font-size: 14px;
+}
+
+/* ===== MODAL DE LOGOUT ===== */
+.modal-logout-dashboard {
+    display: none;
+    position: fixed;
+    z-index: 9999;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(8px);
+    justify-content: center;
+    align-items: center;
+    animation: fadeIn 0.3s ease;
+}
+
+.modal-overlay-dashboard {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+}
+
+.modal-content-dashboard {
+    background: #111111;
+    border-radius: 24px;
+    max-width: 420px;
+    width: 90%;
+    border: 1px solid #1f1f1f;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+    animation: slideDown 0.3s ease;
+}
+
+.modal-header-dashboard {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 24px;
+    border-bottom: 1px solid #1f1f1f;
+}
+
+.modal-header-dashboard h2 {
+    font-size: 18px;
+    font-weight: 700;
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 0;
+}
+
+.modal-close-dashboard {
+    background: transparent;
+    border: none;
+    color: #BDBDBD;
+    font-size: 20px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    padding: 4px;
+}
+
+.modal-close-dashboard:hover {
+    color: #ffffff;
+    transform: rotate(90deg);
+}
+
+.modal-body-dashboard {
+    padding: 32px 24px 24px;
+    text-align: center;
+}
+
+.logout-icon-dashboard {
+    font-size: 48px;
+    color: #ef4444;
+    margin-bottom: 16px;
+}
+
+.logout-icon-dashboard i {
+    background: rgba(239, 68, 68, 0.1);
+    padding: 20px;
+    border-radius: 50%;
+}
+
+.modal-body-dashboard h3 {
+    font-size: 20px;
+    font-weight: 700;
+    color: #ffffff;
+    margin-bottom: 8px;
+}
+
+.modal-body-dashboard p {
+    color: #BDBDBD;
+    font-size: 14px;
+    margin-bottom: 24px;
+    line-height: 1.5;
+}
+
+.modal-actions-dashboard {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+}
+
+.btn-cancel-dashboard,
+.btn-confirm-dashboard {
+    padding: 10px 24px;
+    border: none;
+    border-radius: 30px;
+    font-weight: 600;
+    font-size: 14px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    min-width: 120px;
+    justify-content: center;
+}
+
+.btn-cancel-dashboard {
+    background: rgba(255, 255, 255, 0.08);
+    color: #BDBDBD;
+    border: 1px solid #1f1f1f;
+}
+
+.btn-cancel-dashboard:hover {
+    background: rgba(255, 255, 255, 0.15);
+    transform: scale(1.02);
+}
+
+.btn-confirm-dashboard {
+    background: #ef4444;
+    color: #ffffff;
+    border: 1px solid #ef4444;
+}
+
+.btn-confirm-dashboard:hover {
+    background: #dc2626;
+    border-color: #dc2626;
+    transform: scale(1.02);
+    box-shadow: 0 4px 20px rgba(239, 68, 68, 0.3);
+}
+
+/* ===== TOAST NOTIFICATION ===== */
+.toast-notification-dashboard {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background: #111111;
+    color: #ffffff;
+    padding: 14px 24px;
+    border-radius: 12px;
+    border: 1px solid #22C55E;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+    z-index: 9999;
+    font-size: 14px;
+    font-weight: 500;
+    animation: fadeInUp 0.3s ease;
+    max-width: 400px;
+}
+
+/* ===== ANIMAÇÕES ===== */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-30px) scale(0.95);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ===== RESPONSIVIDADE ===== */
+@media (max-width: 768px) {
+    .btn-logout-dashboard span {
+        display: none;
+    }
+
+    .btn-logout-dashboard {
+        padding: 6px 12px;
+        margin-left: 8px;
+    }
+
+    .btn-logout-dashboard i {
+        font-size: 16px;
+        margin: 0;
+    }
+}
+
+@media (max-width: 480px) {
+    .btn-logout-dashboard {
+        padding: 4px 10px;
+    }
+
+    .btn-logout-dashboard i {
+        font-size: 14px;
+    }
+
+    .modal-content-dashboard {
+        width: 95%;
+        border-radius: 18px;
+    }
+
+    .modal-header-dashboard {
+        padding: 16px 20px;
+    }
+
+    .modal-body-dashboard {
+        padding: 24px 16px 20px;
+    }
+
+    .logout-icon-dashboard {
+        font-size: 40px;
+    }
+
+    .logout-icon-dashboard i {
+        padding: 16px;
+    }
+
+    .modal-body-dashboard h3 {
+        font-size: 18px;
+    }
+
+    .modal-actions-dashboard {
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    .btn-cancel-dashboard,
+    .btn-confirm-dashboard {
+        width: 100%;
+        min-width: unset;
+        padding: 12px;
+    }
+
+    .toast-notification-dashboard {
+        bottom: 16px;
+        right: 16px;
+        left: 16px;
+        max-width: none;
+        font-size: 13px;
+        padding: 12px 18px;
     }
 }
