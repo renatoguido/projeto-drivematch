@@ -1,0 +1,529 @@
+/*==================================================
+RESET
+==================================================*/
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+
+    --background: #0f0f0f;
+    --card: #1b1b1b;
+    --card-box: #2a2a2a;
+
+    --green: #12d257;
+    --green-dark: #134d29;
+
+    --red: #ff4d4d;
+
+    --white: #ffffff;
+    --gray: #9b9b9b;
+
+    --border: #2d2d2d;
+
+    --radius: 18px;
+
+    --transition: .3s;
+
+}
+
+body {
+
+    font-family: Arial, Helvetica, sans-serif;
+
+    background: var(--background);
+
+    color: var(--white);
+
+    line-height: 1.5;
+
+}
+
+/*==================================================
+MAIN
+==================================================*/
+
+.result-page {
+
+    width: 90%;
+
+    max-width: 1200px;
+
+    margin: 40px auto;
+
+}
+
+/*==================================================
+CARD RESULTADO
+==================================================*/
+
+.result-card {
+
+    background: var(--card);
+
+    border: 1px solid var(--border);
+
+    border-radius: var(--radius);
+
+    padding: 45px;
+
+    margin-bottom: 30px;
+
+}
+
+/*==================================================
+HEADER
+==================================================*/
+
+.result-header {
+
+    text-align: center;
+
+    margin-bottom: 40px;
+
+}
+
+.result-icon {
+
+    width: 82px;
+
+    height: 82px;
+
+    margin: 0 auto 22px;
+
+    border-radius: 50%;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+}
+
+.approved {
+
+    background: var(--green);
+
+}
+
+.result-icon i {
+
+    font-size: 42px;
+
+    color: #000;
+
+}
+
+.result-header h1 {
+
+    font-size: 3rem;
+
+    margin-bottom: 10px;
+
+}
+
+.result-header p {
+
+    color: var(--gray);
+
+    font-size: 1.1rem;
+
+}
+
+/*==================================================
+ESTATÍSTICAS
+==================================================*/
+
+.statistics {
+
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 18px;
+
+    margin-bottom: 35px;
+
+}
+
+.stat-box {
+
+    background: var(--card-box);
+
+    border-radius: 12px;
+
+    padding: 28px;
+
+    text-align: center;
+
+}
+
+.stat-box strong {
+
+    display: block;
+
+    font-size: 2rem;
+
+    margin-bottom: 8px;
+
+}
+
+.success-number {
+
+    color: var(--green);
+
+}
+
+.error-number {
+
+    color: var(--red);
+
+}
+
+.stat-box span {
+
+    color: var(--gray);
+
+}
+
+/*==================================================
+BOTÕES
+==================================================*/
+
+.result-actions {
+
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 14px;
+
+}
+
+.btn-secondary,
+.btn-primary {
+
+    border: none;
+
+    text-decoration: none;
+
+    border-radius: 12px;
+
+    padding: 18px;
+
+    font-size: 1rem;
+
+    font-weight: bold;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    gap: 10px;
+
+    transition: var(--transition);
+
+    cursor: pointer;
+
+}
+
+.btn-secondary {
+
+    background: #2a2a2a;
+
+    color: #fff;
+
+}
+
+.btn-secondary:hover {
+
+    background: #3a3a3a;
+
+}
+
+.btn-primary {
+
+    background: var(--green);
+
+    color: #000;
+
+}
+
+.btn-primary:hover {
+
+    background: #22e667;
+
+}
+
+/*==================================================
+REVISÃO
+==================================================*/
+
+.review {
+
+    background: var(--card);
+
+    border: 1px solid var(--border);
+
+    border-radius: var(--radius);
+
+    padding: 35px;
+
+}
+
+.review>header {
+
+    margin-bottom: 30px;
+
+}
+
+.review h2 {
+
+    font-size: 1.8rem;
+
+}
+
+/*==================================================
+QUESTÕES
+==================================================*/
+
+.question {
+
+    border: 1px solid #0b8040;
+
+    background: #132118;
+
+    border-radius: 14px;
+
+    padding: 22px;
+
+    margin-bottom: 22px;
+
+}
+
+.question:last-child {
+
+    margin-bottom: 0;
+
+}
+
+.question header {
+
+    display: flex;
+
+    align-items: flex-start;
+
+    gap: 15px;
+
+    margin-bottom: 18px;
+
+}
+
+.question header i {
+
+    color: #00ff73;
+
+    font-size: 22px;
+
+    margin-top: 3px;
+
+}
+
+.question h3 {
+
+    font-size: 1.1rem;
+
+    font-weight: 700;
+
+}
+
+.question ul {
+
+    list-style: none;
+
+    padding-left: 40px;
+
+}
+
+.question li {
+
+    color: var(--gray);
+
+    margin-bottom: 12px;
+
+    padding: 10px 14px;
+
+    border-radius: 5px;
+
+}
+
+/*==================================================
+RESPOSTA CORRETA
+==================================================*/
+
+.correct {
+
+    background: #155b2d;
+
+    color: #00ff73 !important;
+
+}
+
+/*=========================================
+    REVISÃO DINÂMICA
+=========================================*/
+
+.review {
+    margin-top: 40px;
+}
+
+.review h2 {
+    margin-bottom: 25px;
+    font-size: 28px;
+    color: #fff;
+}
+
+#revisao {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.question {
+    background: #1f1f1f;
+    border-radius: 12px;
+    padding: 20px;
+    border-left: 6px solid transparent;
+    transition: .3s;
+}
+
+.question.success {
+    border-left-color: #19d35a;
+}
+
+.question.error {
+    border-left-color: #ff4d4d;
+}
+
+.question header {
+    margin-bottom: 15px;
+}
+
+.question h3 {
+    color: #fff;
+    font-size: 18px;
+}
+
+.question p {
+    color: #d8d8d8;
+    margin: 8px 0;
+    font-size: 15px;
+}
+
+.question strong {
+    color: #fff;
+}
+
+.success-number {
+    color: #19d35a;
+}
+
+.error-number {
+    color: #ff4d4d;
+}
+
+/*=========================================
+    ESTADO DAS QUESTÕES
+=========================================*/
+
+.question.success {
+    border: 1px solid #0b8040;
+    background: #132118;
+}
+
+.question.error {
+    border: 1px solid #b91c1c;
+    background: #2a1212;
+}
+
+.question.success i {
+    color: #00ff73;
+}
+
+.question.error i {
+    color: #ff4d4d;
+}
+
+.question.error .correct {
+    background: #14532d;
+    color: #00ff73 !important;
+}
+
+.result-icon.failed {
+    background: #ff4d4d;
+}
+
+.result-icon.failed i {
+    color: #000;
+}
+
+
+/*==================================================
+RESPONSIVO
+==================================================*/
+
+@media(max-width:900px) {
+
+    .statistics {
+
+        grid-template-columns: 1fr;
+
+    }
+
+    .result-actions {
+
+        grid-template-columns: 1fr;
+
+    }
+
+}
+
+@media(max-width:600px) {
+
+    .result-card {
+
+        padding: 25px;
+
+    }
+
+    .review {
+
+        padding: 20px;
+
+    }
+
+    .question {
+
+        padding: 18px;
+
+    }
+
+    .question ul {
+
+        padding-left: 0;
+
+    }
+
+    .result-header h1 {
+
+        font-size: 2.2rem;
+
+    }
+
+}

@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Resultado do Simulado | DriveMatch</title>
+
+    <link rel="stylesheet" href="../css/resultado-simulado.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+</head>
+
+<body>
+
+    <main class="result-page">
+
+        <!--==========================
+            RESULTADO
+        ===========================-->
+
+        <section class="result-card">
+
+            <header class="result-header">
+
+                <div class="result-icon approved">
+
+                    <i class="fa-solid fa-award"></i>
+
+                </div>
+
+                <h1>Aprovado!</h1>
+
+                <p>Você atingiu a nota mínima de aprovação.</p>
+
+            </header>
+
+            <!--==========================
+                ESTATÍSTICAS
+            ===========================-->
+
+            <section class="statistics">
+
+                <article class="stat-box">
+
+                    <strong class="success-number" id="acertos">0</strong>
+
+                    <span>Acertos</span>
+
+                </article>
+
+                <article class="stat-box">
+
+                    <strong class="error-number" id="erros">0</strong>
+                    <span>Erros</span>
+
+                </article>
+
+                <article class="stat-box">
+
+                    <strong class="success-number" id="resultado">0%</strong>
+                    <span>Resultado</span>
+
+                </article>
+
+            </section>
+
+            <!--==========================
+                BOTÕES
+            ===========================-->
+
+            <footer class="result-actions">
+
+                <a href="simulados.html" class="btn-secondary">
+
+                    Outros Simulados
+
+                </a>
+                <a href="simulados.html" class="btn-primary">
+                    <i class="fa-solid fa-rotate-left"></i>
+
+                    Refazer
+
+                </a>
+
+            </footer>
+
+        </section>
+
+        <!--==========================
+            REVISÃO
+        ===========================-->
+
+        <section class="review">
+
+            <header>
+
+                <h2>Revisão das Questões</h2>
+
+            </header>
+
+            <div id="revisao"></div>
+
+        </section>
+
+    </main>
+    <script src="../js/resultado.js"></script>
+
+</body>
+
+</html>
