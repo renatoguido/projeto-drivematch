@@ -484,33 +484,28 @@ button {
    RESPONSIVO - SIMULADOS
 ======================================== */
 
-/* TABLET */
-@media (max-width: 1000px) {
+@media (max-width: 900px) {
 
-    .container {
-        padding-left: 25px;
-        padding-right: 25px;
+    .header .container {
+        flex-wrap: wrap;
+        justify-content: center;
+        padding-top: 1rem;
+        padding-bottom: 1rem;
     }
 
-    /* HEADER */
-    .header .container {
-        flex-direction: column;
-        height: auto;
-        padding-top: 20px;
-        padding-bottom: 20px;
-        gap: 20px;
+    .navbar {
+        width: 100%;
+        order: 3;
     }
 
     .navbar ul {
-        flex-wrap: wrap;
         justify-content: center;
-        gap: 12px 24px;
+        flex-wrap: wrap;
+        gap: .8rem 1.2rem;
     }
 
     .header-actions {
-        width: 100%;
         justify-content: center;
-        flex-direction: row;
     }
 
     /* HERO */
@@ -589,18 +584,13 @@ button {
 
 @media (max-width: 768px) {
 
-    .container {
-        padding-left: 18px;
-        padding-right: 18px;
-    }
-
-    /* HEADER */
     .header .container {
-        gap: 15px;
+        flex-direction: column;
+        gap: 14px;
     }
 
     .logo img {
-        width: 170px;
+        width: 155px;
     }
 
     .navbar {
@@ -609,16 +599,20 @@ button {
 
     .navbar ul {
         width: 100%;
-        gap: 10px 16px;
+        display: flex;
+        gap: .65rem;
+        justify-content: center;
     }
 
     .navbar a {
-        font-size: .8rem;
+        font-size: .78rem;
     }
 
     .header-actions {
         width: 100%;
-        gap: 10px;
+        display: flex;
+        flex-direction: row;
+        gap: 8px;
     }
 
     .btn-primary,
