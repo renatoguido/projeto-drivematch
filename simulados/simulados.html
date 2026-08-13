@@ -52,13 +52,23 @@
 
                 <div class="buttons">
 
-                    <button>Todas</button>
-                    <button>Fácil</button>
-                    <button>Médio</button>
-                    <button>Difícil</button>
+                    <button onclick="filtrarDificuldade('todas')">
+                        Todas
+                    </button>
+
+                    <button onclick="filtrarDificuldade('facil')">
+                        Fácil
+                    </button>
+
+                    <button onclick="filtrarDificuldade('medio')">
+                        Médio
+                    </button>
+
+                    <button onclick="filtrarDificuldade('dificil')">
+                        Difícil
+                    </button>
 
                 </div>
-
             </div>
 
             <div class="filter">
@@ -67,12 +77,25 @@
 
                 <div class="buttons">
 
-                    <button>Todos</button>
-                    <button>Legislação</button>
-                    <button>Sinalização</button>
-                    <button>Direção Defensiva</button>
-                    <button>Primeiros Socorros</button>
+                    <button onclick="filtrarTema('todos')">
+                        Todos
+                    </button>
 
+                    <button onclick="filtrarTema('legislacao')">
+                        Legislação
+                    </button>
+
+                    <button onclick="filtrarTema('sinalizacao')">
+                        Sinalização
+                    </button>
+
+                    <button onclick="filtrarTema('direcao')">
+                        Direção Defensiva
+                    </button>
+
+                    <button onclick="filtrarTema('socorros')">
+                        Primeiros Socorros
+                    </button>
                 </div>
 
             </div>
@@ -83,11 +106,11 @@
 
             <!-- CARD -->
 
-            <article class="card">
+            <article class="card" data-dificuldade="medio" data-tema="legislacao">
 
                 <div class="card-top">
 
-                    <img src="img-icon/tabler_book.png" alt="Livro" class="card-icon">
+                    <img src="../img/icon-book.png" alt="Livro" class="card-icon">
 
                     <span class="badge yellow">Médio</span>
 
@@ -127,7 +150,7 @@
 
                             <i class="fa-regular fa-clock"></i>
 
-                            <span>🕝40 min</span>
+                            <span>40 min</span>
 
                         </span>
 
@@ -148,8 +171,13 @@
                     </div>
 
                 </section>
+                <a href="questoes1.html" class="btn-card">
 
-                <button>Iniciar Simulado ></button>
+                    Iniciar Simulado
+
+                    <i class="fa-solid fa-chevron-right"></i>
+
+                </a>
 
             </article>
 
@@ -159,7 +187,7 @@
 
                 <div class="card-top">
 
-                    <img src="img-icon/tabler_book.png" alt="Livro" class="card-icon">
+                    <img src="../img/icon-book.png" alt="Livro" class="card-icon">
 
                     <span class="badge green">Fácil</span>
 
@@ -198,7 +226,7 @@
 
                             <i class="fa-regular fa-clock"></i>
 
-                            <span>🕝25 min</span>
+                            <span>25 min</span>
 
                         </span>
 
@@ -230,7 +258,7 @@
 
                 <div class="card-top">
 
-                    <img src="img-icon/tabler_book.png" alt="Livro" class="card-icon">
+                    <img src="../img/icon-book.png" alt="Livro" class="card-icon">
 
                     <span class="badge yellow">Médio</span>
 
@@ -269,7 +297,7 @@
 
                             <i class="fa-regular fa-clock"></i>
 
-                            <span>🕝35 min</span>
+                            <span>35 min</span>
 
                         </span>
 
@@ -301,7 +329,7 @@
 
                 <div class="card-top">
 
-                    <img src="img-icon/tabler_book.png" alt="Livro" class="card-icon">
+                    <img src="../img/icon-book.png" alt="Livro" class="card-icon">
 
                     <span class="badge red">Difícil</span>
 
@@ -341,7 +369,7 @@
 
                             <i class="fa-regular fa-clock"></i>
 
-                            <span>🕝20 min</span>
+                            <span>20 min</span>
 
                         </span>
 
@@ -373,7 +401,7 @@
 
                 <div class="card-top">
 
-                    <img src="img-icon/tabler_book.png" alt="Livro" class="card-icon">
+                    <img src="../img/icon-book.png" alt="Livro" class="card-icon">
 
                     <span class="badge red">Difícil</span>
 
@@ -413,7 +441,7 @@
 
                             <i class="fa-regular fa-clock"></i>
 
-                            <span>🕝40 min</span>
+                            <span>40 min</span>
 
                         </span>
 
@@ -445,7 +473,7 @@
 
                 <div class="card-top">
 
-                    <img src="img-icon/tabler_book.png" alt="Livro" class="card-icon">
+                    <img src="../img/icon-book.png" alt="Livro" class="card-icon">
 
                     <span class="badge green">Fácil</span>
 
@@ -484,7 +512,7 @@
 
                             <i class="fa-regular fa-clock"></i>
 
-                            <span>🕝20 min</span>
+                            <span>20 min</span>
 
                         </span>
 
@@ -569,7 +597,7 @@
         </div>
 
     </footer>
-    <script src="../js/simulados.js"></script>
+    <script src="./js/simulados.js"></script>
 
 </body>
 

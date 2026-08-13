@@ -255,6 +255,41 @@ button {
     margin-bottom: 20px;
 }
 
+/*========================================
+BOTÃO DOS CARDS
+========================================*/
+
+.btn-card {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    width: 100%;
+    padding: 14px 18px;
+    background: var(--green);
+    color: #000;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 700;
+    border-radius: 8px;
+    transition: .3s;
+}
+
+.btn-card:hover {
+    background: var(--green-hover);
+}
+
+.btn-card i {
+    font-size: 14px;
+    transition: .3s;
+}
+
+.btn-card:hover i {
+
+    transform: translateX(4px);
+
+}
+
 /* ========================================
    DETALHES DO CARD
 ======================================== */

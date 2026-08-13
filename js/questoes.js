@@ -7,29 +7,30 @@ const timer = document.getElementById("timer");
 
 let inicio = localStorage.getItem("inicioSimulado");
 let intervalo;
-
 if (!inicio) {
+
+    // Inicia um novo simulado.
+    // Remove as respostas deixadas por um simulado anterior.
+    for (let i = 1; i <= 5; i++) {
+        localStorage.removeItem(`questao${i}`);
+    }
+
+    // Remove o estado de finalização anterior.
+    localStorage.removeItem("simuladoFinalizado");
+
+    // Inicia o cronômetro.
     inicio = Date.now();
-    localStorage.setItem("inicioSimulado", inicio);
+
+    localStorage.setItem(
+        "inicioSimulado",
+        inicio
+    );
+
 } else {
+
     inicio = Number(inicio);
+
 }
-
-/*=========================================
-    GABARITO
-=========================================*/
-
-const gabarito = {
-    questao1: "c",
-    questao2: "b",
-    questao3: "c",
-    questao4: "c",
-    questao5: "c"
-};
-
-/*=========================================
-    CRONÔMETRO
-=========================================*/
 
 function atualizarCronometro() {
 
@@ -73,6 +74,18 @@ if (timer) {
     );
 
 }
+
+/*=========================================
+    GABARITO
+=========================================*/
+
+const gabarito = {
+    questao1: "c",
+    questao2: "b",
+    questao3: "c",
+    questao4: "c",
+    questao5: "c"
+};
 
 /*=========================================
     SALVAR RESPOSTAS
@@ -176,6 +189,11 @@ function finalizarSimulado(){
     localStorage.removeItem(
         "inicioSimulado"
     );
+
+    // Remove as respostas do simulado finalizado.
+ for (let i = 1; i <= 5; i++) {
+    localStorage.removeItem(`questao${i}`);
+ }
 
     clearInterval(intervalo);
 
