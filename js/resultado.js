@@ -1,81 +1,354 @@
-// ================================
-// ESTATÍSTICAS
-// ================================
+/* =========================================
+   RESULTADO DO SIMULADO
+========================================= */
 
-const acertos = Number(localStorage.getItem("acertos")) || 0;
-const erros = Number(localStorage.getItem("erros")) || 0;
-const resultado = Number(localStorage.getItem("resultado")) || 0;
+const acertosElemento = document.getElementById("acertos");
+const errosElemento = document.getElementById("erros");
+const resultadoElemento = document.getElementById("resultado");
+const revisaoElemento = document.getElementById("revisao");
 
-document.getElementById("acertos").textContent = acertos;
-document.getElementById("erros").textContent = erros;
-document.getElementById("resultado").textContent = resultado + "%";
 
-// ================================
-// CABEÇALHO
-// ================================
+/* =========================================
+   IDENTIFICAR O SIMULADO
+========================================= */
 
-const titulo = document.querySelector(".result-header h1");
-const texto = document.querySelector(".result-header p");
-const icone = document.querySelector(".result-icon");
+const parametros = new URLSearchParams(
+    window.location.search
+);
 
-if (resultado >= 70) {
+let simulado = parametros.get("simulado");
 
-    titulo.textContent = "Aprovado!";
-    texto.textContent = "Parabéns! Você atingiu a nota mínima.";
 
-    icone.classList.remove("failed");
-    icone.classList.add("approved");
+/*
+    Caso a URL não tenha ?simulado=...
+    tentamos recuperar do localStorage.
+*/
 
-} else {
+if (!simulado) {
 
-    titulo.textContent = "Reprovado";
-    texto.textContent = "Você não atingiu a nota mínima.";
-
-    icone.classList.remove("approved");
-    icone.classList.add("failed");
+    simulado =
+        localStorage.getItem("simuladoAtual");
 
 }
 
-// ================================
-// REVISÃO DAS QUESTÕES
-// ================================
 
-const detalhes = JSON.parse(localStorage.getItem("detalhes")) || [];
+/*
+    Se ainda não existir, usamos legislação
+    como padrão.
+*/
 
-const revisao = document.getElementById("revisao");
+if (!simulado) {
 
-revisao.innerHTML = "";
+    simulado = "legislacao";
 
-detalhes.forEach((item, index) => {
+}
 
-    revisao.innerHTML += `
 
-    <article class="question ${item.acertou ? "success" : "error"}">
+/* =========================================
+   CHAVES DO LOCALSTORAGE
+========================================= */
 
-        <header>
+const chaveAcertos =
+    `${simulado}_acertos`;
 
-            <i class="fa-solid ${item.acertou ? "fa-circle-check" : "fa-circle-xmark"}"></i>
+const chaveErros =
+    `${simulado}_erros`;
 
-            <h3>Questão ${index + 1}</h3>
+const chaveResultado =
+    `${simulado}_resultado`;
 
-        </header>
+const chaveDetalhes =
+    `${simulado}_detalhes`;
 
-        <ul>
 
-            <li>
-                Sua resposta:
-                <strong>${item.resposta ? item.resposta.toUpperCase() : "-"}</strong>
-            </li>
+/* =========================================
+   RECUPERAR RESULTADO
+========================================= */
 
-            <li class="correct">
-                Resposta correta:
-                <strong>${item.correta.toUpperCase()}</strong>
-            </li>
+const acertos =
+    Number(
+        localStorage.getItem(chaveAcertos)
+    ) || 0;
 
-        </ul>
+const erros =
+    Number(
+        localStorage.getItem(chaveErros)
+    ) || 0;
 
-    </article>
+const resultado =
+    Number(
+        localStorage.getItem(chaveResultado)
+    ) || 0;
 
-    `;
 
-});
+/* =========================================
+   MOSTRAR ESTATÍSTICAS
+========================================= */
+
+acertosElemento.textContent =
+    acertos;
+
+errosElemento.textContent =
+    erros;
+
+resultadoElemento.textContent =
+    `${resultado}%`;
+
+
+/* =========================================
+   STATUS DO RESULTADO
+========================================= */
+
+const resultHeader =
+    document.querySelector(".result-header");
+
+const resultIcon =
+    document.querySelector(".result-icon");
+
+const titulo =
+    resultHeader.querySelector("h1");
+
+const descricao =
+    resultHeader.querySelector("p");
+
+
+if (resultado >= 70) {
+
+    titulo.textContent =
+        "Aprovado!";
+
+    descricao.textContent =
+        "Você atingiu a nota mínima de aprovação.";
+
+    resultIcon.classList.add("approved");
+
+} else {
+
+    titulo.textContent =
+        "Reprovado";
+
+    descricao.textContent =
+        "Você não atingiu a nota mínima de aprovação.";
+
+    resultIcon.classList.remove("approved");
+
+}
+
+
+/* =========================================
+   REVISÃO DAS QUESTÕES
+========================================= */
+
+const detalhesSalvos =
+    localStorage.getItem(chaveDetalhes);
+
+
+if (detalhesSalvos) {
+
+    const detalhes =
+        JSON.parse(detalhesSalvos);
+
+    detalhes.forEach(
+        (detalhe, index) => {
+
+            criarQuestao(
+                detalhe,
+                index + 1
+            );
+
+        }
+    );
+
+}
+
+
+/* =========================================
+   CRIAR QUESTÃO NA REVISÃO
+========================================= */
+
+function criarQuestao(
+    detalhe,
+    numero
+) {
+
+    const article =
+        document.createElement("article");
+
+    article.classList.add("question");
+
+
+    if (detalhe.acertou) {
+
+        article.classList.add("success");
+
+    } else {
+
+        article.classList.add("error");
+
+    }
+
+
+    const header =
+        document.createElement("header");
+
+
+    const icone =
+        document.createElement("i");
+
+
+    if (detalhe.acertou) {
+
+        icone.className =
+            "fa-regular fa-circle-check";
+
+    } else {
+
+        icone.className =
+            "fa-regular fa-circle-xmark";
+
+    }
+
+
+    const titulo =
+        document.createElement("h3");
+
+
+    titulo.textContent =
+        `${numero}. ${detalhe.pergunta || "Questão " + numero}`;
+
+
+    header.appendChild(icone);
+    header.appendChild(titulo);
+
+
+    const lista =
+        document.createElement("ul");
+
+
+    /*
+        Caso o seu JS já esteja salvando
+        as alternativas da questão.
+    */
+
+    if (detalhe.alternativas) {
+
+        detalhe.alternativas.forEach(
+            (alternativa) => {
+
+                const item =
+                    document.createElement("li");
+
+                item.textContent =
+                    alternativa.texto;
+
+
+                if (
+                    alternativa.id ===
+                    detalhe.correta
+                ) {
+
+                    item.classList.add(
+                        "correct"
+                    );
+
+                    item.textContent +=
+                        " ✓";
+
+                }
+
+
+                if (
+                    alternativa.id ===
+                    detalhe.resposta &&
+                    !detalhe.acertou
+                ) {
+
+                    item.classList.add(
+                        "wrong"
+                    );
+
+                    item.textContent +=
+                        " ✗";
+
+                }
+
+
+                lista.appendChild(item);
+
+            }
+        );
+
+    }
+
+
+    article.appendChild(header);
+    article.appendChild(lista);
+
+    revisaoElemento.appendChild(article);
+
+}
+
+
+/* =========================================
+   BOTÕES
+========================================= */
+
+const botoes =
+    document.querySelectorAll(
+        ".result-actions a"
+    );
+
+
+/*
+    Botão "Outros Simulados"
+*/
+
+if (botoes[0]) {
+
+    botoes[0].href =
+        "simulados.html";
+
+}
+
+/* =========================================
+   BOTÃO REFazer
+========================================= */
+
+if (botoes[1]) {
+
+    switch (simulado) {
+
+        case "legislacao":
+
+            botoes[1].href =
+                "legislacao/questoes1.html";
+
+            break;
+
+
+        case "sinalizacao":
+
+            botoes[1].href =
+                "sinalizacaovertical/questoes1.html";
+
+            break;
+
+
+        case "direcao":
+
+            botoes[1].href =
+                "direcaodefensiva/questoes1.html";
+
+            break;
+
+
+        default:
+
+            botoes[1].href =
+                "simulados.html";
+
+            break;
+
+    }
+
+}
