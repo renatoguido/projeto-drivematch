@@ -16,27 +16,38 @@
 
 <body>
     <div class="site-wrapper">
-        <!-- TOP BAR -->
-        <header class="top-bar">
-            <div class="top-bar-content">
-                <div class="logo-area">
-                    <i class="fas fa-car-side"></i>
-                    <span>DRIVEMACH</span>
-                </div>
-                <div class="top-bar-right">
-                    <span class="user-greeting">Olá, Marcos Silva</span>
-                    <span class="user-role-badge">Instrutor</span>
-                    <button class="btn-logout"><i class="fas fa-sign-out-alt"></i> Sair</button>
-                </div>
-            </div>
-        </header>
+        <!-- TOP BAR ATUALIZADA COM BOTÃO SAIR -->
+   <header class="top-bar">
+    <div class="top-bar-content">
+        <div class="logo-area">
+            
+            <img src="../img/logo-escrita.png" alt="Drive Match" class="logo-img" />
+        </div>
+        <div class="top-bar-right">
+            <span class="user-greeting">Olá, <span id="userNameDisplay">Marcos Silva</span></span>
+            <span class="user-role-badge">Instrutor</span>
+            <button class="btn-logout-dashboard" onclick="openLogoutModal()">
+                <i class="fas fa-sign-out-alt"></i>
+                <span>Sair</span>
+            </button>
+        </div>
+    </div>
+</header>
 
-        <!-- MENU PRINCIPAL -->
+
+
+       <!-- MENU PRINCIPAL -->
         <nav class="main-nav">
             <div class="nav-content">
-                <ul class="nav-menu">
-                    <li><a href="dashboard.html"><i class="fas fa-th-large"></i> Dashboard</a></li>
-                    <li class="active"><a href="agenda.html"><i class="fas fa-calendar-alt"></i> Agenda</a></li>
+                <button class="hamburger-btn" id="hamburgerBtn" aria-label="Abrir menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+
+                <ul class="nav-menu" id="navMenu">
+                    <li class="active"><a href="dashboard.html"><i class="fas fa-th-large"></i> Dashboard</a></li>
+                    <li><a href="agenda.html"><i class="fas fa-calendar-alt"></i> Agenda</a></li>
                     <li><a href="financeiro.html"><i class="fas fa-coins"></i> Financeiro</a></li>
                     <li><a href="alunos.html"><i class="fas fa-users"></i> Alunos</a></li>
                     <li><a href="relatorios.html"><i class="fas fa-chart-bar"></i> Relatórios</a></li>
@@ -46,6 +57,9 @@
                 <div class="nav-support">
                     <button class="btn-support-top" onclick="openSupport()">
                         <i class="fas fa-life-ring"></i> Suporte
+                    </button>
+                    <button class="btn-refresh-top" onclick="refreshDashboard()" title="Atualizar dados">
+                        <i class="fas fa-sync-alt"></i>
                     </button>
                 </div>
             </div>
@@ -62,6 +76,7 @@
                     <div class="header-actions-full">
                         <span class="notification-bell"><i class="far fa-bell"></i></span>
                         <span class="date-display" id="currentDate"></span>
+                        <span class="time-display" id="currentTime"></span>
                     </div>
                 </div>
 
@@ -70,7 +85,9 @@
                         <span class="today-label-full"><i class="far fa-calendar-alt"></i> Hoje</span>
                         <span class="today-date-full" id="todayDate"></span>
                     </div>
-                    <button class="btn-new-class-full"><i class="fas fa-plus-circle"></i> Nova aula</button>
+                    <button class="btn-new-class-full" onclick="showToast('➕ Abrir formulário para nova aula')">
+                        <i class="fas fa-plus-circle"></i> Nova aula
+                    </button>
                 </div>
 
                 <section class="class-cards-full">
@@ -80,7 +97,8 @@
                             <span class="class-detail-full">Categoria B • Aula prática</span>
                             <span class="class-status-full confirmed">Confirmada</span>
                         </div>
-                        <a href="#" class="link-ver">Ver</a>
+                        <a href="#" class="link-ver"
+                            onclick="showToast('👁️ Detalhes da aula de Juliana Oliveira')">Ver</a>
                     </div>
                     <div class="class-card-full">
                         <div class="class-info-full">
@@ -88,7 +106,8 @@
                             <span class="class-detail-full">Categoria B • Aula prática</span>
                             <span class="class-status-full confirmed">Confirmada</span>
                         </div>
-                        <a href="#" class="link-ver">Ver</a>
+                        <a href="#" class="link-ver"
+                            onclick="showToast('👁️ Detalhes da aula de Lucas Andrade')">Ver</a>
                     </div>
                     <div class="class-card-full">
                         <div class="class-info-full">
@@ -96,7 +115,7 @@
                             <span class="class-detail-full">Categoria A • Aula prática</span>
                             <span class="class-status-full confirmed">Confirmada</span>
                         </div>
-                        <a href="#" class="link-ver">Ver</a>
+                        <a href="#" class="link-ver" onclick="showToast('👁️ Detalhes da aula de Beatriz Lima')">Ver</a>
                     </div>
                     <div class="class-card-full">
                         <div class="class-info-full">
@@ -104,7 +123,8 @@
                             <span class="class-detail-full">Categoria B • Aula prática</span>
                             <span class="class-status-full confirmed">Confirmada</span>
                         </div>
-                        <a href="#" class="link-ver">Ver</a>
+                        <a href="#" class="link-ver"
+                            onclick="showToast('👁️ Detalhes da aula de Carlos Henrique')">Ver</a>
                     </div>
                     <div class="class-card-full">
                         <div class="class-info-full">
@@ -112,7 +132,8 @@
                             <span class="class-detail-full">Categoria B • Aula prática</span>
                             <span class="class-status-full confirmed">Confirmada</span>
                         </div>
-                        <a href="#" class="link-ver">Ver</a>
+                        <a href="#" class="link-ver"
+                            onclick="showToast('👁️ Detalhes da aula de Tatiane Mendes')">Ver</a>
                     </div>
                 </section>
 
@@ -125,7 +146,7 @@
 
         <footer class="site-footer">
             <div class="footer-content">
-                <p>© 2026 DriveMach. Todos os direitos reservados.</p>
+                <p>© 2026 DriveMatch. Todos os direitos reservados.</p>
                 <div class="footer-links-full">
                     <a href="#">Política de Privacidade</a>
                     <a href="#">Termos de Uso</a>
