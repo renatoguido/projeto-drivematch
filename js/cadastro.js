@@ -1,3 +1,7 @@
+/* ==========================================
+   FUNÇÃO VALIDAR CAMPO
+========================================== */
+
 function validarCampo(input, valido) {
 
     const check = input.parentElement.querySelector(".ok");
@@ -11,7 +15,11 @@ function validarCampo(input, valido) {
     }
 
 }
-/*NOME*/
+
+/* ==========================================
+   NOME
+========================================== */
+
 const nome = document.getElementById("nome");
 
 nome.addEventListener("input", () => {
@@ -20,9 +28,10 @@ nome.addEventListener("input", () => {
 
 });
 
-// ======================================
-// MOSTRAR / OCULTAR SENHA
-// ======================================
+/* ==========================================
+   MOSTRAR / OCULTAR SENHA
+========================================== */
+
 const senha = document.getElementById("senha");
 const mostrarSenha = document.getElementById("mostrarSenha");
 
@@ -44,9 +53,9 @@ mostrarSenha.addEventListener("click", () => {
 
 });
 
-// ======================================
-// FORÇA DA SENHA
-// ======================================
+/* ==========================================
+   FORÇA DA SENHA
+========================================== */
 
 const barras = document.querySelectorAll(".forca span");
 const nivel = document.getElementById("nivelSenha");
@@ -94,9 +103,9 @@ senha.addEventListener("input", () => {
 
 });
 
-// ======================================
-// DATA DE NASCIMENTO
-// ======================================
+/* ==========================================
+   DATA DE NASCIMENTO
+========================================== */
 
 const data = document.getElementById("dataNascimento");
 
@@ -129,9 +138,9 @@ data.addEventListener("change", () => {
 
 });
 
-// ======================================
-// CATEGORIAS
-// ======================================
+/* ==========================================
+   CATEGORIAS
+========================================== */
 
 const categorias = document.querySelectorAll(".categorias button");
 
@@ -147,9 +156,9 @@ categorias.forEach(botao => {
 
 });
 
-// ======================================
-// DIAS
-// ======================================
+/* ==========================================
+   DIAS
+========================================== */
 
 const dias = document.querySelectorAll(".dias button");
 
@@ -163,9 +172,9 @@ dias.forEach(dia => {
 
 });
 
-// ======================================
-// MÁSCARA CPF
-// ======================================
+/* ==========================================
+   MÁSCARA CPF
+========================================== */
 
 document.getElementById("cpf").addEventListener("input", e => {
 
@@ -180,9 +189,9 @@ document.getElementById("cpf").addEventListener("input", e => {
 
 });
 
-// ======================================
-// TELEFONE
-// ======================================
+/* ==========================================
+   TELEFONE
+========================================== */
 
 document.getElementById("telefone").addEventListener("input", e => {
 
@@ -196,9 +205,10 @@ document.getElementById("telefone").addEventListener("input", e => {
     validarCampo(e.target, v.replace(/\D/g, "").length === 11);
 
 });
-// ======================================
-// EMAIL
-// ======================================
+
+/* ==========================================
+   EMAIL
+========================================== */
 
 const email = document.getElementById("email");
 
@@ -207,9 +217,10 @@ email.addEventListener("input", () => {
     validarCampo(email, email.checkValidity());
 
 });
-// ======================================
-// CEP
-// ======================================
+
+/* ==========================================
+   CEP
+========================================== */
 
 const cep = document.getElementById("cep");
 
@@ -223,9 +234,9 @@ cep.addEventListener("input", e => {
 
 });
 
-// ======================================
-// VIA CEP
-// ======================================
+/* ==========================================
+   VIA CEP
+========================================== */
 
 cep.addEventListener("blur", () => {
 
@@ -251,9 +262,9 @@ cep.addEventListener("blur", () => {
 
 });
 
-// ======================================
-// VALOR
-// ======================================
+/* ==========================================
+   VALOR
+========================================== */
 
 document.getElementById("valor").addEventListener("input", e => {
 
@@ -267,9 +278,9 @@ document.getElementById("valor").addEventListener("input", e => {
 
 });
 
-// ======================================
-// MODAL
-// ======================================
+/* ==========================================
+   MODAL
+========================================== */
 
 const botao = document.getElementById("criarConta");
 
@@ -337,30 +348,48 @@ document.addEventListener("keydown", (e) => {
 
 });
 
-document.addEventListener('DOMContentLoaded', () => {
+/* ==========================================
+   HEADER TOGGLE - MENU OCULTO POR PADRÃO
+========================================== */
+
+document.addEventListener('DOMContentLoaded', function () {
 
     const header = document.querySelector('.header');
     const headerToggle = document.getElementById('header-toggle');
 
-    if (!header || !headerToggle) return;
+    if (!header || !headerToggle) {
+        console.warn('Header ou botão toggle não encontrados.');
+        return;
+    }
 
-    headerToggle.addEventListener('click', () => {
+    // 🔥 Inicia com o menu oculto
+    header.classList.add('oculto');
 
+    const icon = headerToggle.querySelector('i');
+    const texto = headerToggle.querySelector('span');
+
+    // Atualiza o texto do botão para "Mostrar menu"
+    if (icon) icon.className = 'fa-solid fa-chevron-down';
+    if (texto) texto.textContent = 'Mostrar menu';
+
+    // Evento de toggle
+    headerToggle.addEventListener('click', function () {
         const oculto = header.classList.toggle('oculto');
 
-        const icon = headerToggle.querySelector('i');
-        const texto = headerToggle.querySelector('span');
-
         if (oculto) {
-            icon.className = 'fa-solid fa-chevron-down';
-            texto.textContent = 'Mostrar menu';
+            if (icon) icon.className = 'fa-solid fa-chevron-down';
+            if (texto) texto.textContent = 'Mostrar menu';
         } else {
-            icon.className = 'fa-solid fa-chevron-up';
-            texto.textContent = 'Ocultar menu';
+            if (icon) icon.className = 'fa-solid fa-chevron-up';
+            if (texto) texto.textContent = 'Ocultar menu';
         }
     });
 
 });
+
+/* ==========================================
+   ACESSIBILIDADE - PAINEL
+========================================== */
 
 document.addEventListener('DOMContentLoaded', () => {
     const toggleBtn = document.getElementById('acc-toggle');
@@ -383,45 +412,32 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 });
 
+/* ==========================================
+   ACESSIBILIDADE - FUNÇÕES
+========================================== */
+
 let fontSizeRatio = 100;
 
 function updateUI() {
     const body = document.body;
     const html = document.documentElement;
 
-    // Atualiza botões de Fonte
     const btnPlus = document.getElementById('btn-font-plus');
     const btnMinus = document.getElementById('btn-font-minus');
     if (btnPlus) btnPlus.classList.toggle('is-active', fontSizeRatio > 100);
     if (btnMinus) btnMinus.classList.toggle('is-active', fontSizeRatio < 100);
 
-    // Atualiza botões de Modificação Visual
     toggleCardState('btn-spacing', body.classList.contains('acc-wide-spacing'));
     toggleCardState('btn-line-height', body.classList.contains('acc-tall-line'));
     toggleCardState('btn-contrast', body.classList.contains('acc-contrast'));
     toggleCardState('btn-monochrome', html.classList.contains('acc-monochrome'));
     toggleCardState('btn-hide-images', body.classList.contains('acc-hide-images'));
 
-    // Atualiza bolinha flutuante
     const isAnyActive = fontSizeRatio !== 100 || html.classList.contains('acc-monochrome') || [
         'acc-wide-spacing', 'acc-tall-line', 'acc-contrast', 'acc-hide-images'
     ].some(cls => body.classList.contains(cls));
 
     body.classList.toggle('accessibility-active', isAnyActive);
-}
-
-function resetAccessibility() {
-    fontSizeRatio = 100;
-    document.documentElement.style.fontSize = '100%';
-    document.documentElement.classList.remove('acc-monochrome');
-    document.body.classList.remove(
-        'acc-contrast',
-        'acc-wide-spacing',
-        'acc-tall-line',
-        'acc-hide-images',
-        'accessibility-active'
-    );
-    updateUI();
 }
 
 function toggleCardState(id, isActive) {
@@ -431,7 +447,6 @@ function toggleCardState(id, isActive) {
     }
 }
 
-// Funções dos Botões
 function changeFontSize(direction) {
     fontSizeRatio += direction * 10;
     if (fontSizeRatio < 80) fontSizeRatio = 80;
@@ -468,9 +483,9 @@ function toggleHideImages() {
 function resetAccessibility() {
     fontSizeRatio = 100;
     document.documentElement.style.fontSize = '100%';
+    document.documentElement.classList.remove('acc-monochrome');
     document.body.classList.remove(
         'acc-contrast',
-        'acc-monochrome',
         'acc-wide-spacing',
         'acc-tall-line',
         'acc-hide-images',
@@ -478,28 +493,3 @@ function resetAccessibility() {
     );
     updateUI();
 }
-
-document.addEventListener('DOMContentLoaded', () => {
-
-    const header = document.querySelector('.header');
-    const headerToggle = document.getElementById('header-toggle');
-
-    if (!header || !headerToggle) return;
-
-    headerToggle.addEventListener('click', () => {
-
-        const oculto = header.classList.toggle('oculto');
-
-        const icon = headerToggle.querySelector('i');
-        const texto = headerToggle.querySelector('span');
-
-        if (oculto) {
-            icon.className = 'fa-solid fa-chevron-down';
-            texto.textContent = 'Mostrar menu';
-        } else {
-            icon.className = 'fa-solid fa-chevron-up';
-            texto.textContent = 'Ocultar menu';
-        }
-    });
-
-});
