@@ -35,6 +35,11 @@
         </div>
     </header>
 
+    <button id="header-toggle" class="header-toggle">
+        <i class="fa-solid fa-chevron-up"></i>
+        <span>Ocultar menu</span>
+    </button>
+
     <main class="cadastro">
 
         <div class="container">
@@ -430,6 +435,63 @@
 
         </div>
 
+    </div>
+
+    <!-- Botão Flutuante de Acessibilidade -->
+    <button id="acc-toggle" class="acc-btn-floating" aria-label="Abrir menu de acessibilidade">
+        <svg viewBox="0 0 24 24" width="28" height="28" fill="currentColor">
+            <path d="M12 2c1.1 0 2 .9 2 2s-.9 2-2 2-2-.9-2-2 .9-2 2-2zm9 7h-6v13h-2v-6h-2v6H9V9H3V7h18v2z" />
+        </svg>
+    </button>
+
+    <!-- Painel Lateral -->
+    <div id="acc-panel" class="acc-panel acc-hidden" aria-hidden="true">
+        <div class="acc-header">
+            <h2>Acessibilidade</h2>
+            <button id="acc-close" class="acc-btn-close" aria-label="Fechar menu">&times;</button>
+        </div>
+
+        <div class="acc-content">
+            <p class="acc-title">Ajustes de Texto</p>
+            <div class="acc-grid">
+                <button id="btn-font-plus" onclick="changeFontSize(1)" class="acc-card">
+                    <span class="acc-card-icon">A+</span>
+                    <small>Aumentar fonte</small>
+                </button>
+                <button id="btn-font-minus" onclick="changeFontSize(-1)" class="acc-card">
+                    <span class="acc-card-icon">A-</span>
+                    <small>Diminuir fonte</small>
+                </button>
+                <button id="btn-spacing" onclick="toggleWideSpacing()" class="acc-card">
+                    <span class="acc-card-icon">A↔A</span>
+                    <small>Espaçamento</small>
+                </button>
+                <button id="btn-line-height" onclick="toggleLineHeight()" class="acc-card">
+                    <span class="acc-card-icon">↕</span>
+                    <small>Entre linhas</small>
+                </button>
+            </div>
+
+            <p class="acc-title">Ajustes de Cor e Exibição</p>
+            <div class="acc-grid">
+                <button id="btn-contrast" onclick="toggleHighContrast()" class="acc-card">
+                    <span class="acc-card-icon">◐</span>
+                    <small>Alto Contraste</small>
+                </button>
+                <button id="btn-monochrome" onclick="toggleMonochrome()" class="acc-card">
+                    <span class="acc-card-icon">◵</span>
+                    <small>Monocromático</small>
+                </button>
+                <button id="btn-hide-images" onclick="toggleHideImages()" class="acc-card">
+                    <span class="acc-card-icon">🚫</span>
+                    <small>Ocultar Imagens</small>
+                </button>
+            </div>
+
+            <button onclick="resetAccessibility()" class="acc-btn-reset">
+                ↻ Redefinir Configurações
+            </button>
+        </div>
     </div>
 
     <script src="js/cadastro.js"></script>

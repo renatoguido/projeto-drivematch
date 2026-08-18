@@ -1,5 +1,5 @@
 /* =========================
-   RESET
+   STYLE
 ========================= */
 
 * {
@@ -2725,5 +2725,54 @@ body {
     .btn-criar {
         height: 54px;
         font-size: 16px;
+    }
+}
+
+/* ========================================
+   MOSTRAR / OCULTAR HEADER
+======================================== */
+
+.header-toggle {
+    display: none;
+}
+
+@media (max-width: 900px) {
+    .header-toggle {
+        display: flex;
+        position: fixed;
+        top: 10px;
+        right: 20px; /* Mudamos de right: 10px para right: 20px */
+        z-index: 1001;
+        align-items: center;
+        gap: 6px;
+        width: auto;
+        height: auto;
+        padding: 8px 14px;
+        border: 1px solid var(--cor-verde);
+        border-radius: 8px;
+        background: var(--cor-fundo-header);
+        color: var(--cor-verde);
+        font-size: 12px;
+        cursor: pointer;
+        box-shadow: 0 3px 15px rgba(0, 0, 0, 0.4);
+    }
+
+    .header-toggle:hover {
+        background: var(--cor-verde);
+        color: #000;
+    }
+
+    .header.oculto {
+        display: none;
+    }
+}
+
+/* Ajuste para telas muito pequenas */
+@media (max-width: 480px) {
+    .header-toggle {
+        right: 10px;
+        padding: 6px 10px;
+        font-size: 10px;
+        top: 8px;
     }
 }

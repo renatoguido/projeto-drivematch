@@ -23,7 +23,7 @@ let fontSizeRatio = 100;
 
 function updateUI() {
   const body = document.body;
-  const html = document.documentElement; 
+  const html = document.documentElement;
 
   // Atualiza botões de Fonte
   const btnPlus = document.getElementById('btn-font-plus');
@@ -35,7 +35,7 @@ function updateUI() {
   toggleCardState('btn-spacing', body.classList.contains('acc-wide-spacing'));
   toggleCardState('btn-line-height', body.classList.contains('acc-tall-line'));
   toggleCardState('btn-contrast', body.classList.contains('acc-contrast'));
-  toggleCardState('btn-monochrome', html.classList.contains('acc-monochrome')); 
+  toggleCardState('btn-monochrome', html.classList.contains('acc-monochrome'));
   toggleCardState('btn-hide-images', body.classList.contains('acc-hide-images'));
 
   // Atualiza bolinha flutuante
@@ -114,3 +114,28 @@ function resetAccessibility() {
   );
   updateUI();
 }
+
+document.addEventListener('DOMContentLoaded', () => {
+
+  const header = document.querySelector('.header');
+  const headerToggle = document.getElementById('header-toggle');
+
+  if (!header || !headerToggle) return;
+
+  headerToggle.addEventListener('click', () => {
+
+    const oculto = header.classList.toggle('oculto');
+
+    const icon = headerToggle.querySelector('i');
+    const texto = headerToggle.querySelector('span');
+
+    if (oculto) {
+      icon.className = 'fa-solid fa-chevron-down';
+      texto.textContent = 'Mostrar menu';
+    } else {
+      icon.className = 'fa-solid fa-chevron-up';
+      texto.textContent = 'Ocultar menu';
+    }
+  });
+
+});
